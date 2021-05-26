@@ -333,6 +333,8 @@
         </li>
         <li class="md-nav__item"><a href="#frozen-orbital-mcscf" class="md-nav__link">Frozen-orbital MCSCF</a>
         </li>
+        <li class="md-nav__item"><a href="#spin-state-of-cas-wavefunction" class="md-nav__link">Spin state of CAS wavefunction</a>
+        </li>
         <li class="md-nav__item"><a href="#state-averaged-calculations" class="md-nav__link">State-Averaged Calculations</a>
         </li>
         <li class="md-nav__item"><a href="#job-control" class="md-nav__link">Job Control</a><nav class="md-nav">
@@ -485,6 +487,8 @@
         <li class="md-nav__item"><a href="#picking-an-active-space" class="md-nav__link">Picking an Active Space</a>
         </li>
         <li class="md-nav__item"><a href="#frozen-orbital-mcscf" class="md-nav__link">Frozen-orbital MCSCF</a>
+        </li>
+        <li class="md-nav__item"><a href="#spin-state-of-cas-wavefunction" class="md-nav__link">Spin state of CAS wavefunction</a>
         </li>
         <li class="md-nav__item"><a href="#state-averaged-calculations" class="md-nav__link">State-Averaged Calculations</a>
         </li>
@@ -679,6 +683,27 @@ These may be occupied, virtual, or active orbitals.</p>
 <p class="admonition-title">Note</p>
 <p>The <cite>frozen</cite> keyword of the CASSCF optimizer should not be confused with the <cite>frozen</cite> keyword of the FCI solver, which controls the number of orbitals that are constrained to be doubly occupied.</p>
 </div>
+</section>
+<section id="spin-state-of-cas-wavefunction">
+<h2 id="spin-state-of-cas-wavefunction">Spin state of CAS wavefunction<a class="headerlink" href="#spin-state-of-cas-wavefunction" title="Permalink to this headline">¶</a></h2>
+<p>The MCSCF wavefunction by default has the same Sz value as the setting of
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">mol.spin</span></code>. The program does not guarantee to derive the spin-adapted wave
+function of desired spin multiplicity. There are a few settings can be used
+to tune the spin multiplicity of the wavefunction.</p>
+<p>You can change the number of alpha and beta electrons to be correlated in active
+space. The Sz value of the MCSCF wavefunction can be different to the settings
+of <code class="xref py py-attr docutils literal notranslate"><span class="pre">mol.spin</span></code>. It’s common to start from <cite>Sz=0</cite> RHF calculations then
+setting different number of alpha and beta electrons in active space to solve triplet
+state. For example</p>
+<p>It happens that the program give a wave-function of correct Sz while the spin
+multiplicity is wrong (or even a spin-contaminated wavefunction). The
+CASCI/CASSCF class provided the <code class="xref py py-func docutils literal notranslate"><span class="pre">fix_spin_()</span></code> method to correct the spin state.</p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">fix_spin_()</span></code> is an energy-penalty method. It may affect the efficiency and
+accuracy of CASCI and CASSCF algorithm. It should not be used unless
+the MCSCF program get difficulty to find the correct spin state.</p>
+<p>In example <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/mcscf/02-cas_space_spin.py">examples/mcscf/02-cas_space_spin.py</a> and
+<a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/mcscf/18-spatial_spin_symmetry.py.py">examples/mcscf/18-spatial_spin_symmetry.py.py</a>, you can find the
+complete scripts to tune spin states of the CASCI/CASSCF wavefunctions.</p>
 </section>
 <section id="state-averaged-calculations">
 <h2 id="state-averaged-calculations">State-Averaged Calculations<a class="headerlink" href="#state-averaged-calculations" title="Permalink to this headline">¶</a></h2>
