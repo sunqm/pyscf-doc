@@ -678,6 +678,11 @@ The orbitals will remain fixed throughout the optimization.</p>
 </div>
 <p>Users can also specify a list of orbital indices (0-based).
 These may be occupied, virtual, or active orbitals.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mycas</span> <span class="o">=</span> <span class="n">mcscf</span><span class="o">.</span><span class="n">CASSCF</span><span class="p">(</span><span class="n">myhf</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">mycas</span><span class="o">.</span><span class="n">frozen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">]</span>
+<span class="n">mycas</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>See <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/mcscf/19-frozen_core.py">examples/mcscf/19-frozen_core.py</a> for a complete example.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -695,9 +700,25 @@ space. The Sz value of the MCSCF wavefunction can be different to the settings
 of <code class="xref py py-attr docutils literal notranslate"><span class="pre">mol.spin</span></code>. It’s common to start from <cite>Sz=0</cite> RHF calculations then
 setting different number of alpha and beta electrons in active space to solve triplet
 state. For example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">spin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">myhf</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">RHF</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="c1"># 5 alpha electrons, 3 beta electrons</span>
+<span class="n">mycas</span> <span class="o">=</span> <span class="n">mcscf</span><span class="o">.</span><span class="n">CASSCF</span><span class="p">(</span><span class="n">myhf</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">mycas</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>It happens that the program give a wave-function of correct Sz while the spin
 multiplicity is wrong (or even a spin-contaminated wavefunction). The
 CASCI/CASSCF class provided the <code class="xref py py-func docutils literal notranslate"><span class="pre">fix_spin_()</span></code> method to correct the spin state.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">spin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">myhf</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">RHF</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="c1"># 5 alpha electrons, 3 beta electrons</span>
+<span class="n">mycas</span> <span class="o">=</span> <span class="n">mcscf</span><span class="o">.</span><span class="n">CASSCF</span><span class="p">(</span><span class="n">myhf</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1"># Targeting triplet state</span>
+<span class="n">mycas</span><span class="o">.</span><span class="n">fix_spin_</span><span class="p">(</span><span class="n">ss</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mycas</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+</pre></div>
+</div>
 <p><code class="xref py py-func docutils literal notranslate"><span class="pre">fix_spin_()</span></code> is an energy-penalty method. It may affect the efficiency and
 accuracy of CASCI and CASSCF algorithm. It should not be used unless
 the MCSCF program get difficulty to find the correct spin state.</p>
