@@ -5,7 +5,7 @@ spin settings in active space
 
 The mol.spin attribute controls the Sz value of the molecule. CASCI/CASSCF
 methods by default use this parameter to determine Sz of the correlated
-wave-function in active space (i.e. the number of alpha and beta electrons). 
+wave-function in active space (i.e. the number of alpha and beta electrons).
 The number of alpha and beta electrons can be set independently in the mcscf
 methods.
 '''
