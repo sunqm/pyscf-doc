@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.dft.xc_deriv &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.dft.xc_deriv </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -322,8 +339,10 @@
 <span class="n">libdft</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="s1">'libdft'</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="transform_vxc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_vxc">[docs]</a><span class="k">def</span> <span class="nf">transform_vxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">vxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''</span>
+<div class="viewcode-block" id="transform_vxc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_vxc">[docs]</a>
+<span class="k">def</span> <span class="nf">transform_vxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">vxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">    Transform libxc functional derivatives to the derivative tensor of</span>
 <span class="sd">    parameters in rho:</span>
 <span class="sd">        [[density_a, (nabla_x)_a, (nabla_y)_a, (nabla_z)_a, tau_a],</span>
@@ -377,8 +396,11 @@
             <span class="n">vp</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ft</span>
     <span class="k">return</span> <span class="n">vp</span></div>
 
-<div class="viewcode-block" id="transform_fxc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_fxc">[docs]</a><span class="k">def</span> <span class="nf">transform_fxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">vxc</span><span class="p">,</span> <span class="n">fxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''</span>
+
+<div class="viewcode-block" id="transform_fxc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_fxc">[docs]</a>
+<span class="k">def</span> <span class="nf">transform_fxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">vxc</span><span class="p">,</span> <span class="n">fxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">    Transform libxc functional derivatives to the derivative tensor of</span>
 <span class="sd">    parameters in rho:</span>
 <span class="sd">        [[density_a, (nabla_x)_a, (nabla_y)_a, (nabla_z)_a, tau_a],</span>
@@ -467,8 +489,11 @@
             <span class="n">vp</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ftt</span>
     <span class="k">return</span> <span class="n">vp</span></div>
 
-<div class="viewcode-block" id="transform_kxc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_kxc">[docs]</a><span class="k">def</span> <span class="nf">transform_kxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">fxc</span><span class="p">,</span> <span class="n">kxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''</span>
+
+<div class="viewcode-block" id="transform_kxc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_kxc">[docs]</a>
+<span class="k">def</span> <span class="nf">transform_kxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">fxc</span><span class="p">,</span> <span class="n">kxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">    Transform libxc functional derivatives to the derivative tensor of</span>
 <span class="sd">    parameters in rho:</span>
 <span class="sd">        [[density_a, (nabla_x)_a, (nabla_y)_a, (nabla_z)_a, tau_a],</span>
@@ -645,8 +670,11 @@
             <span class="n">vp</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">fttt</span>
     <span class="k">return</span> <span class="n">vp</span></div>
 
-<div class="viewcode-block" id="transform_lxc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_lxc">[docs]</a><span class="k">def</span> <span class="nf">transform_lxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">fxc</span><span class="p">,</span> <span class="n">kxc</span><span class="p">,</span> <span class="n">lxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''</span>
+
+<div class="viewcode-block" id="transform_lxc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.transform_lxc">[docs]</a>
+<span class="k">def</span> <span class="nf">transform_lxc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">fxc</span><span class="p">,</span> <span class="n">kxc</span><span class="p">,</span> <span class="n">lxc</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">    Transform libxc vxc functional output to the derivative tensor of parameters</span>
 <span class="sd">    in rho: [density, nabla_x, nabla_y, nabla_z, tau]. The output tensor has the</span>
 <span class="sd">    shape:</span>
@@ -661,8 +689,9 @@
 <span class="sd">    '''</span>
     <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
+
 <span class="k">def</span> <span class="nf">_stack_fg</span><span class="p">(</span><span class="n">fg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''fg [uu, ud, dd] -&gt; [[uu*2, ud], [du, dd*2]]'''</span>
+<span class="w">    </span><span class="sd">'''fg [uu, ud, dd] -&gt; [[uu*2, ud], [du, dd*2]]'''</span>
     <span class="k">if</span> <span class="n">rho</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">qg</span> <span class="o">=</span> <span class="n">_stack_frr</span><span class="p">(</span><span class="n">fg</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -696,7 +725,7 @@
 
 
 <span class="k">def</span> <span class="nf">_stack_frr</span><span class="p">(</span><span class="n">frr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">'''frr [u_u, u_d, d_d] -&gt; [[u_u, u_d], [d_u, d_d]]'''</span>
+<span class="w">    </span><span class="sd">'''frr [u_u, u_d, d_d] -&gt; [[u_u, u_d], [d_u, d_d]]'''</span>
     <span class="k">if</span> <span class="n">frr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="n">frr</span> <span class="o">=</span> <span class="n">frr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">frr</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="n">axis</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">frr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="o">+</span><span class="mi">1</span><span class="p">:])</span>
     <span class="n">slices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">frr</span><span class="o">.</span><span class="n">ndim</span>
@@ -704,7 +733,7 @@
     <span class="k">return</span> <span class="n">frr</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slices</span><span class="p">)]</span>
 
 <span class="k">def</span> <span class="nf">_stack_fgg</span><span class="p">(</span><span class="n">fgg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    fgg [uu_uu, uu_ud, uu_dd, ud_ud, ud_dd, dd_dd] -&gt;</span>
 <span class="sd">    [[uu_uu, ud_ud, ud_dd],</span>
 <span class="sd">     [ud_uu, ud_ud, ud_dd],</span>
@@ -718,7 +747,7 @@
     <span class="k">return</span> <span class="n">_stack_fg</span><span class="p">(</span><span class="n">_stack_fg</span><span class="p">(</span><span class="n">fgg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">_stack_frrr</span><span class="p">(</span><span class="n">frrr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    frrr [u_u_u, u_u_d, u_d_d, d_d_d]</span>
 <span class="sd">    -&gt; tensor with shape [2, 2, 2, ...]</span>
 <span class="sd">    '''</span>
@@ -730,7 +759,7 @@
     <span class="k">return</span> <span class="n">frrr</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slices</span><span class="p">)]</span>
 
 <span class="k">def</span> <span class="nf">_stack_fggg</span><span class="p">(</span><span class="n">fggg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    fggg [uu_uu_uu, uu_uu_ud, uu_uu_dd, uu_ud_ud, uu_ud_dd, uu_dd_dd, ud_ud_ud, ud_ud_dd, ud_dd_dd, dd_dd_dd]</span>
 <span class="sd">    -&gt; tensor with shape [2,2, 2,2, 2,2, ...]</span>
 <span class="sd">    '''</span>
@@ -745,7 +774,9 @@
     <span class="n">fggg</span> <span class="o">=</span> <span class="n">_stack_fg</span><span class="p">(</span><span class="n">fggg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_stack_fg</span><span class="p">(</span><span class="n">fggg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">)</span>
 
-<div class="viewcode-block" id="compress"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.compress">[docs]</a><span class="k">def</span> <span class="nf">compress</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="compress">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.compress">[docs]</a>
+<span class="k">def</span> <span class="nf">compress</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">spin</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># spin polarized</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="n">vp</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">comp_shape</span> <span class="o">=</span> <span class="p">[</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">ndim</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
@@ -763,7 +794,10 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'High order derivatives'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">vp</span></div>
 
-<div class="viewcode-block" id="decompress"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.decompress">[docs]</a><span class="k">def</span> <span class="nf">decompress</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<div class="viewcode-block" id="decompress">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.decompress">[docs]</a>
+<span class="k">def</span> <span class="nf">decompress</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="n">order</span> <span class="o">=</span> <span class="n">vp</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">ngrids</span> <span class="o">=</span> <span class="n">vp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -798,8 +832,11 @@
         <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">decomp_shape</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="ud2ts"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.ud2ts">[docs]</a><span class="k">def</span> <span class="nf">ud2ts</span><span class="p">(</span><span class="n">v_ud</span><span class="p">):</span>
-    <span class="sd">'''XC derivatives spin-up/spin-down representations to</span>
+
+<div class="viewcode-block" id="ud2ts">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.ud2ts">[docs]</a>
+<span class="k">def</span> <span class="nf">ud2ts</span><span class="p">(</span><span class="n">v_ud</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''XC derivatives spin-up/spin-down representations to</span>
 <span class="sd">    total-density/spin-density representations'''</span>
     <span class="n">v_ud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v_ud</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
     <span class="n">nvar</span><span class="p">,</span> <span class="n">ngrids</span> <span class="o">=</span> <span class="n">v_ud</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
@@ -825,8 +862,11 @@
         <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nvar</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">ngrids</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">v_ts</span></div>
 
-<div class="viewcode-block" id="ts2ud"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.ts2ud">[docs]</a><span class="k">def</span> <span class="nf">ts2ud</span><span class="p">(</span><span class="n">v_ts</span><span class="p">):</span>
-    <span class="sd">'''XC derivatives total-density/spin-density representations to</span>
+
+<div class="viewcode-block" id="ts2ud">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xc_deriv.ts2ud">[docs]</a>
+<span class="k">def</span> <span class="nf">ts2ud</span><span class="p">(</span><span class="n">v_ts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''XC derivatives total-density/spin-density representations to</span>
 <span class="sd">    spin-up/spin-down representations'''</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>    <span class="c1"># va = vrho + vs</span>
                   <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>   <span class="c1"># vb = vrho - vs</span>
@@ -842,6 +882,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Shape </span><span class="si">{</span><span class="n">v_ts</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> not supported'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">v_ud</span></div>
+
 </pre></div>
 
           </article>
@@ -866,7 +907,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

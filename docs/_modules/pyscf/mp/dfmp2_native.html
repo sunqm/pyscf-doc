@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.mp.dfmp2_native &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.mp.dfmp2_native </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -324,13 +341,15 @@
 <span class="kn">from</span> <span class="nn">pyscf.scf</span> <span class="kn">import</span> <span class="n">cphf</span>
 
 
-<div class="viewcode-block" id="DFRMP2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2">[docs]</a><span class="k">class</span> <span class="nc">DFRMP2</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<div class="viewcode-block" id="DFRMP2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2">[docs]</a>
+<span class="k">class</span> <span class="nc">DFRMP2</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    native implementation of DF-MP2/RI-MP2 with an RHF reference</span>
 <span class="sd">    '''</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auxbasis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Args:</span>
 <span class="sd">            mf : RHF instance</span>
 <span class="sd">            frozen : number of frozen orbitals or list of frozen orbitals</span>
@@ -387,8 +406,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cphf_max_cycle</span> <span class="o">=</span> <span class="mi">100</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cphf_tol</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">conv_tol</span>
 
-<div class="viewcode-block" id="DFRMP2.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<div class="viewcode-block" id="DFRMP2.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Prints selected information.</span>
 
 <span class="sd">        Args:</span>
@@ -409,15 +430,18 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'max_memory = </span><span class="si">{0:.1f}</span><span class="s1"> MB (current use </span><span class="si">{1:.1f}</span><span class="s1"> MB)'</span><span class="o">.</span>
                     <span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_memory</span><span class="p">,</span> <span class="n">lib</span><span class="o">.</span><span class="n">current_memory</span><span class="p">()[</span><span class="mi">0</span><span class="p">]))</span></div>
 
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">e_tot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        total energy (SCF + MP2)</span>
 <span class="sd">        '''</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_scf</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_corr</span>
 
-<div class="viewcode-block" id="DFRMP2.calculate_energy"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.calculate_energy">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<div class="viewcode-block" id="DFRMP2.calculate_energy">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.calculate_energy">[docs]</a>
+    <span class="k">def</span> <span class="nf">calculate_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Calculates the MP2 correlation energy.</span>
 <span class="sd">        '''</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_ints</span><span class="p">:</span>
@@ -431,8 +455,11 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">note</span><span class="p">(</span><span class="s1">'DF-MP2 correlation energy: </span><span class="si">{0:.14f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">e_corr</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_corr</span></div>
 
-<div class="viewcode-block" id="DFRMP2.make_rdm1"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_rdm1">[docs]</a>    <span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relaxed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">'''</span>
+
+<div class="viewcode-block" id="DFRMP2.make_rdm1">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_rdm1">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relaxed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Calculates the MP2 1-RDM.</span>
 <span class="sd">        - The relaxed density matrix can be used to calculate properties of systems</span>
 <span class="sd">          for which MP2 is well-behaved.</span>
@@ -460,14 +487,23 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">rdm1_mo</span></div>
 
-<div class="viewcode-block" id="DFRMP2.make_rdm1_unrelaxed"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_rdm1_unrelaxed">[docs]</a>    <span class="k">def</span> <span class="nf">make_rdm1_unrelaxed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DFRMP2.make_rdm1_unrelaxed">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_rdm1_unrelaxed">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_rdm1_unrelaxed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">(</span><span class="n">relaxed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="n">ao_repr</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DFRMP2.make_rdm1_relaxed"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_rdm1_relaxed">[docs]</a>    <span class="k">def</span> <span class="nf">make_rdm1_relaxed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DFRMP2.make_rdm1_relaxed">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_rdm1_relaxed">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_rdm1_relaxed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">(</span><span class="n">relaxed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="n">ao_repr</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DFRMP2.make_natorbs"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_natorbs">[docs]</a>    <span class="k">def</span> <span class="nf">make_natorbs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdm1_mo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">relaxed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">'''</span>
+
+<div class="viewcode-block" id="DFRMP2.make_natorbs">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.make_natorbs">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_natorbs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdm1_mo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">relaxed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Calculate natural orbitals.</span>
 <span class="sd">        Note: the most occupied orbitals come first (left)</span>
 <span class="sd">              and the least occupied orbitals last (right).</span>
@@ -492,12 +528,15 @@
         <span class="n">natorb</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">eigvec</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">natocc</span><span class="p">,</span> <span class="n">natorb</span></div>
 
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">has_ints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_intsfile</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DFRMP2.calculate_integrals_"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.calculate_integrals_">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_integrals_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<div class="viewcode-block" id="DFRMP2.calculate_integrals_">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.calculate_integrals_">[docs]</a>
+    <span class="k">def</span> <span class="nf">calculate_integrals_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Calculates the three center integrals for MP2.</span>
 <span class="sd">        '''</span>
         <span class="n">Co</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">occ_mask</span><span class="p">]</span>
@@ -508,11 +547,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_intsfile</span> <span class="o">=</span> <span class="n">ints3c_cholesky</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auxmol</span><span class="p">,</span> <span class="n">Co</span><span class="p">,</span> <span class="n">Cv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_memory</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Stored in file: </span><span class="si">{0:s}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_intsfile</span><span class="o">.</span><span class="n">filename</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="DFRMP2.delete"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''</span>
+
+<div class="viewcode-block" id="DFRMP2.delete">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.delete">[docs]</a>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Delete the temporary file(s).</span>
 <span class="sd">        '''</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_intsfile</span> <span class="o">=</span> <span class="kc">None</span></div>
+
 
     <span class="c1"># The class can be used with a context manager (with ... as ...:).</span>
     <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -521,30 +564,39 @@
     <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_type</span><span class="p">,</span> <span class="n">exception_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 
-<div class="viewcode-block" id="DFRMP2.kernel"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.kernel">[docs]</a>    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<div class="viewcode-block" id="DFRMP2.kernel">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.kernel">[docs]</a>
+    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Alias for the MP2 energy calculation.</span>
 <span class="sd">        Does not need to be called to calculate the 1-RDM only.</span>
 <span class="sd">        '''</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_energy</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="DFRMP2.nuc_grad_method"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.nuc_grad_method">[docs]</a>    <span class="k">def</span> <span class="nf">nuc_grad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+<div class="viewcode-block" id="DFRMP2.nuc_grad_method">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.DFRMP2.nuc_grad_method">[docs]</a>
+    <span class="k">def</span> <span class="nf">nuc_grad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+</div>
+
 
 
 <span class="n">MP2</span> <span class="o">=</span> <span class="n">RMP2</span> <span class="o">=</span> <span class="n">DFMP2</span> <span class="o">=</span> <span class="n">DFRMP2</span>
 
 
-<div class="viewcode-block" id="SCSDFRMP2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.SCSDFRMP2">[docs]</a><span class="k">class</span> <span class="nc">SCSDFRMP2</span><span class="p">(</span><span class="n">DFRMP2</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<div class="viewcode-block" id="SCSDFRMP2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.SCSDFRMP2">[docs]</a>
+<span class="k">class</span> <span class="nc">SCSDFRMP2</span><span class="p">(</span><span class="n">DFRMP2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    RHF-DF-MP2 with spin-component scaling</span>
 <span class="sd">    S. Grimme, J. Chem. Phys. 118 (2003), 9095</span>
 <span class="sd">    https://doi.org/10.1063/1.1569242</span>
 <span class="sd">    '''</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">ps</span><span class="o">=</span><span class="mi">6</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        mf : RHF instance</span>
 <span class="sd">        ps : opposite-spin (singlet) scaling factor</span>
 <span class="sd">        pt : same-spin (triplet) scaling factor</span>
@@ -553,19 +605,25 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ps</span> <span class="o">=</span> <span class="n">ps</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pt</span> <span class="o">=</span> <span class="n">pt</span>
 
-<div class="viewcode-block" id="SCSDFRMP2.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.SCSDFRMP2.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SCSDFRMP2.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.SCSDFRMP2.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">logger</span><span class="p">:</span>
             <span class="n">logger</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'pt(scs) = </span><span class="si">{0:.6f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">))</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'ps(scs) = </span><span class="si">{0:.6f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="p">))</span></div></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'ps(scs) = </span><span class="si">{0:.6f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="p">))</span></div>
+</div>
+
 
 
 <span class="n">SCSMP2</span> <span class="o">=</span> <span class="n">SCSRMP2</span> <span class="o">=</span> <span class="n">SCSDFMP2</span> <span class="o">=</span> <span class="n">SCSDFRMP2</span>
 
 
-<div class="viewcode-block" id="ints3c_cholesky"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.ints3c_cholesky">[docs]</a><span class="k">def</span> <span class="nf">ints3c_cholesky</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">auxmol</span><span class="p">,</span> <span class="n">mo_coeff1</span><span class="p">,</span> <span class="n">mo_coeff2</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<div class="viewcode-block" id="ints3c_cholesky">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.ints3c_cholesky">[docs]</a>
+<span class="k">def</span> <span class="nf">ints3c_cholesky</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">auxmol</span><span class="p">,</span> <span class="n">mo_coeff1</span><span class="p">,</span> <span class="n">mo_coeff2</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Calculate the three center electron repulsion integrals in MO basis</span>
 <span class="sd">    multiplied with the Cholesky factor of the inverse Coulomb metric matrix.</span>
 <span class="sd">    Only integrals in MO basis are stored on disk; integral-direct with regard to AO integrals.</span>
@@ -655,8 +713,11 @@
     <span class="k">return</span> <span class="n">intsfile_cho</span></div>
 
 
-<div class="viewcode-block" id="emp2_rhf"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.emp2_rhf">[docs]</a><span class="k">def</span> <span class="nf">emp2_rhf</span><span class="p">(</span><span class="n">intsfile</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">frozen_mask</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">ps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-    <span class="sd">'''</span>
+
+<div class="viewcode-block" id="emp2_rhf">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.emp2_rhf">[docs]</a>
+<span class="k">def</span> <span class="nf">emp2_rhf</span><span class="p">(</span><span class="n">intsfile</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">frozen_mask</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">ps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Calculates the DF-MP2 energy with an RHF reference.</span>
 
 <span class="sd">    Args:</span>
@@ -711,8 +772,11 @@
     <span class="k">return</span> <span class="n">energy</span></div>
 
 
-<div class="viewcode-block" id="make_rdm1"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.make_rdm1">[docs]</a><span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="n">mp2</span><span class="p">,</span> <span class="n">relaxed</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''</span>
+
+<div class="viewcode-block" id="make_rdm1">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.make_rdm1">[docs]</a>
+<span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="n">mp2</span><span class="p">,</span> <span class="n">relaxed</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Calculates the unrelaxed or relaxed MP2 density matrix.</span>
 
 <span class="sd">    Args:</span>
@@ -760,9 +824,12 @@
     <span class="k">return</span> <span class="n">rdm1</span></div>
 
 
-<div class="viewcode-block" id="rmp2_densities_contribs"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.rmp2_densities_contribs">[docs]</a><span class="k">def</span> <span class="nf">rmp2_densities_contribs</span><span class="p">(</span><span class="n">intsfile</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">frozen_mask</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span>
+
+<div class="viewcode-block" id="rmp2_densities_contribs">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.rmp2_densities_contribs">[docs]</a>
+<span class="k">def</span> <span class="nf">rmp2_densities_contribs</span><span class="p">(</span><span class="n">intsfile</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">frozen_mask</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span>
                             <span class="n">calcGamma</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auxmol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Calculates the unrelaxed DF-MP2 density matrix contribution with an RHF reference.</span>
 <span class="sd">    Note: this is the difference density, i.e. without HF contribution.</span>
 <span class="sd">    Also calculates the three-center two-particle density if requested.</span>
@@ -886,12 +953,18 @@
     <span class="k">return</span> <span class="n">P</span><span class="p">,</span> <span class="n">GammaFile</span></div>
 
 
-<div class="viewcode-block" id="BatchSizeError"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.BatchSizeError">[docs]</a><span class="k">class</span> <span class="nc">BatchSizeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+
+<div class="viewcode-block" id="BatchSizeError">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.BatchSizeError">[docs]</a>
+<span class="k">class</span> <span class="nc">BatchSizeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="shellBatchGenerator"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.shellBatchGenerator">[docs]</a><span class="k">def</span> <span class="nf">shellBatchGenerator</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">nao_max</span><span class="p">):</span>
-    <span class="sd">'''</span>
+
+<div class="viewcode-block" id="shellBatchGenerator">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.shellBatchGenerator">[docs]</a>
+<span class="k">def</span> <span class="nf">shellBatchGenerator</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">nao_max</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Generates sets of shells with a limited number of functions.</span>
 
 <span class="sd">    Args:</span>
@@ -919,8 +992,11 @@
         <span class="n">shell_start</span> <span class="o">=</span> <span class="n">shell_stop</span></div>
 
 
-<div class="viewcode-block" id="orbgrad_from_Gamma"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.orbgrad_from_Gamma">[docs]</a><span class="k">def</span> <span class="nf">orbgrad_from_Gamma</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">auxmol</span><span class="p">,</span> <span class="n">Gamma</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">frozen_mask</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
-    <span class="sd">'''</span>
+
+<div class="viewcode-block" id="orbgrad_from_Gamma">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.orbgrad_from_Gamma">[docs]</a>
+<span class="k">def</span> <span class="nf">orbgrad_from_Gamma</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">auxmol</span><span class="p">,</span> <span class="n">Gamma</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">frozen_mask</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Calculates the orbital gradient of the two-electron term in the Hylleraas functional.</span>
 
 <span class="sd">    Args:</span>
@@ -1007,8 +1083,11 @@
     <span class="k">return</span> <span class="n">Lvo</span><span class="p">,</span> <span class="n">Lfo</span></div>
 
 
-<div class="viewcode-block" id="fock_response_rhf"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.fock_response_rhf">[docs]</a><span class="k">def</span> <span class="nf">fock_response_rhf</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">'''</span>
+
+<div class="viewcode-block" id="fock_response_rhf">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.fock_response_rhf">[docs]</a>
+<span class="k">def</span> <span class="nf">fock_response_rhf</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Calculate the Fock response function for a given density matrix:</span>
 <span class="sd">    sum_pq [ 4 (ai|pq) - (ap|iq) - (aq|ip) ] dm[p, q]</span>
 
@@ -1033,8 +1112,11 @@
     <span class="k">return</span> <span class="n">rvo</span></div>
 
 
-<div class="viewcode-block" id="solve_cphf_rhf"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.solve_cphf_rhf">[docs]</a><span class="k">def</span> <span class="nf">solve_cphf_rhf</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">Lvo</span><span class="p">,</span> <span class="n">max_cycle</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
-    <span class="sd">'''</span>
+
+<div class="viewcode-block" id="solve_cphf_rhf">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.mp.html#pyscf.mp.dfmp2_native.solve_cphf_rhf">[docs]</a>
+<span class="k">def</span> <span class="nf">solve_cphf_rhf</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">Lvo</span><span class="p">,</span> <span class="n">max_cycle</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Solve the CPHF equations.</span>
 <span class="sd">    (e[i] - e[a]) zvo[a, i] - sum_bj [ 4 (ai|bj) - (ab|ij) - (aj|ib) ] zvo[b, j] = Lvo[a, i]</span>
 
@@ -1061,6 +1143,7 @@
                      <span class="n">max_cycle</span><span class="o">=</span><span class="n">max_cycle</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">cphf_verbose</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'CPHF iterations finished'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">zvo</span></div>
+
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
@@ -1105,7 +1188,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

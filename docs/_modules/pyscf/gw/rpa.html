@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.gw.rpa &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.gw.rpa </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -335,8 +352,10 @@
 <span class="c1"># core routines, kernel, rpa_ecorr, rho_response</span>
 <span class="c1"># ****************************************************************************</span>
 
-<div class="viewcode-block" id="kernel"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.kernel">[docs]</a><span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">Lpq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nw</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">NOTE</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<div class="viewcode-block" id="kernel">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.kernel">[docs]</a>
+<span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">Lpq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nw</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">NOTE</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    RPA correlation and total energy</span>
 
 <span class="sd">    Args:</span>
@@ -370,7 +389,7 @@
     <span class="c1"># Compute RPA correlation energy</span>
     <span class="n">e_corr</span> <span class="o">=</span> <span class="n">get_rpa_ecorr</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="n">Lpq</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">wts</span><span class="p">)</span>
 
-    <span class="c1"># Compute totol energy</span>
+    <span class="c1"># Compute total energy</span>
     <span class="n">e_tot</span> <span class="o">=</span> <span class="n">e_hf</span> <span class="o">+</span> <span class="n">e_corr</span>
 
     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="s1">'  RPA total energy = </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">e_tot</span><span class="p">)</span>
@@ -378,8 +397,11 @@
 
     <span class="k">return</span> <span class="n">e_tot</span><span class="p">,</span> <span class="n">e_hf</span><span class="p">,</span> <span class="n">e_corr</span></div>
 
-<div class="viewcode-block" id="get_rpa_ecorr"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.get_rpa_ecorr">[docs]</a><span class="k">def</span> <span class="nf">get_rpa_ecorr</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="n">Lpq</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">wts</span><span class="p">):</span>
-    <span class="sd">"""</span>
+
+<div class="viewcode-block" id="get_rpa_ecorr">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.get_rpa_ecorr">[docs]</a>
+<span class="k">def</span> <span class="nf">get_rpa_ecorr</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="n">Lpq</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">wts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Compute RPA correlation energy</span>
 <span class="sd">    """</span>
     <span class="n">mo_energy</span> <span class="o">=</span> <span class="n">_mo_energy_without_core</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="n">rpa</span><span class="o">.</span><span class="n">_scf</span><span class="o">.</span><span class="n">mo_energy</span><span class="p">)</span>
@@ -399,8 +421,11 @@
 
     <span class="k">return</span> <span class="n">e_corr</span></div>
 
-<div class="viewcode-block" id="get_rho_response"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.get_rho_response">[docs]</a><span class="k">def</span> <span class="nf">get_rho_response</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">Lpq</span><span class="p">):</span>
-    <span class="sd">"""</span>
+
+<div class="viewcode-block" id="get_rho_response">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.get_rho_response">[docs]</a>
+<span class="k">def</span> <span class="nf">get_rho_response</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">Lpq</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Compute density response function in auxiliary basis at freq iw.</span>
 <span class="sd">    """</span>
     <span class="n">naux</span><span class="p">,</span> <span class="n">nocc</span><span class="p">,</span> <span class="n">nvir</span> <span class="o">=</span> <span class="n">Lpq</span><span class="o">.</span><span class="n">shape</span>
@@ -411,12 +436,13 @@
     <span class="n">Pi</span> <span class="o">=</span> <span class="n">einsum</span><span class="p">(</span><span class="s1">'Pia, Qia -&gt; PQ'</span><span class="p">,</span> <span class="n">Pia</span><span class="p">,</span> <span class="n">Lpq</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Pi</span></div>
 
+
 <span class="c1"># ****************************************************************************</span>
 <span class="c1"># frequency integral quadrature, legendre, clenshaw_curtis</span>
 <span class="c1"># ****************************************************************************</span>
 
 <span class="k">def</span> <span class="nf">_get_scaled_legendre_roots</span><span class="p">(</span><span class="n">nw</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Scale nw Legendre roots, which lie in the</span>
 <span class="sd">    interval [-1, 1], so that they lie in [0, inf)</span>
 <span class="sd">    Ref: www.cond-mat.de/events/correl19/manuscripts/ren.pdf</span>
@@ -431,7 +457,7 @@
     <span class="k">return</span> <span class="n">freqs_new</span><span class="p">,</span> <span class="n">wts</span>
 
 <span class="k">def</span> <span class="nf">_get_clenshaw_curtis_roots</span><span class="p">(</span><span class="n">nw</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Clenshaw-Curtis qaudrature on [0,inf)</span>
 <span class="sd">    Ref: J. Chem. Phys. 132, 234114 (2010)</span>
 <span class="sd">    Returns:</span>
@@ -456,7 +482,14 @@
 <span class="k">def</span> <span class="nf">_mo_without_core</span><span class="p">(</span><span class="n">rpa</span><span class="p">,</span> <span class="n">mo</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">mo</span><span class="p">[:,</span><span class="n">get_frozen_mask</span><span class="p">(</span><span class="n">rpa</span><span class="p">)]</span>
 
-<div class="viewcode-block" id="RPA"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA">[docs]</a><span class="k">class</span> <span class="nc">RPA</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
+<div class="viewcode-block" id="RPA">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA">[docs]</a>
+<span class="k">class</span> <span class="nc">RPA</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
+
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span>
+        <span class="s1">'mol'</span><span class="p">,</span> <span class="s1">'frozen'</span><span class="p">,</span>
+        <span class="s1">'with_df'</span><span class="p">,</span> <span class="s1">'mo_energy'</span><span class="p">,</span> <span class="s1">'mo_coeff'</span><span class="p">,</span> <span class="s1">'mo_occ'</span><span class="p">,</span> <span class="s1">'e_corr'</span><span class="p">,</span> <span class="s1">'e_hf'</span><span class="p">,</span> <span class="s1">'e_tot'</span><span class="p">,</span>
+    <span class="p">))</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auxbasis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mol</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">mol</span>
@@ -475,7 +508,6 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">with_df</span><span class="o">.</span><span class="n">auxbasis</span> <span class="o">=</span> <span class="n">auxbasis</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">with_df</span><span class="o">.</span><span class="n">auxbasis</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">make_auxbasis</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">mp2fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">'with_df'</span><span class="p">])</span>
 
 <span class="c1">##################################################</span>
 <span class="c1"># don't modify the following attributes, they are not input options</span>
@@ -488,7 +520,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">e_hf</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">e_tot</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="RPA.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="RPA.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'******** </span><span class="si">%s</span><span class="s1"> ********'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
@@ -499,6 +533,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frozen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'frozen orbitals = </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frozen</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
+
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">nocc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -518,13 +553,15 @@
     <span class="n">get_nmo</span> <span class="o">=</span> <span class="n">get_nmo</span>
     <span class="n">get_frozen_mask</span> <span class="o">=</span> <span class="n">get_frozen_mask</span>
 
-<div class="viewcode-block" id="RPA.kernel"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA.kernel">[docs]</a>    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Lpq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nw</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
-        <span class="sd">"""</span>
+<div class="viewcode-block" id="RPA.kernel">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA.kernel">[docs]</a>
+    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Lpq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nw</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Args:</span>
 <span class="sd">            mo_energy : 1D array (nmo), mean-field mo energy</span>
 <span class="sd">            mo_coeff : 2D array (nmo, nmo), mean-field mo coefficient</span>
 <span class="sd">            Lpq : 3D array (naux, nmo, nmo), 3-index ERI</span>
-<span class="sd">            nw: interger, grid number</span>
+<span class="sd">            nw: integer, grid number</span>
 <span class="sd">            x0: real, scaling factor for frequency grid</span>
 
 <span class="sd">        Returns:</span>
@@ -545,7 +582,10 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'RPA'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput0</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_corr</span></div>
 
-<div class="viewcode-block" id="RPA.ao2mo"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA.ao2mo">[docs]</a>    <span class="k">def</span> <span class="nf">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RPA.ao2mo">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.gw.html#pyscf.gw.rpa.RPA.ao2mo">[docs]</a>
+    <span class="k">def</span> <span class="nf">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mo_coeff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mo_coeff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span>
         <span class="n">nmo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nmo</span>
@@ -561,7 +601,9 @@
             <span class="k">return</span> <span class="n">Lpq</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">naux</span><span class="p">,</span> <span class="n">nmo</span><span class="p">,</span> <span class="n">nmo</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Memory may not be enough!'</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+</div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">dft</span>
@@ -607,7 +649,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

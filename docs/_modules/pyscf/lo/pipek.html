@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.lo.pipek &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.lo.pipek </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -199,11 +195,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -227,7 +223,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -326,8 +343,10 @@
 <span class="kn">from</span> <span class="nn">pyscf.lo</span> <span class="kn">import</span> <span class="n">boys</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">__config__</span>
 
-<div class="viewcode-block" id="atomic_pops"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.atomic_pops">[docs]</a><span class="k">def</span> <span class="nf">atomic_pops</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'meta_lowdin'</span><span class="p">,</span> <span class="n">mf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<div class="viewcode-block" id="atomic_pops">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.atomic_pops">[docs]</a>
+<span class="k">def</span> <span class="nf">atomic_pops</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'meta_lowdin'</span><span class="p">,</span> <span class="n">mf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Kwargs:</span>
 <span class="sd">        method : string</span>
 <span class="sd">            The atomic population projection scheme. It can be mulliken,</span>
@@ -376,7 +395,7 @@
     <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'mulliken'</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">offset_nr_by_atom</span><span class="p">()):</span>
             <span class="n">csc</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">mo_coeff</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">mo_coeff</span><span class="p">))</span>
-            <span class="n">proj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">csc</span> <span class="o">+</span> <span class="n">csc</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+            <span class="n">proj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">csc</span> <span class="o">+</span> <span class="n">csc</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
 
     <span class="k">elif</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'lowdin'</span><span class="p">,</span> <span class="s1">'meta-lowdin'</span><span class="p">):</span>
         <span class="n">csc</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">mo_coeff</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">orth</span><span class="o">.</span><span class="n">orth_ao</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="s1">'ANO'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">)))</span>
@@ -411,8 +430,11 @@
     <span class="k">return</span> <span class="n">proj</span></div>
 
 
-<div class="viewcode-block" id="PipekMezey"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey">[docs]</a><span class="k">class</span> <span class="nc">PipekMezey</span><span class="p">(</span><span class="n">boys</span><span class="o">.</span><span class="n">Boys</span><span class="p">):</span>
-    <span class="sd">'''The Pipek-Mezey localization optimizer that maximizes the orbital</span>
+
+<div class="viewcode-block" id="PipekMezey">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey">[docs]</a>
+<span class="k">class</span> <span class="nc">PipekMezey</span><span class="p">(</span><span class="n">boys</span><span class="o">.</span><span class="n">OrbitalLocalizer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''The Pipek-Mezey localization optimizer that maximizes the orbital</span>
 <span class="sd">    population</span>
 
 <span class="sd">    Args:</span>
@@ -448,7 +470,7 @@
 <span class="sd">        max_iters : int</span>
 <span class="sd">            The max. number of iterations in each macro iteration. Default 20</span>
 <span class="sd">        max_stepsize : float</span>
-<span class="sd">            The step size for orbital rotation.  Small step (0.005 - 0.05) is prefered.</span>
+<span class="sd">            The step size for orbital rotation.  Small step (0.005 - 0.05) is preferred.</span>
 <span class="sd">            Default 0.03.</span>
 <span class="sd">        init_guess : str or None</span>
 <span class="sd">            Initial guess for optimization. If set to None, orbitals defined</span>
@@ -481,18 +503,24 @@
     <span class="n">conv_tol</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'lo_pipek_PM_conv_tol'</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">)</span>
     <span class="n">exponent</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'lo_pipek_PM_exponent'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># should be 2 or 4</span>
 
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">'pop_method'</span><span class="p">,</span> <span class="s1">'conv_tol'</span><span class="p">,</span> <span class="s1">'exponent'</span><span class="p">])</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pop_method</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">boys</span><span class="o">.</span><span class="n">Boys</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">)</span>
+        <span class="n">boys</span><span class="o">.</span><span class="n">OrbitalLocalizer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_scf</span> <span class="o">=</span> <span class="n">mf</span>
         <span class="k">if</span> <span class="n">pop_method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pop_method</span> <span class="o">=</span> <span class="n">pop_method</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="s1">'pop_method'</span><span class="p">,</span> <span class="s1">'exponent'</span><span class="p">,</span> <span class="s1">'_scf'</span><span class="p">])</span>
 
-<div class="viewcode-block" id="PipekMezey.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">boys</span><span class="o">.</span><span class="n">Boys</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+<div class="viewcode-block" id="PipekMezey.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">boys</span><span class="o">.</span><span class="n">OrbitalLocalizer</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'pop_method = </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">pop_method</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="PipekMezey.gen_g_hop"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.gen_g_hop">[docs]</a>    <span class="k">def</span> <span class="nf">gen_g_hop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+
+<div class="viewcode-block" id="PipekMezey.gen_g_hop">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.gen_g_hop">[docs]</a>
+    <span class="k">def</span> <span class="nf">gen_g_hop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
         <span class="n">mo_coeff</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
         <span class="n">pop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atomic_pops</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_method</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -540,7 +568,10 @@
 
         <span class="k">return</span> <span class="n">g</span><span class="p">,</span> <span class="n">h_op</span><span class="p">,</span> <span class="n">h_diag</span></div>
 
-<div class="viewcode-block" id="PipekMezey.get_grad"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.get_grad">[docs]</a>    <span class="k">def</span> <span class="nf">get_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="PipekMezey.get_grad">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.get_grad">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">u</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">mo_coeff</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
         <span class="n">pop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atomic_pops</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_method</span><span class="p">)</span>
@@ -553,7 +584,10 @@
             <span class="n">g</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">pack_uniq_var</span><span class="p">(</span><span class="n">g0</span><span class="o">-</span><span class="n">g0</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
         <span class="k">return</span> <span class="n">g</span></div>
 
-<div class="viewcode-block" id="PipekMezey.cost_function"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.cost_function">[docs]</a>    <span class="k">def</span> <span class="nf">cost_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="PipekMezey.cost_function">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.cost_function">[docs]</a>
+    <span class="k">def</span> <span class="nf">cost_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">u</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">mo_coeff</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
         <span class="n">pop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atomic_pops</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_method</span><span class="p">)</span>
@@ -563,7 +597,10 @@
             <span class="n">pop2</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'xii-&gt;xi'</span><span class="p">,</span> <span class="n">pop</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
             <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'xi,xi'</span><span class="p">,</span> <span class="n">pop2</span><span class="p">,</span> <span class="n">pop2</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="PipekMezey.atomic_pops"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.atomic_pops">[docs]</a>    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">atomic_pops</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PipekMezey.atomic_pops">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.lo.html#pyscf.lo.pipek.PipekMezey.atomic_pops">[docs]</a>
+    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">atomic_pops</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">atomic_pops</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_method</span>
@@ -572,7 +609,9 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'PM with IAO scheme should include an scf '</span>
                          <span class="s1">'object when creating PM object.</span><span class="se">\n</span><span class="s1">    PM(mol, mf=scf_object)'</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'PM attribute method is not valid'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">atomic_pops</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scf</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">atomic_pops</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scf</span><span class="p">)</span></div>
+</div>
+
 
 <span class="n">PM</span> <span class="o">=</span> <span class="n">Pipek</span> <span class="o">=</span> <span class="n">PipekMezey</span>
 
@@ -614,7 +653,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

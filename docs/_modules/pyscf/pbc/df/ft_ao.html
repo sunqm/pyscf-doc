@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.pbc.df.ft_ao &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.pbc.df.ft_ao </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -199,11 +195,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -227,7 +223,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -316,7 +333,6 @@
 <span class="sd">'''</span>
 
 <span class="kn">import</span> <span class="nn">ctypes</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">lib</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span>
@@ -328,12 +344,9 @@
 <span class="kn">from</span> <span class="nn">pyscf.pbc.lib.kpts_helper</span> <span class="kn">import</span> <span class="n">is_zero</span><span class="p">,</span> <span class="n">gamma_point</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">__config__</span>
 
-<span class="n">RCUT_THRESHOLD</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'pbc_scf_rsjk_rcut_threshold'</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">RCUT_THRESHOLD</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'pbc_scf_rsjk_rcut_threshold'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="c1"># kecut=10 can rougly converge GTO with alpha=0.5</span>
 <span class="n">KECUT_THRESHOLD</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'pbc_scf_rsjk_kecut_threshold'</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
-
-<span class="c1"># cutoff penalty due to lattice summation</span>
-<span class="n">LATTICE_SUM_PENALTY</span> <span class="o">=</span> <span class="mf">1e-2</span>
 
 <span class="n">STEEP_BASIS</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">LOCAL_BASIS</span> <span class="o">=</span> <span class="mi">1</span>
@@ -344,10 +357,12 @@
 <span class="c1">#</span>
 <span class="c1"># \int mu*nu*exp(-ik*r) dr</span>
 <span class="c1">#</span>
-<div class="viewcode-block" id="ft_aopair"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ft_aopair">[docs]</a><span class="k">def</span> <span class="nf">ft_aopair</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">Gv</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span>
+<div class="viewcode-block" id="ft_aopair">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ft_aopair">[docs]</a>
+<span class="k">def</span> <span class="nf">ft_aopair</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">Gv</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span>
               <span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gxyz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Gvbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpti_kptj</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span>
               <span class="n">q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_ovlp'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">    Fourier transform AO pair for a pair of k-points</span>
 <span class="sd">    \sum_T exp(-i k_j * T) \int exp(-i(G+q)r) i(r) j(r-T) dr^3</span>
 <span class="sd">    '''</span>
@@ -359,11 +374,14 @@
     <span class="k">return</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="ft_aopair_kpts"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ft_aopair_kpts">[docs]</a><span class="k">def</span> <span class="nf">ft_aopair_kpts</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">Gv</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span>
+
+<div class="viewcode-block" id="ft_aopair_kpts">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ft_aopair_kpts">[docs]</a>
+<span class="k">def</span> <span class="nf">ft_aopair_kpts</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">Gv</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span>
                    <span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gxyz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Gvbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
                    <span class="n">kptjs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_ovlp'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                    <span class="n">bvk_kmesh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">    Fourier transform AO pair for a group of k-points</span>
 <span class="sd">    \sum_T exp(-i k_j * T) \int exp(-i(G+q)r) i(r) j(r-T) dr^3</span>
 
@@ -373,12 +391,14 @@
     <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
     <span class="n">kptjs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">kptjs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 
-    <span class="n">rs_cell</span> <span class="o">=</span> <span class="n">_RangeSeparatedCell</span><span class="o">.</span><span class="n">from_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">KECUT_THRESHOLD</span><span class="p">,</span> <span class="n">RCUT_THRESHOLD</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span>
+    <span class="n">rs_cell</span> <span class="o">=</span> <span class="n">_RangeSeparatedCell</span><span class="o">.</span><span class="n">from_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">KECUT_THRESHOLD</span><span class="p">,</span>
+                                            <span class="n">RCUT_THRESHOLD</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">bvk_kmesh</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">bvk_kmesh</span> <span class="o">=</span> <span class="n">k2gamma</span><span class="o">.</span><span class="n">kpts_to_kmesh</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kptjs</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="s1">'Set bvk_kmesh = </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">bvk_kmesh</span><span class="p">)</span>
-    <span class="n">supmol</span> <span class="o">=</span> <span class="n">_ExtendedMole</span><span class="o">.</span><span class="n">from_cell</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">,</span> <span class="n">bvk_kmesh</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
-    <span class="n">supmol</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">strip_basis</span><span class="p">()</span>
+    <span class="n">rcut</span> <span class="o">=</span> <span class="n">estimate_rcut</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">)</span>
+    <span class="n">supmol</span> <span class="o">=</span> <span class="n">ExtendedMole</span><span class="o">.</span><span class="n">from_cell</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">,</span> <span class="n">bvk_kmesh</span><span class="p">,</span> <span class="n">rcut</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">log</span><span class="p">)</span>
+    <span class="n">supmol</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">strip_basis</span><span class="p">(</span><span class="n">rcut</span><span class="p">)</span>
 
     <span class="n">ft_kern</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">gen_ft_kernel</span><span class="p">(</span><span class="n">aosym</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="n">intor</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="n">comp</span><span class="p">,</span>
                                    <span class="n">return_complex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
@@ -386,7 +406,10 @@
     <span class="k">return</span> <span class="n">ft_kern</span><span class="p">(</span><span class="n">Gv</span><span class="p">,</span> <span class="n">gxyz</span><span class="p">,</span> <span class="n">Gvbase</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">kptjs</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ft_ao"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ft_ao">[docs]</a><span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">mol_ft_ao</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ft_ao">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ft_ao">[docs]</a>
+<span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">mol_ft_ao</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">ft_ao</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">Gv</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
           <span class="n">gxyz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Gvbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpt</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">gamma_point</span><span class="p">(</span><span class="n">kpt</span><span class="p">):</span>
@@ -396,9 +419,12 @@
         <span class="k">return</span> <span class="n">mol_ft_ao</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">kG</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="gen_ft_kernel"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.gen_ft_kernel">[docs]</a><span class="k">def</span> <span class="nf">gen_ft_kernel</span><span class="p">(</span><span class="n">supmol</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_ovlp'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                  <span class="n">return_complex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''</span>
+
+<div class="viewcode-block" id="gen_ft_kernel">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.gen_ft_kernel">[docs]</a>
+<span class="k">def</span> <span class="nf">gen_ft_kernel</span><span class="p">(</span><span class="n">supmol</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_ovlp'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">return_complex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''</span>
 <span class="sd">    Generate the analytical fourier transform kernel for AO products</span>
 
 <span class="sd">    \sum_T exp(-i k_j * T) \int exp(-i(G+q)r) i(r) j(r-T) dr^3</span>
@@ -419,32 +445,48 @@
     <span class="n">ovlp_mask</span> <span class="o">=</span> <span class="n">ovlp_mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
     <span class="n">cell0_ovlp_mask</span> <span class="o">=</span> <span class="n">cell0_ovlp_mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
 
-    <span class="c1"># A map to assign each basis of supmol._bas the index in</span>
-    <span class="c1"># [bvk_cell-id, bas-id, image-id]</span>
-    <span class="n">bas_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">ravel</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kpts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">expLk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">bvkmesh_Ls</span><span class="p">,</span> <span class="n">kpts</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+        <span class="n">expLkR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">expLk</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
+        <span class="n">expLkI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">expLk</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
+        <span class="n">_expLk</span> <span class="o">=</span> <span class="p">(</span><span class="n">expLkR</span><span class="p">,</span> <span class="n">expLkI</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_expLk</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="n">b</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">reciprocal_vectors</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">:</span>
+        <span class="n">_eval_gz</span> <span class="o">=</span> <span class="s1">'GTO_Gv_orth'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_eval_gz</span> <span class="o">=</span> <span class="s1">'GTO_Gv_nonorth'</span>
+    <span class="n">drv</span> <span class="o">=</span> <span class="n">libpbc</span><span class="o">.</span><span class="n">PBC_ft_bvk_drv</span>
+    <span class="n">cintor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">libpbc</span><span class="p">,</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">_add_suffix</span><span class="p">(</span><span class="n">intor</span><span class="p">))</span>
 
     <span class="n">log</span><span class="o">.</span><span class="n">timer_debug1</span><span class="p">(</span><span class="s1">'ft_ao kernel initialization'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput0</span><span class="p">)</span>
 
     <span class="c1"># TODO: use Gv = b * gxyz + q in c code</span>
     <span class="c1"># TODO: add zfill</span>
-    <span class="k">def</span> <span class="nf">ft_kernel</span><span class="p">(</span><span class="n">Gv</span><span class="p">,</span> <span class="n">gxyz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Gvbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">kptjs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+    <span class="k">def</span> <span class="nf">ft_kernel</span><span class="p">(</span><span class="n">Gv</span><span class="p">,</span> <span class="n">gxyz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Gvbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">kptjs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="n">aosym</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        Analytical FT for orbital products. The output tensor has the shape [nGv, nao, nao]</span>
 <span class="sd">        '''</span>
         <span class="n">cput0</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-        <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-        <span class="n">kptjs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">kptjs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-        <span class="n">nkpts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">kptjs</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">q</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">kptjs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_expLk</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">expLkR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nimgs</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+                <span class="n">expLkI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nimgs</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">expLkR</span><span class="p">,</span> <span class="n">expLkI</span> <span class="o">=</span> <span class="n">_expLk</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kptjs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">kptjs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">expLk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">bvkmesh_Ls</span><span class="p">,</span> <span class="n">kptjs</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+            <span class="n">expLkR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">expLk</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
+            <span class="n">expLkI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">expLk</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
+            <span class="n">expLk</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="n">expLk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">bvkmesh_Ls</span><span class="p">,</span> <span class="n">kptjs</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
-        <span class="n">expLkR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">expLk</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
-        <span class="n">expLkI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">expLk</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
-        <span class="n">expLk</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="n">GvT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Gv</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span> <span class="o">+</span> <span class="n">q</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">nkpts</span> <span class="o">=</span> <span class="n">expLkR</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">GvT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Gv</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">q</span><span class="p">[:,</span><span class="kc">None</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
         <span class="n">nGv</span> <span class="o">=</span> <span class="n">GvT</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">shls_slice</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -466,24 +508,19 @@
             <span class="n">nij</span> <span class="o">=</span> <span class="n">i1</span><span class="o">*</span><span class="p">(</span><span class="n">i1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">i0</span><span class="o">*</span><span class="p">(</span><span class="n">i0</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
             <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">nkpts</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">nij</span><span class="p">,</span> <span class="n">nGv</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">gxyz</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">b</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">Gvbase</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">1e-9</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">gxyz</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">Gvbase</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">1e-9</span><span class="p">):</span>
             <span class="n">p_gxyzT</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">c_null_ptr</span><span class="p">()</span>
             <span class="n">p_mesh</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="o">*</span><span class="mi">3</span><span class="p">)(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
             <span class="n">p_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="o">*</span><span class="mi">1</span><span class="p">)(</span><span class="mi">0</span><span class="p">)</span>
             <span class="n">eval_gz</span> <span class="o">=</span> <span class="s1">'GTO_Gv_general'</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">:</span>
-                <span class="n">eval_gz</span> <span class="o">=</span> <span class="s1">'GTO_Gv_orth'</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">eval_gz</span> <span class="o">=</span> <span class="s1">'GTO_Gv_nonorth'</span>
+            <span class="n">eval_gz</span> <span class="o">=</span> <span class="n">_eval_gz</span>
             <span class="n">gxyzT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">gxyz</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
             <span class="n">p_gxyzT</span> <span class="o">=</span> <span class="n">gxyzT</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span>
             <span class="n">bqGv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">b</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">q</span><span class="p">)</span> <span class="o">+</span> <span class="n">Gvbase</span><span class="p">)</span>
             <span class="n">p_b</span> <span class="o">=</span> <span class="n">bqGv</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span>
             <span class="n">p_mesh</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="o">*</span><span class="mi">3</span><span class="p">)(</span><span class="o">*</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Gvbase</span><span class="p">])</span>
 
-        <span class="n">drv</span> <span class="o">=</span> <span class="n">libpbc</span><span class="o">.</span><span class="n">PBC_ft_bvk_drv</span>
-        <span class="n">cintor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">libpbc</span><span class="p">,</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">_add_suffix</span><span class="p">(</span><span class="n">intor</span><span class="p">))</span>
         <span class="n">eval_gz</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">libpbc</span><span class="p">,</span> <span class="n">eval_gz</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">nkpts</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">fill</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">libpbc</span><span class="p">,</span> <span class="s1">'PBC_ft_bvk_nk1'</span><span class="o">+</span><span class="n">aosym</span><span class="p">)</span>
@@ -496,24 +533,25 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">fsort</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">libpbc</span><span class="p">,</span> <span class="s1">'PBC_ft_dsort_'</span> <span class="o">+</span> <span class="n">aosym</span><span class="p">)</span>
             <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">((</span><span class="mi">2</span><span class="p">,)</span> <span class="o">+</span> <span class="n">shape</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
-        <span class="n">drv</span><span class="p">(</span><span class="n">cintor</span><span class="p">,</span> <span class="n">eval_gz</span><span class="p">,</span> <span class="n">fill</span><span class="p">,</span> <span class="n">fsort</span><span class="p">,</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="n">expLkR</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="n">expLkI</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">bvk_ncells</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nimgs</span><span class="p">),</span>
-            <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nkpts</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nbasp</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">comp</span><span class="p">),</span>
-            <span class="n">supmol</span><span class="o">.</span><span class="n">sh_loc</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="n">cell0_ao_loc</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="o">*</span><span class="mi">4</span><span class="p">)(</span><span class="o">*</span><span class="n">shls_slice</span><span class="p">),</span>
-            <span class="n">ovlp_mask</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="n">cell0_ovlp_mask</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="n">bas_map</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
-            <span class="n">GvT</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span> <span class="n">p_b</span><span class="p">,</span> <span class="n">p_gxyzT</span><span class="p">,</span> <span class="n">p_mesh</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nGv</span><span class="p">),</span>
-            <span class="n">supmol</span><span class="o">.</span><span class="n">_atm</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">natm</span><span class="p">),</span>
-            <span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">nbas</span><span class="p">),</span>
-            <span class="n">supmol</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">))</span>
 
-        <span class="n">log</span><span class="o">.</span><span class="n">timer_debug1</span><span class="p">(</span><span class="sa">f</span><span class="s1">'ft_ao intor </span><span class="si">{</span><span class="n">intor</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">nGv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">drv</span><span class="p">(</span><span class="n">cintor</span><span class="p">,</span> <span class="n">eval_gz</span><span class="p">,</span> <span class="n">fill</span><span class="p">,</span> <span class="n">fsort</span><span class="p">,</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="n">expLkR</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="n">expLkI</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">bvk_ncells</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nimgs</span><span class="p">),</span>
+                <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nkpts</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nbasp</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">comp</span><span class="p">),</span>
+                <span class="n">supmol</span><span class="o">.</span><span class="n">seg_loc</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="n">supmol</span><span class="o">.</span><span class="n">seg2sh</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="n">cell0_ao_loc</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="o">*</span><span class="mi">4</span><span class="p">)(</span><span class="o">*</span><span class="n">shls_slice</span><span class="p">),</span>
+                <span class="n">ovlp_mask</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="n">cell0_ovlp_mask</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="n">GvT</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span> <span class="n">p_b</span><span class="p">,</span> <span class="n">p_gxyzT</span><span class="p">,</span> <span class="n">p_mesh</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">nGv</span><span class="p">),</span>
+                <span class="n">supmol</span><span class="o">.</span><span class="n">_atm</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">natm</span><span class="p">),</span>
+                <span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">nbas</span><span class="p">),</span>
+                <span class="n">supmol</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">ctypes</span><span class="o">.</span><span class="n">data_as</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">))</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">timer_debug1</span><span class="p">(</span><span class="sa">f</span><span class="s1">'ft_ao intor </span><span class="si">{</span><span class="n">intor</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="o">*</span><span class="n">cput0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">return_complex</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">aosym</span> <span class="o">==</span> <span class="s1">'s1hermi'</span><span class="p">:</span>
@@ -530,15 +568,14 @@
             <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">comp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">outR</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">outI</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">return</span> <span class="n">outR</span><span class="p">,</span> <span class="n">outI</span>
+            <span class="k">return</span> <span class="n">out</span>
 
     <span class="k">return</span> <span class="n">ft_kernel</span></div>
 
 
+
 <span class="k">class</span> <span class="nc">_RangeSeparatedCell</span><span class="p">(</span><span class="n">pbcgto</span><span class="o">.</span><span class="n">Cell</span><span class="p">):</span>
-    <span class="sd">'''Cell with partially de-contracted basis'''</span>
+<span class="w">    </span><span class="sd">'''Cell with partially de-contracted basis'''</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># ref_cell is the original cell of which the basis to be de-contracted</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ref_cell</span> <span class="o">=</span> <span class="kc">None</span>
@@ -546,23 +583,30 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">bas_map</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># Type of each de-contracted basis</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># For each shell in the original cell, the first basis in the rs-cell.</span>
-        <span class="c1"># sh_loc indicates how the rs-cell basis can be aggregated to restore</span>
-        <span class="c1"># the contracted basis in the original cell</span>
+        <span class="c1"># Each shell in the original cell can have several segments in the rs-cell.</span>
+        <span class="c1"># sh_loc indicates the shell Id in rs-cell for each shell in cell.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_cell</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">ke_cut_threshold</span><span class="o">=</span><span class="n">KECUT_THRESHOLD</span><span class="p">,</span>
-                  <span class="n">rcut_threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">pyscf.pbc.dft.multigrid</span> <span class="kn">import</span> <span class="n">_primitive_gto_cutoff</span>
-        <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">from_cell</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">ke_cut_threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rcut_threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">in_rsjk</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">aft</span>
+        <span class="n">rs_cell</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="n">rs_cell</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+        <span class="n">rs_cell</span><span class="o">.</span><span class="n">ref_cell</span> <span class="o">=</span> <span class="n">cell</span>
+
         <span class="k">if</span> <span class="n">ke_cut_threshold</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ke_cut_threshold</span> <span class="o">=</span> <span class="n">KECUT_THRESHOLD</span>
+            <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+            <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+            <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">LOCAL_BASIS</span>
+            <span class="n">rs_cell</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">nbas</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">rs_cell</span>
+
+        <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ke_cut_threshold</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
             <span class="n">ke_cut_threshold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ke_cut_threshold</span><span class="p">)</span>
 
-        <span class="c1"># rcut and energy cutoff for eash shell</span>
-        <span class="n">rcuts</span><span class="p">,</span> <span class="n">kecuts</span> <span class="o">=</span> <span class="n">_primitive_gto_cutoff</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span>
+        <span class="n">precision</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">precision</span>
 
         <span class="c1"># preserves all environments defined in cell (e.g. omega, gauge origin)</span>
         <span class="n">_env</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -582,24 +626,44 @@
             <span class="n">bas_type</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">btype</span><span class="p">)</span>
             <span class="n">bas_map</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">orig_id</span><span class="p">)</span>
 
-        <span class="c1"># Split shells based on rcut</span>
         <span class="k">for</span> <span class="n">ib</span><span class="p">,</span> <span class="n">orig_bas</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">_bas</span><span class="p">):</span>
             <span class="n">nprim</span> <span class="o">=</span> <span class="n">orig_bas</span><span class="p">[</span><span class="n">gto</span><span class="o">.</span><span class="n">NPRIM_OF</span><span class="p">]</span>
             <span class="n">nctr</span> <span class="o">=</span> <span class="n">orig_bas</span><span class="p">[</span><span class="n">gto</span><span class="o">.</span><span class="n">NCTR_OF</span><span class="p">]</span>
-            <span class="n">ke</span> <span class="o">=</span> <span class="n">kecuts</span><span class="p">[</span><span class="n">ib</span><span class="p">]</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">orig_bas</span><span class="p">[</span><span class="n">gto</span><span class="o">.</span><span class="n">ANG_OF</span><span class="p">]</span>
+            <span class="n">es</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">bas_exp</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span>
+            <span class="c1"># Sort exponents because integral screening of rsjk method relies on</span>
+            <span class="c1"># the dscending order in exponents</span>
+            <span class="n">es_idx</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">es</span> <span class="o">=</span> <span class="n">es</span><span class="p">[</span><span class="n">es_idx</span><span class="p">]</span>
+            <span class="n">cs</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_libcint_ctr_coeff</span><span class="p">(</span><span class="n">ib</span><span class="p">)[</span><span class="n">es_idx</span><span class="p">]</span>
+            <span class="n">abs_cs</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># aft._estimate_ke_cutoff is accurate for 4c2e integrals</span>
+            <span class="c1"># For other integrals such as nuclear attraction.</span>
+            <span class="c1"># aft._estimate_ke_cutoff may put some primitive GTOs of large es</span>
+            <span class="c1"># and small cs in the group SMOOTH_BASIS.  These GTOs requires a</span>
+            <span class="c1"># large ke_cutoff (mesh) in _RSNucBuilder or _CCNucBuilder.</span>
+            <span class="k">if</span> <span class="n">in_rsjk</span><span class="p">:</span>
+                <span class="n">ke</span> <span class="o">=</span> <span class="n">aft</span><span class="o">.</span><span class="n">_estimate_ke_cutoff</span><span class="p">(</span><span class="n">es</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">abs_cs</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ke</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">_estimate_ke_cutoff</span><span class="p">(</span><span class="n">es</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">abs_cs</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
 
             <span class="n">smooth_mask</span> <span class="o">=</span> <span class="n">ke</span> <span class="o">&lt;</span> <span class="n">ke_cut_threshold</span>
             <span class="k">if</span> <span class="n">rcut_threshold</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">local_mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">smooth_mask</span>
                 <span class="n">steep_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">local_mask</span><span class="p">)</span>
+                <span class="n">rcut</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">steep_mask</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">smooth_mask</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">rcuts</span><span class="p">[</span><span class="n">ib</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rcut_threshold</span><span class="p">)</span>
+                <span class="n">norm_ang</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">**</span><span class="mf">.5</span>
+                <span class="n">fac</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">abs_cs</span><span class="o">/</span><span class="n">cell</span><span class="o">.</span><span class="n">vol</span> <span class="o">*</span> <span class="n">norm_ang</span><span class="o">/</span><span class="n">es</span> <span class="o">/</span> <span class="n">precision</span>
+                <span class="n">rcut</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">rcut</span>
+                <span class="n">rcut</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fac</span> <span class="o">*</span> <span class="n">rcut</span><span class="o">**</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">/</span> <span class="n">es</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span>
+                <span class="n">rcut</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fac</span> <span class="o">*</span> <span class="n">rcut</span><span class="o">**</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">/</span> <span class="n">es</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span>
+                <span class="n">steep_mask</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">smooth_mask</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">rcut</span> <span class="o">&lt;</span> <span class="n">rcut_threshold</span><span class="p">)</span>
                 <span class="n">local_mask</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">steep_mask</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">smooth_mask</span><span class="p">)</span>
 
             <span class="n">pexp</span> <span class="o">=</span> <span class="n">orig_bas</span><span class="p">[</span><span class="n">gto</span><span class="o">.</span><span class="n">PTR_EXP</span><span class="p">]</span>
             <span class="n">pcoeff</span> <span class="o">=</span> <span class="n">orig_bas</span><span class="p">[</span><span class="n">gto</span><span class="o">.</span><span class="n">PTR_COEFF</span><span class="p">]</span>
-            <span class="n">es</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">bas_exp</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span>
-            <span class="n">cs</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_libcint_ctr_coeff</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span>
 
             <span class="n">c_steep</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">steep_mask</span><span class="p">]</span>
             <span class="n">c_local</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">local_mask</span><span class="p">]</span>
@@ -615,7 +679,7 @@
                 <span class="n">es</span><span class="p">[</span><span class="n">smooth_mask</span><span class="p">],</span>
             <span class="p">])</span>
             <span class="k">if</span> <span class="n">log</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">DEBUG2</span><span class="p">:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="s1">'bas </span><span class="si">%d</span><span class="s1"> rcuts </span><span class="si">%s</span><span class="s1">  kecuts </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">ib</span><span class="p">,</span> <span class="n">rcuts</span><span class="p">[</span><span class="n">ib</span><span class="p">],</span> <span class="n">ke</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="s1">'bas </span><span class="si">%d</span><span class="s1"> rcut </span><span class="si">%s</span><span class="s1">  kecut </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">ib</span><span class="p">,</span> <span class="n">rcut</span><span class="p">,</span> <span class="n">ke</span><span class="p">)</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="s1">'steep </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">steep_mask</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">es</span><span class="p">[</span><span class="n">steep_mask</span><span class="p">])</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="s1">'local </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">local_mask</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">es</span><span class="p">[</span><span class="n">local_mask</span><span class="p">])</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="s1">'smooth </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">smooth_mask</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">es</span><span class="p">[</span><span class="n">smooth_mask</span><span class="p">])</span>
@@ -635,9 +699,6 @@
 
             <span class="n">bas_loc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">decontracted_bas</span><span class="p">))</span>
 
-        <span class="n">rs_cell</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
-        <span class="n">rs_cell</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-        <span class="n">rs_cell</span><span class="o">.</span><span class="n">ref_cell</span> <span class="o">=</span> <span class="n">cell</span>
         <span class="n">rs_cell</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">decontracted_bas</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
         <span class="c1"># rs_cell._bas might be of size (0, BAS_SLOTS)</span>
         <span class="n">rs_cell</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">_bas</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">gto</span><span class="o">.</span><span class="n">BAS_SLOTS</span><span class="p">)</span>
@@ -648,6 +709,7 @@
         <span class="n">rs_cell</span><span class="o">.</span><span class="n">ke_cutoff</span> <span class="o">=</span> <span class="n">ke_cut_threshold</span>
         <span class="k">if</span> <span class="n">log</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
             <span class="n">bas_type</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">'rs_cell.nbas </span><span class="si">%d</span><span class="s1"> nao </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">nao</span><span class="p">)</span>
             <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'No. steep_bas in rs_cell </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">STEEP_BASIS</span><span class="p">))</span>
             <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'No. local_bas in rs_cell </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">LOCAL_BASIS</span><span class="p">))</span>
             <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">'No. smooth_bas in rs_cell </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">SMOOTH_BASIS</span><span class="p">))</span>
@@ -660,7 +722,7 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_reverse_bas_map</span><span class="p">(</span><span class="n">bas_map</span><span class="p">):</span>
-        <span class="sd">'''Map basis between the original cell and the derived rs-cell.</span>
+<span class="w">        </span><span class="sd">'''Map basis between the original cell and the derived rs-cell.</span>
 <span class="sd">        For each shell in the original cell, the first basis Id of the</span>
 <span class="sd">        de-contracted basis in the rs-cell'''</span>
         <span class="n">uniq_bas</span><span class="p">,</span> <span class="n">map_bas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">bas_map</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -668,39 +730,40 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">map_bas</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bas_map</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">smooth_basis_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''Construct a cell with only the smooth part of the AO basis'''</span>
+<span class="w">        </span><span class="sd">'''Construct a cell with only the smooth part of the AO basis'''</span>
         <span class="n">cell_d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">pbcgto</span><span class="o">.</span><span class="n">Cell</span><span class="p">)</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">SMOOTH_BASIS</span>
         <span class="n">cell_d</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-        <span class="n">precision</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">precision</span>
-        <span class="n">cell_d</span><span class="o">.</span><span class="n">rcut</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">estimate_rcut</span><span class="p">(</span><span class="n">cell_d</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="n">precision</span><span class="p">)</span>
+        <span class="n">segs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ref_cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">)</span>
+        <span class="n">segs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_map</span><span class="p">[</span><span class="n">mask</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">cell_d</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">segs</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'cell_d.nbas </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">cell_d</span><span class="o">.</span><span class="n">nbas</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cell_d</span><span class="o">.</span><span class="n">nbas</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cell_d</span>
 
-        <span class="c1"># Update mesh</span>
-        <span class="n">ke_cutoff</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">estimate_ke_cutoff</span><span class="p">(</span><span class="n">cell_d</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
-        <span class="n">mesh</span> <span class="o">=</span> <span class="n">pbctools</span><span class="o">.</span><span class="n">cutoff_to_mesh</span><span class="p">(</span><span class="n">cell_d</span><span class="o">.</span><span class="n">lattice_vectors</span><span class="p">(),</span> <span class="n">ke_cutoff</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">cell_d</span><span class="o">.</span><span class="n">dimension</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span>
-            <span class="p">(</span><span class="n">cell_d</span><span class="o">.</span><span class="n">dimension</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">cell_d</span><span class="o">.</span><span class="n">low_dim_ft_type</span> <span class="o">==</span> <span class="s1">'inf_vacuum'</span><span class="p">)):</span>
-            <span class="n">mesh</span><span class="p">[</span><span class="n">cell_d</span><span class="o">.</span><span class="n">dimension</span><span class="p">:]</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">_mesh_inf_vaccum</span><span class="p">(</span><span class="n">cell_d</span><span class="p">)</span>
+        <span class="n">cell_d</span><span class="o">.</span><span class="n">ke_cutoff</span> <span class="o">=</span> <span class="n">ke_cutoff</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">estimate_ke_cutoff</span><span class="p">(</span><span class="n">cell_d</span><span class="p">)</span>
+        <span class="n">cell_d</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="n">cell_d</span><span class="o">.</span><span class="n">cutoff_to_mesh</span><span class="p">(</span><span class="n">ke_cutoff</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'cell_d rcut </span><span class="si">%g</span><span class="s1"> ke_cutoff </span><span class="si">%g</span><span class="s1">, mesh </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span>
-                      <span class="n">cell_d</span><span class="o">.</span><span class="n">rcut</span><span class="p">,</span> <span class="n">ke_cutoff</span><span class="p">,</span> <span class="n">mesh</span><span class="p">)</span>
-        <span class="n">cell_d</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="n">mesh</span>
+                      <span class="n">cell_d</span><span class="o">.</span><span class="n">rcut</span><span class="p">,</span> <span class="n">ke_cutoff</span><span class="p">,</span> <span class="n">cell_d</span><span class="o">.</span><span class="n">mesh</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">cell_d</span>
 
     <span class="k">def</span> <span class="nf">compact_basis_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''Construct a cell with only the smooth part of the AO basis'''</span>
-        <span class="n">cell_c</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">'''Construct a cell with only the smooth part of the AO basis'''</span>
+        <span class="n">cell_c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">!=</span> <span class="n">SMOOTH_BASIS</span>
         <span class="n">cell_c</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
         <span class="n">cell_c</span><span class="o">.</span><span class="n">bas_map</span> <span class="o">=</span> <span class="n">cell_c</span><span class="o">.</span><span class="n">bas_map</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
         <span class="n">cell_c</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">=</span> <span class="n">cell_c</span><span class="o">.</span><span class="n">bas_type</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-        <span class="n">cell_c</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">segs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_loc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">segs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_map</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">cell_c</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">segs</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
         <span class="n">cell_c</span><span class="o">.</span><span class="n">rcut</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">estimate_rcut</span><span class="p">(</span><span class="n">cell_c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">cell_c</span>
 
     <span class="k">def</span> <span class="nf">merge_diffused_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">):</span>
-        <span class="sd">'''For AO pair that are evaluated in blocks with using the basis</span>
+<span class="w">        </span><span class="sd">'''For AO pair that are evaluated in blocks with using the basis</span>
 <span class="sd">        partitioning self.compact_basis_cell() and self.smooth_basis_cell(),</span>
-<span class="sd">        merge the DD block into the CC, CD, DC blocks (D ~ compact basis,</span>
+<span class="sd">        merge the DD block into the CC, CD, DC blocks (C ~ compact basis,</span>
 <span class="sd">        D ~ diffused basis)</span>
 <span class="sd">        '''</span>
         <span class="n">ao_loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ref_cell</span><span class="o">.</span><span class="n">ao_loc</span>
@@ -710,11 +773,14 @@
         <span class="n">naod</span> <span class="o">=</span> <span class="n">smooth_ao_idx</span><span class="o">.</span><span class="n">size</span>
         <span class="n">drv</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">libpbc</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'PBCnr3c_fuse_dd_</span><span class="si">{</span><span class="n">aosym</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">j3c</span><span class="p">,</span> <span class="n">j3c_dd</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">j3c</span><span class="p">,</span> <span class="n">j3c_dd</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">j3c_dd</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">j3c</span>
             <span class="c1"># The AO index in the original cell</span>
-            <span class="n">slice_in_cell</span> <span class="o">=</span> <span class="n">ao_loc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">shls_slice</span><span class="p">[:</span><span class="mi">4</span><span class="p">])]</span>
+            <span class="k">if</span> <span class="n">shls_slice</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">slice_in_cell</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nao</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nao</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">slice_in_cell</span> <span class="o">=</span> <span class="n">ao_loc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">shls_slice</span><span class="p">[:</span><span class="mi">4</span><span class="p">])]</span>
             <span class="c1"># Then search the corresponding index in the diffused block</span>
             <span class="n">slice_in_cell_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">smooth_ao_idx</span><span class="p">,</span> <span class="n">slice_in_cell</span><span class="p">)</span>
 
@@ -733,7 +799,7 @@
         <span class="k">return</span> <span class="n">merge</span>
 
     <span class="k">def</span> <span class="nf">recontract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">'''Recontract the vector evaluated with the RS-cell to the vector</span>
+<span class="w">        </span><span class="sd">'''Recontract the vector evaluated with the RS-cell to the vector</span>
 <span class="sd">        associated to the basis of reference cell</span>
 <span class="sd">        '''</span>
         <span class="n">ao_loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ref_cell</span><span class="o">.</span><span class="n">ao_loc</span>
@@ -764,13 +830,13 @@
         <span class="k">return</span> <span class="n">recontractor</span>
 
     <span class="k">def</span> <span class="nf">recontract_1d</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vec</span><span class="p">):</span>
-        <span class="sd">'''Recontract the vector evaluated with the RS-cell to the vector</span>
+<span class="w">        </span><span class="sd">'''Recontract the vector evaluated with the RS-cell to the vector</span>
 <span class="sd">        associated to the basis of reference cell</span>
 <span class="sd">        '''</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">recontract</span><span class="p">()(</span><span class="n">vec</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_ao_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''Assign a label (STEEP_BASIS, LOCAL_BASIS, SMOOTH_BASIS) to each AO function'''</span>
+<span class="w">        </span><span class="sd">'''Assign a label (STEEP_BASIS, LOCAL_BASIS, SMOOTH_BASIS) to each AO function'''</span>
         <span class="n">ao_loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ao_loc</span>
         <span class="n">nao</span> <span class="o">=</span> <span class="n">ao_loc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">ao_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nao</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -819,36 +885,47 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug3</span><span class="p">(</span><span class="n">pcell</span><span class="p">,</span> <span class="s1">'decontracted cell sh_loc </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">pcell</span><span class="o">.</span><span class="n">sh_loc</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pcell</span><span class="p">,</span> <span class="n">ctr_coeff</span>
 
-<span class="k">class</span> <span class="nc">_ExtendedMole</span><span class="p">(</span><span class="n">gto</span><span class="o">.</span><span class="n">Mole</span><span class="p">):</span>
-    <span class="sd">'''An extended Mole object to mimic periodicity'''</span>
+<div class="viewcode-block" id="ExtendedMole">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ExtendedMole">[docs]</a>
+<span class="k">class</span> <span class="nc">ExtendedMole</span><span class="p">(</span><span class="n">gto</span><span class="o">.</span><span class="n">Mole</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''An extended Mole object to mimic periodicity'''</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># The cell which used to generate the supmole</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rs_cell</span><span class="p">:</span> <span class="n">_RangeSeparatedCell</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bvk_kmesh</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Ls</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bvkmesh_Ls</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># For each shell in the bvk cell, the first basis in the supmole.</span>
-        <span class="c1"># sh_loc indicates the boundary of the batches in supmol. These batches</span>
-        <span class="c1"># can be aggregated to restore the original contracted basis in the bvk-cell</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># seg_loc maps the shell Id in bvk cell to shell Id in bvk rs-cell.</span>
+        <span class="c1"># seg2sh maps the shell Id in bvk rs-cell to the shell Id in supmol.</span>
+        <span class="c1"># Lattice sum range for each bvk cell shell can be obtained</span>
+        <span class="c1"># (seg2sh[n+1] - seg2sh[n])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seg_loc</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seg2sh</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="c1"># whether the basis bas_mask[bvk-cell-id, basis-id, image-id] is</span>
         <span class="c1"># needed to reproduce the periodicity</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="kc">None</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sh_loc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># A map for shell in bvk cell to shell Id in supmol</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg2sh</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">seg_loc</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bas_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># A map to assign each basis of supmol._bas the index in</span>
+        <span class="c1"># [bvk_cell-id, bas-id, image-id]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">ravel</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ExtendedMole.from_cell">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ExtendedMole.from_cell">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_cell</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">kmesh</span><span class="p">,</span> <span class="n">rcut</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">rcut</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">rcut</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">rcut</span>
         <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">_RangeSeparatedCell</span><span class="p">):</span>
-            <span class="n">rs_cell</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">_RangeSeparatedCell</span><span class="p">)</span>
-            <span class="n">rs_cell</span><span class="o">.</span><span class="n">ref_cell</span> <span class="o">=</span> <span class="n">cell</span>
-            <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-            <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-            <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">LOCAL_BASIS</span>
-            <span class="n">rs_cell</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">),</span> <span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-            <span class="n">cell</span> <span class="o">=</span> <span class="n">rs_cell</span>
+            <span class="n">cell</span> <span class="o">=</span> <span class="n">_RangeSeparatedCell</span><span class="o">.</span><span class="n">from_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
 
         <span class="n">bvkcell</span> <span class="o">=</span> <span class="n">pbctools</span><span class="o">.</span><span class="n">super_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kmesh</span><span class="p">,</span> <span class="n">wrap_around</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">Ls</span> <span class="o">=</span> <span class="n">bvkcell</span><span class="o">.</span><span class="n">get_lattice_Ls</span><span class="p">(</span><span class="n">rcut</span><span class="o">=</span><span class="n">rcut</span><span class="p">)</span>
@@ -856,8 +933,8 @@
         <span class="n">bvkmesh_Ls</span> <span class="o">=</span> <span class="n">k2gamma</span><span class="o">.</span><span class="n">translation_vectors_for_kmesh</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kmesh</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
         <span class="n">LKs</span> <span class="o">=</span> <span class="n">Ls</span><span class="p">[:,</span><span class="kc">None</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">bvkmesh_Ls</span>
         <span class="n">nimgs</span><span class="p">,</span> <span class="n">bvk_ncells</span> <span class="o">=</span> <span class="n">LKs</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'Generate supmol with nimgs = </span><span class="si">%d</span><span class="s1"> bvk_ncells = </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span>
-                   <span class="n">nimgs</span><span class="p">,</span> <span class="n">bvk_ncells</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'Generate supmol with rcut = </span><span class="si">%g</span><span class="s1"> nimgs = </span><span class="si">%d</span><span class="s1"> bvk_ncells = </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span>
+                   <span class="n">rcut</span><span class="p">,</span> <span class="n">nimgs</span><span class="p">,</span> <span class="n">bvk_ncells</span><span class="p">)</span>
 
         <span class="n">supmol</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
         <span class="n">supmol</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
@@ -867,93 +944,128 @@
         <span class="n">supmol</span><span class="o">.</span><span class="n">Ls</span> <span class="o">=</span> <span class="n">Ls</span>
         <span class="n">supmol</span><span class="o">.</span><span class="n">bvkmesh_Ls</span> <span class="o">=</span> <span class="n">bvkmesh_Ls</span>
         <span class="n">bas_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">bvk_ncells</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">nimgs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-        <span class="n">supmol</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask_to_sh_loc</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">bas_mask</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="n">supmol</span><span class="o">.</span><span class="n">seg_loc</span><span class="p">,</span> <span class="n">supmol</span><span class="o">.</span><span class="n">seg2sh</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask_to_segment</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">bas_mask</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span> <span class="o">=</span> <span class="n">bas_mask</span>
-        <span class="n">supmol</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">precision</span> <span class="o">*</span> <span class="n">LATTICE_SUM_PENALTY</span>
+        <span class="n">supmol</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">precision</span>
+        <span class="n">supmol</span><span class="o">.</span><span class="n">_env</span><span class="p">[</span><span class="n">gto</span><span class="o">.</span><span class="n">PTR_EXPCUTOFF</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">precision</span><span class="o">*</span><span class="mf">1e-4</span><span class="p">)</span>
 
         <span class="n">_bas_reordered</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
             <span class="n">nimgs</span><span class="p">,</span> <span class="n">bvk_ncells</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">gto</span><span class="o">.</span><span class="n">BAS_SLOTS</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
         <span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">_bas_reordered</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">gto</span><span class="o">.</span><span class="n">BAS_SLOTS</span><span class="p">),</span>
                                  <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">supmol</span>
+        <span class="k">return</span> <span class="n">supmol</span></div>
 
-    <span class="k">def</span> <span class="nf">strip_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">'''Remove remote basis if they do not contribute to the FT of basis product'''</span>
-        <span class="n">ovlp_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ovlp_mask</span><span class="p">(</span><span class="n">cutoff</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
-            <span class="n">supmol</span> <span class="o">=</span> <span class="bp">self</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">supmol</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">ovlp_mask</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
-            <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span> <span class="o">=</span> <span class="n">ovlp_mask</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-            <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span><span class="p">[</span><span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">ovlp_mask</span>
-        <span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span><span class="p">[</span><span class="n">ovlp_mask</span><span class="p">]</span>
-        <span class="n">supmol</span><span class="o">.</span><span class="n">sh_loc</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask_to_sh_loc</span><span class="p">(</span><span class="n">supmol</span><span class="o">.</span><span class="n">rs_cell</span><span class="p">,</span> <span class="n">supmol</span><span class="o">.</span><span class="n">bas_mask</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">supmol</span>
 
+<div class="viewcode-block" id="ExtendedMole.strip_basis">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ExtendedMole.strip_basis">[docs]</a>
+    <span class="k">def</span> <span class="nf">strip_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rcut</span><span class="p">):</span>
+        <span class="n">rs_cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rs_cell</span>
+        <span class="n">dim</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">dimension</span>
+        <span class="k">if</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="n">supmol_bas_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atom_coords</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ATOM_OF</span><span class="p">]]</span>
+        <span class="n">rb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">supmol_bas_coords</span><span class="p">[:,:</span><span class="n">dim</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">lattice_vectors</span><span class="p">()</span>
+
+        <span class="c1"># filter _bas</span>
+        <span class="n">nbas0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">rb</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+            <span class="n">dr</span> <span class="o">=</span> <span class="n">rb</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">[:</span><span class="n">dim</span><span class="p">])</span>
+            <span class="n">dr</span> <span class="o">=</span> <span class="n">dr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span> <span class="o">=</span> <span class="n">bas_mask</span> <span class="o">=</span> <span class="n">dr</span> <span class="o">&lt;</span> <span class="n">rcut</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">ravel</span><span class="p">()]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="n">dr</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">1e9</span>
+            <span class="n">dr</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">rb</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">[:</span><span class="n">dim</span><span class="p">])</span>
+            <span class="n">bas_mask</span> <span class="o">=</span> <span class="n">dr</span> <span class="o">&lt;</span> <span class="n">rcut</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[</span><span class="n">bas_mask</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="p">]]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span> <span class="o">=</span> <span class="n">bas_mask</span>
+
+        <span class="c1"># filter _atm</span>
+        <span class="n">atm_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ATOM_OF</span><span class="p">])</span>
+        <span class="n">atm_mapping</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_atm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">atm_mapping</span><span class="p">[</span><span class="n">atm_ids</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">atm_ids</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_atm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_atm</span><span class="p">[</span><span class="n">atm_ids</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ATOM_OF</span><span class="p">]</span> <span class="o">=</span> <span class="n">atm_mapping</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ATOM_OF</span><span class="p">]]</span>
+
+        <span class="n">nbas1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'strip_basis </span><span class="si">%d</span><span class="s1"> to </span><span class="si">%d</span><span class="s1"> '</span><span class="p">,</span> <span class="n">nbas0</span><span class="p">,</span> <span class="n">nbas1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seg_loc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg2sh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bas_mask_to_segment</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="ExtendedMole.get_ovlp_mask">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ExtendedMole.get_ovlp_mask">[docs]</a>
     <span class="k">def</span> <span class="nf">get_ovlp_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''integral screening mask for basis product between cell and supmol'''</span>
-        <span class="k">if</span> <span class="n">cutoff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">cutoff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">precision</span>
+<span class="w">        </span><span class="sd">'''integral screening mask for basis product between cell and supmol'''</span>
         <span class="n">rs_cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rs_cell</span>
         <span class="n">supmol</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="c1"># consider only the most diffused component of a basis</span>
-        <span class="n">cell_exps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">e</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_exps</span><span class="p">()])</span>
+        <span class="n">cell_exps</span><span class="p">,</span> <span class="n">cell_cs</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">_extract_pgto_params</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">)</span>
         <span class="n">cell_l</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ANG_OF</span><span class="p">]</span>
         <span class="n">cell_bas_coords</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">atom_coords</span><span class="p">()[</span><span class="n">rs_cell</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ATOM_OF</span><span class="p">]]</span>
 
-        <span class="n">supmol_exps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">e</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">supmol</span><span class="o">.</span><span class="n">bas_exps</span><span class="p">()])</span>
+        <span class="k">if</span> <span class="n">cutoff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">theta_ij</span> <span class="o">=</span> <span class="n">cell_exps</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">vol</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">vol</span>
+            <span class="n">lattice_sum_factor</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">rs_cell</span><span class="o">.</span><span class="n">rcut</span><span class="o">/</span><span class="p">(</span><span class="n">vol</span><span class="o">*</span><span class="n">theta_ij</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">cutoff</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">precision</span><span class="o">/</span><span class="n">lattice_sum_factor</span> <span class="o">*</span> <span class="mf">.1</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Set ft_ao cutoff to </span><span class="si">%g</span><span class="s1">'</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
+
+        <span class="n">supmol_exps</span><span class="p">,</span> <span class="n">supmol_cs</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">_extract_pgto_params</span><span class="p">(</span><span class="n">supmol</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">)</span>
         <span class="n">supmol_bas_coords</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">atom_coords</span><span class="p">()[</span><span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ATOM_OF</span><span class="p">]]</span>
         <span class="n">supmol_l</span> <span class="o">=</span> <span class="n">supmol</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ANG_OF</span><span class="p">]</span>
 
-        <span class="c1"># Removing the angular part of each basis and turning basis to s-type</span>
-        <span class="c1"># functions, ovlp is an estimation of the upper bound of radial part</span>
-        <span class="c1"># overlap integrals</span>
         <span class="n">aij</span> <span class="o">=</span> <span class="n">cell_exps</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="n">supmol_exps</span>
-        <span class="n">a1</span> <span class="o">=</span> <span class="n">cell_exps</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">supmol_exps</span> <span class="o">/</span> <span class="n">aij</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">cell_exps</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">supmol_exps</span> <span class="o">/</span> <span class="n">aij</span>
         <span class="n">dr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">cell_bas_coords</span><span class="p">[:,</span><span class="kc">None</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">supmol_bas_coords</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-        <span class="c1"># dri is the distance between the center of gaussian product to basis_i</span>
-        <span class="c1"># drj is the distance between the center of gaussian product to basis_j</span>
-        <span class="n">dri</span> <span class="o">=</span> <span class="n">supmol_exps</span><span class="o">/</span><span class="n">aij</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">drj</span> <span class="o">=</span> <span class="n">cell_exps</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span><span class="o">/</span><span class="n">aij</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">ovlp</span> <span class="o">=</span> <span class="p">((</span><span class="mi">4</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">aij</span><span class="p">)</span><span class="o">**.</span><span class="mi">75</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a1</span><span class="o">*</span><span class="n">dr</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>
-                <span class="n">dri</span><span class="o">**</span><span class="n">cell_l</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">drj</span><span class="o">**</span><span class="n">supmol_l</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ovlp</span> <span class="o">&gt;</span> <span class="n">cutoff</span>
 
+        <span class="n">aij1</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">aij</span>
+        <span class="n">aij2</span> <span class="o">=</span> <span class="n">aij</span><span class="o">**-</span><span class="mf">.5</span>
+        <span class="n">dri</span> <span class="o">=</span> <span class="n">supmol_exps</span><span class="o">*</span><span class="n">aij1</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">+</span> <span class="n">aij2</span>
+        <span class="n">drj</span> <span class="o">=</span> <span class="n">cell_exps</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">aij1</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">+</span> <span class="n">aij2</span>
+        <span class="n">norm_i</span> <span class="o">=</span> <span class="n">cell_cs</span> <span class="o">*</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">cell_l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">**</span><span class="mf">.5</span>
+        <span class="n">norm_j</span> <span class="o">=</span> <span class="n">supmol_cs</span> <span class="o">*</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">supmol_l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">**</span><span class="mf">.5</span>
+        <span class="n">fl</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">rs_cell</span><span class="o">.</span><span class="n">vol</span><span class="o">*</span><span class="n">dr</span><span class="o">/</span><span class="n">theta</span> <span class="o">+</span> <span class="mf">1.</span>
+        <span class="n">ovlp</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">norm_i</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">norm_j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="o">*</span><span class="n">dr</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>
+                <span class="n">dri</span><span class="o">**</span><span class="n">cell_l</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">drj</span><span class="o">**</span><span class="n">supmol_l</span> <span class="o">*</span> <span class="n">aij1</span><span class="o">**</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">fl</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ovlp</span> <span class="o">&gt;</span> <span class="n">cutoff</span></div>
+
+
+<div class="viewcode-block" id="ExtendedMole.bas_mask_to_segment">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ExtendedMole.bas_mask_to_segment">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">bas_mask_to_sh_loc</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">,</span> <span class="n">bas_mask</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''</span>
+    <span class="k">def</span> <span class="nf">bas_mask_to_segment</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">,</span> <span class="n">bas_mask</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        bas_mask shape [bvk_ncells, nbas, nimgs]</span>
 <span class="sd">        '''</span>
         <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">rs_cell</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="n">bvk_ncells</span><span class="p">,</span> <span class="n">cell_rs_nbas</span><span class="p">,</span> <span class="n">nimgs</span> <span class="o">=</span> <span class="n">bas_mask</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">images_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bas_mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">log</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+
+        <span class="c1"># seg_loc maps shell Id in bvk-cell to segment Id in supmol</span>
+        <span class="c1"># seg2sh maps the segment Id to shell Id of supmol</span>
+        <span class="n">seg_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bvk_ncells</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">cell_rs_nbas</span> <span class="o">+</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">sh_loc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">seg_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seg_loc</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">bvk_ncells</span> <span class="o">*</span> <span class="n">cell_rs_nbas</span><span class="p">)</span>
+        <span class="n">seg2sh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">images_count</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>
+
+        <span class="k">if</span> <span class="n">log</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="n">logger</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
             <span class="n">steep_mask</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">STEEP_BASIS</span>
             <span class="n">local_mask</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">LOCAL_BASIS</span>
             <span class="n">diffused_mask</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">SMOOTH_BASIS</span>
             <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'No. steep basis in sup-mol </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">images_count</span><span class="p">[:,</span><span class="n">steep_mask</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
             <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'No. local basis in sup-mol </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">images_count</span><span class="p">[:,</span><span class="n">local_mask</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
             <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'No. diffused basis in sup-mol </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="n">images_count</span><span class="p">[:,</span><span class="n">diffused_mask</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug3</span><span class="p">(</span><span class="s1">'sup-mol seg_loc </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">seg_loc</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug3</span><span class="p">(</span><span class="s1">'sup-mol seg2sh </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">seg2sh</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">seg_loc</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span> <span class="n">seg2sh</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span></div>
 
-        <span class="n">cell0_sh_loc</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">sh_loc</span>
-        <span class="n">cell_nbas</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell0_sh_loc</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="n">condensed_images_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">bvk_ncells</span><span class="p">,</span> <span class="n">cell_nbas</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">ib</span><span class="p">,</span> <span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cell0_sh_loc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">cell0_sh_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:])):</span>
-            <span class="n">condensed_images_count</span><span class="p">[:,</span><span class="n">ib</span><span class="p">]</span> <span class="o">=</span> <span class="n">images_count</span><span class="p">[:,</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-        <span class="c1"># sh_loc maps from shell Id in bvk-cell to shell Id of supmol</span>
-        <span class="n">sh_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">condensed_images_count</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">debug3</span><span class="p">(</span><span class="s1">'sup-mol sh_loc </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">sh_loc</span><span class="p">)</span>
-        <span class="c1"># TODO: Some bases are completely inside the bvk-cell. Exclude them from</span>
-        <span class="c1"># lattice sum. ??</span>
-        <span class="c1"># sh_loc = np.append(0, np.cumsum(condensed_images_count[condensed_images_count != 0]))</span>
-        <span class="k">return</span> <span class="n">sh_loc</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-
+<div class="viewcode-block" id="ExtendedMole.bas_type_to_indices">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.ExtendedMole.bas_type_to_indices">[docs]</a>
     <span class="k">def</span> <span class="nf">bas_type_to_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_code</span><span class="o">=</span><span class="n">SMOOTH_BASIS</span><span class="p">):</span>
-        <span class="sd">'''Return the basis indices of required bas_type'''</span>
+<span class="w">        </span><span class="sd">'''Return the basis indices of required bas_type'''</span>
         <span class="n">cell0_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rs_cell</span><span class="o">.</span><span class="n">bas_type</span> <span class="o">==</span> <span class="n">type_code</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">cell0_mask</span><span class="p">):</span>
             <span class="c1"># (bvk_ncells, rs_cell.nbas, nimgs)</span>
@@ -962,9 +1074,56 @@
             <span class="n">bas_type_mask</span> <span class="o">=</span> <span class="n">bas_type_mask</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bas_mask</span><span class="p">]</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bas_type_mask</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
 
-    <span class="n">gen_ft_kernel</span> <span class="o">=</span> <span class="n">gen_ft_kernel</span>
+
+    <span class="n">gen_ft_kernel</span> <span class="o">=</span> <span class="n">gen_ft_kernel</span></div>
+
+
+<div class="viewcode-block" id="estimate_rcut">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.ft_ao.estimate_rcut">[docs]</a>
+<span class="k">def</span> <span class="nf">estimate_rcut</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Estimate rcut for each basis based on Schwarz inequality</span>
+<span class="sd">    Q_ij ~ S_ij * (sqrt(2aij/pi) * aij**(lij*2) * (4*lij-1)!!)**.5</span>
+<span class="sd">    '''</span>
+    <span class="k">if</span> <span class="n">precision</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">precision</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">precision</span>
+
+    <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">nbas</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># consider only the most diffused component of a basis</span>
+    <span class="n">exps</span><span class="p">,</span> <span class="n">cs</span> <span class="o">=</span> <span class="n">pbcgto</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">_extract_pgto_params</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">)</span>
+    <span class="n">ls</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_bas</span><span class="p">[:,</span><span class="n">gto</span><span class="o">.</span><span class="n">ANG_OF</span><span class="p">]</span>
+
+    <span class="n">ai_idx</span> <span class="o">=</span> <span class="n">exps</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+    <span class="n">ai</span> <span class="o">=</span> <span class="n">exps</span><span class="p">[</span><span class="n">ai_idx</span><span class="p">]</span>
+    <span class="n">li</span> <span class="o">=</span> <span class="n">ls</span><span class="p">[</span><span class="n">ai_idx</span><span class="p">]</span>
+    <span class="n">ci</span> <span class="o">=</span> <span class="n">cs</span><span class="p">[</span><span class="n">ai_idx</span><span class="p">]</span>
+    <span class="n">aj</span> <span class="o">=</span> <span class="n">exps</span>
+    <span class="n">lj</span> <span class="o">=</span> <span class="n">ls</span>
+    <span class="n">cj</span> <span class="o">=</span> <span class="n">cs</span>
+    <span class="n">aij</span> <span class="o">=</span> <span class="n">ai</span> <span class="o">+</span> <span class="n">aj</span>
+    <span class="n">lij</span> <span class="o">=</span> <span class="n">li</span> <span class="o">+</span> <span class="n">lj</span>
+    <span class="n">norm_ang</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">li</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">lj</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">**</span><span class="mf">.5</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="n">ci</span> <span class="o">*</span> <span class="n">cj</span> <span class="o">*</span> <span class="n">norm_ang</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">ai</span> <span class="o">*</span> <span class="n">aj</span> <span class="o">/</span> <span class="n">aij</span>
+    <span class="n">aij1</span> <span class="o">=</span> <span class="n">aij</span><span class="o">**-</span><span class="mf">.5</span>
+    <span class="n">fac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mf">1.5</span><span class="o">*</span><span class="n">c1</span> <span class="o">*</span> <span class="n">aij1</span><span class="o">**</span><span class="p">(</span><span class="n">lij</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">aij</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mf">.25</span> <span class="o">*</span> <span class="n">aij</span><span class="o">**</span><span class="n">lij</span>
+    <span class="n">fac</span> <span class="o">/=</span> <span class="n">precision</span>
+
+    <span class="n">r0</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">rcut</span>
+    <span class="n">dri</span> <span class="o">=</span> <span class="n">aj</span><span class="o">*</span><span class="n">aij1</span> <span class="o">*</span> <span class="n">r0</span> <span class="o">+</span> <span class="mf">1.</span>
+    <span class="n">drj</span> <span class="o">=</span> <span class="n">ai</span><span class="o">*</span><span class="n">aij1</span> <span class="o">*</span> <span class="n">r0</span> <span class="o">+</span> <span class="mf">1.</span>
+    <span class="n">fl</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">cell</span><span class="o">.</span><span class="n">vol</span> <span class="o">*</span> <span class="n">r0</span><span class="o">/</span><span class="n">theta</span>
+    <span class="n">r0</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fac</span> <span class="o">*</span> <span class="n">dri</span><span class="o">**</span><span class="n">li</span> <span class="o">*</span> <span class="n">drj</span><span class="o">**</span><span class="n">lj</span> <span class="o">*</span> <span class="n">fl</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">/</span> <span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span>
+
+    <span class="n">dri</span> <span class="o">=</span> <span class="n">aj</span><span class="o">*</span><span class="n">aij1</span> <span class="o">*</span> <span class="n">r0</span> <span class="o">+</span> <span class="mf">1.</span>
+    <span class="n">drj</span> <span class="o">=</span> <span class="n">ai</span><span class="o">*</span><span class="n">aij1</span> <span class="o">*</span> <span class="n">r0</span> <span class="o">+</span> <span class="mf">1.</span>
+    <span class="n">fl</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">cell</span><span class="o">.</span><span class="n">vol</span> <span class="o">*</span> <span class="n">r0</span><span class="o">/</span><span class="n">theta</span>
+    <span class="n">r0</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fac</span> <span class="o">*</span> <span class="n">dri</span><span class="o">**</span><span class="n">li</span> <span class="o">*</span> <span class="n">drj</span><span class="o">**</span><span class="n">lj</span> <span class="o">*</span> <span class="n">fl</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">/</span> <span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span>
+    <span class="k">return</span> <span class="n">r0</span></div>
+
 </pre></div>
 
           </article>
@@ -989,7 +1148,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

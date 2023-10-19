@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -48,18 +47,16 @@
   
   
     <title>Molecular Dynamics &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -91,8 +88,7 @@
         <a href="../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -101,7 +97,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> Molecular Dynamics </span>
         </div>
       </div>
@@ -112,7 +108,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -203,11 +199,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -231,7 +227,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -355,11 +372,15 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-md--page-root" class="md-nav__link">Molecular Dynamics</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#introduction" class="md-nav__link">Introduction</a>
+        </li>
+        <li class="md-nav__item"><a href="#integrators" class="md-nav__link">Integrators</a>
+        </li>
+        <li class="md-nav__item"><a href="#initial-velocity" class="md-nav__link">Initial Velocity</a>
         </li></ul>
             </nav>
         </li>
@@ -412,6 +433,13 @@
       <a href="geomopt.html" class="md-nav__link">Geometry optimization</a>
       
     
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="reference.html" class="md-nav__link">References</a>
+      
+    
     </li></ul>
     
     </li>
@@ -448,11 +476,15 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-md--page-root" class="md-nav__link">Molecular Dynamics</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#introduction" class="md-nav__link">Introduction</a>
+        </li>
+        <li class="md-nav__item"><a href="#integrators" class="md-nav__link">Integrators</a>
+        </li>
+        <li class="md-nav__item"><a href="#initial-velocity" class="md-nav__link">Initial Velocity</a>
         </li></ul>
             </nav>
         </li>
@@ -471,19 +503,12 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="molecular-dynamics">
-<span id="user-md"></span><h1 id="user-md--page-root">Molecular Dynamics<a class="headerlink" href="#user-md--page-root" title="Permalink to this heading">¶</a></h1>
-<p><em>Modules</em>: <code class="xref py py-mod docutils literal notranslate"><span class="pre">md</span></code></p>
+<span id="user-md"></span><h1 id="user-md--page-root">Molecular Dynamics<a class="headerlink" href="#user-md--page-root" title="Link to this heading">¶</a></h1>
+<p><em>Modules</em>: <a class="reference internal" href="../pyscf_api_docs/pyscf.md.html#module-pyscf.md" title="pyscf.md"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyscf.md</span></code></a></p>
 <section id="introduction">
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Using any available method for computing gradients, molecular dynamics can be run to evolve the nuclei along their potential energy surfaces.
-The MD module in PySCF supports the Velocity-Verlet integration scheme in the NVE ensemble. The positions are evolved according to:</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{r}(t_{i+1}) = \mathbf{r}(t_i) + (\delta t) \mathbf{v}(t_i) + \frac{1}{2}(\delta t)^2 \mathbf{a}(t_i)\]</div>
-<p>and the velocities are evolved as</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{v}(t_{i+1}) = \mathbf{v}(t_i) + (\delta t) \frac{\mathbf{a}(t_{i+1}) + \mathbf{a}(t_i)}{2}\]</div>
-<p>Note that to compute the acceleration, the most common isotope masses are used (rather than the average isotope mass).
-A simple example of a Born-Oppenheimer MD simulation with CASSCF is given in <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/md/00-simple_nve.py">examples/md/00-simple_nve.py</a></p>
+The MD module in PySCF supports both NVE and NVT ensemble integrations. A simple example of an NVE Born-Oppenheimer MD simulation with CASSCF is given in <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/md/00-simple_nve.py">examples/md/00-simple_nve.py</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">'''</span>
@@ -510,7 +535,7 @@ A simple example of a Born-Oppenheimer MD simulation with CASSCF is given in <a 
 <span class="n">myintegrator</span> <span class="o">=</span> <span class="n">pyscf</span><span class="o">.</span><span class="n">md</span><span class="o">.</span><span class="n">NVE</span><span class="p">(</span><span class="n">myscanner</span><span class="p">,</span>
                             <span class="n">dt</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                             <span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                            <span class="n">energy_output</span><span class="o">=</span><span class="s2">"BOMD.md.energies"</span><span class="p">,</span>
+                            <span class="n">data_output</span><span class="o">=</span><span class="s2">"BOMD.md.data"</span><span class="p">,</span>
                             <span class="n">trajectory_output</span><span class="o">=</span><span class="s2">"BOMD.md.xyz"</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># Note that we can also just pass the CASSCF object directly to</span>
@@ -518,23 +543,23 @@ A simple example of a Born-Oppenheimer MD simulation with CASSCF is given in <a 
 <span class="c1"># myintegrator = pyscf.md.NVE(mycas, dt=5, steps=100)</span>
 
 <span class="c1"># Close the file streams for the energy and trajectory.</span>
-<span class="n">myintegrator</span><span class="o">.</span><span class="n">energy_output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">myintegrator</span><span class="o">.</span><span class="n">data_output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">myintegrator</span><span class="o">.</span><span class="n">trajectory_output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>This will create 2 files, BOMD.md.energies and BOMD.md.xyz that will contain the energy and structures for each frame along the trajectory.
-The BOMD.md.energies will look like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">time</span>          <span class="n">Epot</span>                 <span class="n">Ekin</span>                 <span class="n">Etot</span>
- <span class="mf">0.00</span>  <span class="o">-</span><span class="mf">1.497083671814E+02</span>  <span class="mf">0.000000000000E+00</span>  <span class="o">-</span><span class="mf">1.497083671814E+02</span>
- <span class="mf">5.00</span>  <span class="o">-</span><span class="mf">1.497083678220E+02</span>  <span class="mf">6.403560409065E-07</span>  <span class="o">-</span><span class="mf">1.497083671817E+02</span>
-<span class="mf">10.00</span>  <span class="o">-</span><span class="mf">1.497083697402E+02</span>  <span class="mf">2.557810719094E-06</span>  <span class="o">-</span><span class="mf">1.497083671824E+02</span>
-<span class="mf">15.00</span>  <span class="o">-</span><span class="mf">1.497083729250E+02</span>  <span class="mf">5.741509150521E-06</span>  <span class="o">-</span><span class="mf">1.497083671835E+02</span>
-<span class="mf">20.00</span>  <span class="o">-</span><span class="mf">1.497083773584E+02</span>  <span class="mf">1.017340316838E-05</span>  <span class="o">-</span><span class="mf">1.497083671850E+02</span>
-<span class="mf">25.00</span>  <span class="o">-</span><span class="mf">1.497083830154E+02</span>  <span class="mf">1.582841563588E-05</span>  <span class="o">-</span><span class="mf">1.497083671870E+02</span>
-<span class="mf">30.00</span>  <span class="o">-</span><span class="mf">1.497083898640E+02</span>  <span class="mf">2.267458853778E-05</span>  <span class="o">-</span><span class="mf">1.497083671894E+02</span>
-<span class="mf">35.00</span>  <span class="o">-</span><span class="mf">1.497083978654E+02</span>  <span class="mf">3.067323581032E-05</span>  <span class="o">-</span><span class="mf">1.497083671922E+02</span>
-<span class="mf">40.00</span>  <span class="o">-</span><span class="mf">1.497084069752E+02</span>  <span class="mf">3.977943396938E-05</span>  <span class="o">-</span><span class="mf">1.497083671958E+02</span>
-<span class="mf">45.00</span>  <span class="o">-</span><span class="mf">1.497084171413E+02</span>  <span class="mf">4.994201038141E-05</span>  <span class="o">-</span><span class="mf">1.497083671993E+02</span>
+<p>This will create 2 files, BOMD.md.data and BOMD.md.xyz that will contain the energy and structures for each frame along the trajectory.
+The BOMD.md.data will look like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time</span>          <span class="n">Epot</span>                 <span class="n">Ekin</span>                 <span class="n">Etot</span>               <span class="n">T</span>
+    <span class="mf">0.00</span>  <span class="o">-</span><span class="mf">1.497083671804E+02</span>  <span class="mf">0.000000000000E+00</span>  <span class="o">-</span><span class="mf">1.497083671804E+02</span>   <span class="mf">0.0000</span>
+    <span class="mf">5.00</span>  <span class="o">-</span><span class="mf">1.497083678218E+02</span>  <span class="mf">6.402095343905E-07</span>  <span class="o">-</span><span class="mf">1.497083671816E+02</span>   <span class="mf">0.0674</span>
+   <span class="mf">10.00</span>  <span class="o">-</span><span class="mf">1.497083697399E+02</span>  <span class="mf">2.557532001000E-06</span>  <span class="o">-</span><span class="mf">1.497083671823E+02</span>   <span class="mf">0.2692</span>
+   <span class="mf">15.00</span>  <span class="o">-</span><span class="mf">1.497083729245E+02</span>  <span class="mf">5.741058994089E-06</span>  <span class="o">-</span><span class="mf">1.497083671835E+02</span>   <span class="mf">0.6043</span>
+   <span class="mf">20.00</span>  <span class="o">-</span><span class="mf">1.497083773578E+02</span>  <span class="mf">1.017280141026E-05</span>  <span class="o">-</span><span class="mf">1.497083671850E+02</span>   <span class="mf">1.0708</span>
+   <span class="mf">25.00</span>  <span class="o">-</span><span class="mf">1.497083830147E+02</span>  <span class="mf">1.582769986352E-05</span>  <span class="o">-</span><span class="mf">1.497083671870E+02</span>   <span class="mf">1.6660</span>
+   <span class="mf">30.00</span>  <span class="o">-</span><span class="mf">1.497083898631E+02</span>  <span class="mf">2.267377586371E-05</span>  <span class="o">-</span><span class="mf">1.497083671893E+02</span>   <span class="mf">2.3866</span>
+   <span class="mf">35.00</span>  <span class="o">-</span><span class="mf">1.497083978644E+02</span>  <span class="mf">3.067236427680E-05</span>  <span class="o">-</span><span class="mf">1.497083671921E+02</span>   <span class="mf">3.2285</span>
+   <span class="mf">40.00</span>  <span class="o">-</span><span class="mf">1.497084069741E+02</span>  <span class="mf">3.977851890862E-05</span>  <span class="o">-</span><span class="mf">1.497083671956E+02</span>   <span class="mf">4.1870</span>
+   <span class="mf">45.00</span>  <span class="o">-</span><span class="mf">1.497084171401E+02</span>  <span class="mf">4.994098786544E-05</span>  <span class="o">-</span><span class="mf">1.497083671991E+02</span>   <span class="mf">5.2567</span>
 </pre></div>
 </div>
 <p>and the BOMD.md.xyz will look like</p>
@@ -581,6 +606,41 @@ The BOMD.md.energies will look like</p>
 </pre></div>
 </div>
 </section>
+<section id="integrators">
+<h2 id="integrators">Integrators<a class="headerlink" href="#integrators" title="Link to this heading">¶</a></h2>
+<p>The NVE ensemble uses the Velocity-Verlet integration scheme. The positions are evolved according to:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{r}(t_{i+1}) = \mathbf{r}(t_i) + (\delta t) \mathbf{v}(t_i) + \frac{1}{2}(\delta t)^2 \mathbf{a}(t_i)\]</div>
+<p>and the velocities are evolved as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{v}(t_{i+1}) = \mathbf{v}(t_i) + (\delta t) \frac{\mathbf{a}(t_{i+1}) + \mathbf{a}(t_i)}{2}\]</div>
+<p>Note that to compute the acceleration, the most common isotope masses are used (rather than the average isotope mass).</p>
+<p>The NVT ensemble only has the Berendsen thermostat implemented. The Berendsen thermostat updates the velocities by weakly coupling the system to a heat bath at some temperature (<span class="math notranslate nohighlight">\(T_0\)</span>). The temperature is therefore corrected such that the deviation exponentially decays with some time constant <span class="math notranslate nohighlight">\(\tau\)</span>. <span class="math notranslate nohighlight">\(\tau\)</span> can also be understood as the strength of the coupling between the system and bath.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dT}{dt} = \frac{T_0 - T}{\tau}\]</div>
+<p>At each time step, the velocities are rescaled according to</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{v}_\mathrm{scaled}(t) = \mathbf{v}(t)\lambda\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is given as</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \sqrt{1 + \frac{\delta t}{\tau}\left(\frac{T_0}{T} - 1\right)}\]</div>
+<p>Note that we limit <span class="math notranslate nohighlight">\(\lambda\)</span> to reasonable values. That is, if <span class="math notranslate nohighlight">\(\lambda\)</span> is less 0.9, we set it to 0.9; and if <span class="math notranslate nohighlight">\(\lambda\)</span> is greater than 1.1, we set it to 1.1. See <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/md/04-mb_nvt_berendson.py">examples/md/04-mb_nvt_berendson.py</a> for an example of how to use the Berendson theromstat.</p>
+</section>
+<section id="initial-velocity">
+<h2 id="initial-velocity">Initial Velocity<a class="headerlink" href="#initial-velocity" title="Link to this heading">¶</a></h2>
+<p>The initial velocity for the system can be set through the <cite>veloc</cite> kwarg in the construction of the integrator such as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">integrator</span> <span class="o">=</span> <span class="n">pyscf</span><span class="o">.</span><span class="n">md</span><span class="o">.</span><span class="n">NVE</span><span class="p">(</span><span class="n">hf</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">veloc</span><span class="o">=</span><span class="n">init_veloc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This can be useful for restarting a dynamics simulation with a prior velocity, or starting a simulation with a specific temperature. Additionally, the MD module also contains a function to sample the velocities from a Maxwell-Boltzmann distribution at a given temperature (in Kelvin).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">init_veloc</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">MaxwellBotlzmannVelocity</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The Maxwell-Botlzmann distribution at a specific temperature <span class="math notranslate nohighlight">\(T\)</span> for a particle of mass <span class="math notranslate nohighlight">\(m\)</span> is given as</p>
+<div class="math notranslate nohighlight">
+\[f(v)dv = \sqrt{\frac{m}{2\pi k T}}\exp\left(-\frac{mv^2}{2kT}\right)\]</div>
+<p>Since all of the distributions use the same pseudo-random number generator, the specific seed used can be set with the <cite>md.set_seed()</cite> function. The seed can also be set within the <cite>PYSCF_CONFIG_FILE</cite> as the <cite>SEED</cite> variable.</p>
+</section>
 </section>
 
 
@@ -602,7 +662,7 @@ The BOMD.md.energies will look like</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> QM/MM methods </span>
+                      class="md-footer-nav__direction"> "Previous" </span> QM/MM methods </span>
               </div>
             </a>
           
@@ -612,7 +672,7 @@ The BOMD.md.energies will look like</p>
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Density fitting (DF) </span>
+                class="md-footer-nav__direction"> "Next" </span> Density fitting (DF) </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -630,7 +690,7 @@ The BOMD.md.energies will look like</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

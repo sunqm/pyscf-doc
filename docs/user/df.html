@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -48,18 +47,16 @@
   
   
     <title>Density fitting (DF) &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -91,8 +88,7 @@
         <a href="../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -101,7 +97,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> Density fitting (DF) </span>
         </div>
       </div>
@@ -112,7 +108,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -203,11 +199,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -231,7 +227,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -362,7 +379,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-df--page-root" class="md-nav__link">Density fitting (DF)</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -383,8 +400,6 @@
         <li class="md-nav__item"><a href="#saving-and-reusing-df-tensors" class="md-nav__link">Saving and reusing DF tensors</a>
         </li>
         <li class="md-nav__item"><a href="#advanced-examples" class="md-nav__link">Advanced examples</a>
-        </li>
-        <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
         </li></ul>
             </nav>
         </li>
@@ -430,6 +445,13 @@
       <a href="geomopt.html" class="md-nav__link">Geometry optimization</a>
       
     
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="reference.html" class="md-nav__link">References</a>
+      
+    
     </li></ul>
     
     </li>
@@ -466,7 +488,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-df--page-root" class="md-nav__link">Density fitting (DF)</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -487,8 +509,6 @@
         <li class="md-nav__item"><a href="#saving-and-reusing-df-tensors" class="md-nav__link">Saving and reusing DF tensors</a>
         </li>
         <li class="md-nav__item"><a href="#advanced-examples" class="md-nav__link">Advanced examples</a>
-        </li>
-        <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
         </li></ul>
             </nav>
         </li>
@@ -507,14 +527,14 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="density-fitting-df">
-<span id="user-df"></span><h1 id="user-df--page-root">Density fitting (DF)<a class="headerlink" href="#user-df--page-root" title="Permalink to this heading">¶</a></h1>
-<p><em>Modules</em>: <a class="reference internal" href="#module-df" title="df: Density fitting and RI approximation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">df</span></code></a>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">pbc.df</span></code></p>
-<span class="target" id="module-df"></span><section id="introduction">
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
-<p>Density fitting (DF), sometimes also called the resolution of identity (RI) approximation, is a method to approximate the four-index electron repulsion integrals (ERIs) by two- and three-index tensors. <span id="id1">[]</span> In DF, the atomic orbital (AO) product space is expanded in terms of an auxiliary basis set. PySCF has extensive support for using DF in both molecular and crystalline calculations. This section covers the basic usage of DF in molecular applications. See <a class="reference internal" href="pbc/df.html#user-pbc-df"><span class="std std-ref">Density fitting for crystalline calculations</span></a> for the use of DF in periodic calculations.</p>
+<span id="user-df"></span><h1 id="user-df--page-root">Density fitting (DF)<a class="headerlink" href="#user-df--page-root" title="Link to this heading">¶</a></h1>
+<p><em>Modules</em>: <a class="reference internal" href="../pyscf_api_docs/pyscf.df.html#module-pyscf.df" title="pyscf.df"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyscf.df</span></code></a>, <a class="reference internal" href="../pyscf_api_docs/pyscf.pbc.df.html#module-pyscf.pbc.df" title="pyscf.pbc.df"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyscf.pbc.df</span></code></a></p>
+<section id="introduction">
+<span id="module-df"></span><h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>Density fitting (DF), sometimes also called the resolution of identity (RI) approximation, is a method to approximate the four-index electron repulsion integrals (ERIs) by two- and three-index tensors. <span id="id1">[<a class="reference internal" href="reference.html#id15" title="Brett I. Dunlap. Robust and variational fitting. Phys. Chem. Chem. Phys., 2:2113–2116, 2000. doi:10.1039/B000027M.">52</a>]</span> In DF, the atomic orbital (AO) product space is expanded in terms of an auxiliary basis set. PySCF has extensive support for using DF in both molecular and crystalline calculations. This section covers the basic usage of DF in molecular applications. See <a class="reference internal" href="pbc/df.html#user-pbc-df"><span class="std std-ref">Density fitting for crystalline calculations</span></a> for the use of DF in periodic calculations.</p>
 </section>
 <section id="using-df-in-scf-calculations">
-<h2 id="using-df-in-scf-calculations">Using DF in SCF calculations<a class="headerlink" href="#using-df-in-scf-calculations" title="Permalink to this heading">¶</a></h2>
+<h2 id="using-df-in-scf-calculations">Using DF in SCF calculations<a class="headerlink" href="#using-df-in-scf-calculations" title="Link to this heading">¶</a></h2>
 <p>DF is not used by default when initializing a <code class="xref py py-class docutils literal notranslate"><span class="pre">SCF</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">MCSCF</span></code> object, but can be invoked via the <code class="xref py py-func docutils literal notranslate"><span class="pre">density_fit()</span></code> method as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span><span class="p">,</span> <span class="n">mcscf</span>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s1">'N 0 0 0; N 0 0 1.2'</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">'def2-tzvp'</span><span class="p">)</span>
@@ -534,7 +554,7 @@
 <p>Setting <code class="xref py py-attr docutils literal notranslate"><span class="pre">with_df</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code> turns DF off.</p>
 </section>
 <section id="using-df-in-post-scf-calculations">
-<h2 id="using-df-in-post-scf-calculations">Using DF in post-SCF calculations<a class="headerlink" href="#using-df-in-post-scf-calculations" title="Permalink to this heading">¶</a></h2>
+<h2 id="using-df-in-post-scf-calculations">Using DF in post-SCF calculations<a class="headerlink" href="#using-df-in-post-scf-calculations" title="Link to this heading">¶</a></h2>
 <p>A post-SCF calculation will use DF automatically if the preceding SCF calculation is performed using DF. The example below performs a TDDFT/TDA calculation using DF:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">dft</span><span class="p">,</span> <span class="n">tddft</span>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s1">'N 0 0 0; N 0 0 1.2'</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">'def2-tzvp'</span><span class="p">)</span>
@@ -543,7 +563,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>    <span class="c1"># output: [0.27294247 0.28837975 0.2883798 ]</span>
 </pre></div>
 </div>
-<p>Alternatively, one can use the <code class="xref py py-func docutils literal notranslate"><span class="pre">density_fit()</span></code> method provided by most post-SCF classes in the same way as in a SCF calculation described above. This is useful when one wants to use DF to accelerate only the post-SCF calculations or to use a different auxiliary basis for the post-SCF calculations than that used by SCF. The example below performs a DF-MP2 calculation using the <code class="docutils literal notranslate"><span class="pre">cc-pvtz-ri</span></code> basis <span id="id2">[]</span> on top of a SCF calculation that does not use DF:</p>
+<p>Alternatively, one can use the <code class="xref py py-func docutils literal notranslate"><span class="pre">density_fit()</span></code> method provided by most post-SCF classes in the same way as in a SCF calculation described above. This is useful when one wants to use DF to accelerate only the post-SCF calculations or to use a different auxiliary basis for the post-SCF calculations than that used by SCF. The example below performs a DF-MP2 calculation using the <code class="docutils literal notranslate"><span class="pre">cc-pvtz-ri</span></code> basis <span id="id2">[<a class="reference internal" href="reference.html#id19" title="Florian Weigend, Andreas Köhn, and Christof Hättig. Efficient use of the correlation consistent basis sets in resolution of the identity mp2 calculations. J. Chem. Phys., 116:3175–3183, 2002. doi:10.1063/1.1445115.">53</a>]</span> on top of a SCF calculation that does not use DF:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span><span class="p">,</span> <span class="n">mp</span>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s1">'N 0 0 0; N 0 0 1.2'</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">'cc-pvtz'</span><span class="p">)</span>
 <span class="n">mf</span> <span class="o">=</span> <span class="n">scf</span><span class="o">.</span><span class="n">RHF</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -554,12 +574,12 @@
 </div>
 </section>
 <section id="choice-of-auxiliary-basis">
-<span id="choice-of-auxbasis"></span><h2 id="choice-of-auxiliary-basis">Choice of auxiliary basis<a class="headerlink" href="#choice-of-auxiliary-basis" title="Permalink to this heading">¶</a></h2>
+<span id="choice-of-auxbasis"></span><h2 id="choice-of-auxiliary-basis">Choice of auxiliary basis<a class="headerlink" href="#choice-of-auxiliary-basis" title="Link to this heading">¶</a></h2>
 <section id="general-considerations">
-<h3 id="general-considerations">General considerations<a class="headerlink" href="#general-considerations" title="Permalink to this heading">¶</a></h3>
+<h3 id="general-considerations">General considerations<a class="headerlink" href="#general-considerations" title="Link to this heading">¶</a></h3>
 <p>The choice of auxiliary basis depends on the AO basis.
 By default, PySCF uses a pre-defined auxiliary basis set optimized for the used AO basis set, if one exists.
-This includes many commonly used AO basis sets in electronic structure calculations, e.g., the Ahlrichs <cite>def2</cite> family, <span id="id3">[]</span> and the Dunning <cite>cc</cite> family, <span id="id4">[]</span>.</p>
+This includes many commonly used AO basis sets in electronic structure calculations, e.g., the Ahlrichs <cite>def2</cite> family, <span id="id3">[<a class="reference internal" href="reference.html#id16" title="Arnim Hellweg, Christof Hättig, Sebastian Höfener, and Wim Klopper. Optimized accurate auxiliary basis sets for ri-mp2 and ri-cc2 calculations for the atoms rb to rn. Theor. Chem. Acc., 117:587–597, 2007. doi:10.1007/s00214-007-0250-5.">54</a>, <a class="reference internal" href="reference.html#id17" title="Florian Weigend, Marco Häser, Holger Patzelt, and Reinhart Ahlrichs. Ri-mp2: optimized auxiliary basis sets and demonstration of efficiency. Chem. Phys. Lett., 294:143–152, 1998. doi:10.1016/S0009-2614(98)00862-8.">55</a>]</span> and the Dunning <cite>cc</cite> family, <span id="id4">[<a class="reference internal" href="reference.html#id18" title="Florian Weigend. A fully direct ri-hf algorithm: implementation, optimised auxiliary basis sets, demonstration of accuracy and efficiency. Phys. Chem. Chem. Phys., 4:4285–4291, 2002. doi:10.1039/B204199P.">56</a>]</span>.</p>
 <p>When a pre-defined auxiliary basis set is not available, an even-tempered basis (ETB) set is generated by the following rule</p>
 <div class="math notranslate nohighlight">
 \[\varphi_i
@@ -583,8 +603,8 @@ This includes many commonly used AO basis sets in electronic structure calculati
 <p>More examples on using customized auxiliary basis can be found in <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/df/01-auxbasis.py">examples/df/01-auxbasis.py</a>.</p>
 </section>
 <section id="special-considerations-for-dft">
-<h3 id="special-considerations-for-dft">Special considerations for DFT<a class="headerlink" href="#special-considerations-for-dft" title="Permalink to this heading">¶</a></h3>
-<p>For DFT calculations with pure exchange-correlation functionals (i.e., LDA and GGA), the default auxiliary basis, which is designed for fitting both the Coulomb and the Hartree-Fock exchange integrals, may be unnecessarily large. We recommend using the <code class="docutils literal notranslate"><span class="pre">def2-universal-jfit</span></code> basis <span id="id5">[]</span> for a more cost-effective choice as shown in the following example:</p>
+<h3 id="special-considerations-for-dft">Special considerations for DFT<a class="headerlink" href="#special-considerations-for-dft" title="Link to this heading">¶</a></h3>
+<p>For DFT calculations with pure exchange-correlation functionals (i.e., LDA and GGA), the default auxiliary basis, which is designed for fitting both the Coulomb and the Hartree-Fock exchange integrals, may be unnecessarily large. We recommend using the <code class="docutils literal notranslate"><span class="pre">def2-universal-jfit</span></code> basis <span id="id5">[<a class="reference internal" href="reference.html#id20" title="Florian Weigend. Accurate coulomb-fitting basis sets for h to rn. Phys. Chem. Chem. Phys., 8:1057–1065, 2006. doi:10.1039/B515623H.">57</a>]</span> for a more cost-effective choice as shown in the following example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">dft</span>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="s1">'N 0 0 0; N 0 0 1.2'</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">'def2-tzvpp'</span><span class="p">)</span>
 <span class="n">mf</span> <span class="o">=</span> <span class="n">dft</span><span class="o">.</span><span class="n">RKS</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="s2">"pbe"</span><span class="p">)</span><span class="o">.</span><span class="n">density_fit</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> <span class="c1"># -109.432329411505</span>
@@ -598,7 +618,7 @@ This includes many commonly used AO basis sets in electronic structure calculati
 </section>
 </section>
 <section id="saving-and-reusing-df-tensors">
-<span id="save-reuse-df-tensors"></span><h2 id="saving-and-reusing-df-tensors">Saving and reusing DF tensors<a class="headerlink" href="#saving-and-reusing-df-tensors" title="Permalink to this heading">¶</a></h2>
+<span id="save-reuse-df-tensors"></span><h2 id="saving-and-reusing-df-tensors">Saving and reusing DF tensors<a class="headerlink" href="#saving-and-reusing-df-tensors" title="Link to this heading">¶</a></h2>
 <p>A key result of the <code class="xref py py-class docutils literal notranslate"><span class="pre">DF</span></code> class is the Cholesky decomposition of the ERIs (CDERIs) in terms of the 3-index tensor <span class="math notranslate nohighlight">\(d_{L\mu\nu}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[(\mu\nu|\lambda\sigma)
@@ -626,7 +646,7 @@ By default, the 3-index tensor defining the CDERIs is discarded once the calcula
 <p>More examples on saving and using DF integrals and tensors can be found in <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/df/10-access_df_integrals.py">examples/df/10-access_df_integrals.py</a>, <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/df/11-access_df_tensor.py">examples/df/11-access_df_tensor.py</a>, and <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/df/40-precompute_df_integrals.py">examples/df/40-precompute_df_integrals.py</a>.</p>
 </section>
 <section id="advanced-examples">
-<h2 id="advanced-examples">Advanced examples<a class="headerlink" href="#advanced-examples" title="Permalink to this heading">¶</a></h2>
+<h2 id="advanced-examples">Advanced examples<a class="headerlink" href="#advanced-examples" title="Link to this heading">¶</a></h2>
 <p>More advanced examples of using the <a class="reference internal" href="#module-df" title="df: Density fitting and RI approximation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">df</span></code></a> module include</p>
 <ul class="simple">
 <li><p>Computing the <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>-matrix of DFT in an I/O-free manner: <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/df/11-get_j_io_free.py">examples/df/11-get_j_io_free.py</a>.</p></li>
@@ -635,9 +655,6 @@ By default, the 3-index tensor defining the CDERIs is discarded once the calcula
 <li><p>Customizing the <code class="xref py py-func docutils literal notranslate"><span class="pre">get_jk()</span></code> method of a SCF class using DF: <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/df/42-overwrite_get_jk.py">examples/df/42-overwrite_get_jk.py</a>.</p></li>
 </ul>
 </section>
-<section id="references">
-<h2 id="references">References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
-<span class="target" id="id6"></span></section>
 </section>
 
 
@@ -659,7 +676,7 @@ By default, the 3-index tensor defining the CDERIs is discarded once the calcula
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Molecular Dynamics </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Molecular Dynamics </span>
               </div>
             </a>
           
@@ -669,7 +686,7 @@ By default, the 3-index tensor defining the CDERIs is discarded once the calcula
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Periodic boundary conditions </span>
+                class="md-footer-nav__direction"> "Next" </span> Periodic boundary conditions </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -687,7 +704,7 @@ By default, the 3-index tensor defining the CDERIs is discarded once the calcula
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

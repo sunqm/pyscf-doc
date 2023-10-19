@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.pbc.df.mdf &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.pbc.df.mdf </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -199,11 +195,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -227,7 +223,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -317,8 +334,6 @@
 <span class="sd">J. Chem. Phys. 147, 164119 (2017)</span>
 <span class="sd">'''</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-
 <span class="kn">import</span> <span class="nn">tempfile</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">h5py</span>
@@ -327,13 +342,13 @@
 <span class="kn">from</span> <span class="nn">pyscf.lib</span> <span class="kn">import</span> <span class="n">logger</span><span class="p">,</span> <span class="n">zdotCN</span>
 <span class="kn">from</span> <span class="nn">pyscf.df.outcore</span> <span class="kn">import</span> <span class="n">_guess_shell_ranges</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc</span> <span class="kn">import</span> <span class="n">gto</span>
-<span class="kn">from</span> <span class="nn">pyscf.pbc.tools</span> <span class="kn">import</span> <span class="n">pbc</span> <span class="k">as</span> <span class="n">pbctools</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">outcore</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">ft_ao</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">df</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">aft</span>
+<span class="kn">from</span> <span class="nn">pyscf.pbc.df.aft</span> <span class="kn">import</span> <span class="n">_check_kpts</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df.gdf_builder</span> <span class="kn">import</span> <span class="n">_CCGDFBuilder</span>
-<span class="kn">from</span> <span class="nn">pyscf.pbc.df.rsdf_builder</span> <span class="kn">import</span> <span class="n">_RSGDFBuilder</span><span class="p">,</span> <span class="n">_round_off_to_odd_mesh</span>
+<span class="kn">from</span> <span class="nn">pyscf.pbc.df.rsdf_builder</span> <span class="kn">import</span> <span class="n">_RSGDFBuilder</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df.incore</span> <span class="kn">import</span> <span class="n">libpbc</span><span class="p">,</span> <span class="n">make_auxcell</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.lib.kpts_helper</span> <span class="kn">import</span> <span class="n">is_zero</span><span class="p">,</span> <span class="n">member</span><span class="p">,</span> <span class="n">unique</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">mdf_jk</span>
@@ -342,9 +357,12 @@
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">__config__</span>
 
 
-<div class="viewcode-block" id="MDF"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF">[docs]</a><span class="k">class</span> <span class="nc">MDF</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">GDF</span><span class="p">):</span>
-    <span class="sd">'''Gaussian and planewaves mixed density fitting</span>
+<div class="viewcode-block" id="MDF">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF">[docs]</a>
+<span class="k">class</span> <span class="nc">MDF</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">GDF</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Gaussian and planewaves mixed density fitting</span>
 <span class="sd">    '''</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cell</span> <span class="o">=</span> <span class="n">cell</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">stdout</span>
@@ -372,6 +390,9 @@
         <span class="c1"># tends to call _CCMDFBuilder if applicable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prefer_ccdf</span> <span class="o">=</span> <span class="kc">False</span>
 
+        <span class="c1"># TODO: More tests are needed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_reversal_symmetry</span> <span class="o">=</span> <span class="kc">False</span>
+
         <span class="c1"># The following attributes are not input options.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">exxdiv</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># to mimic KRHF/KUHF object in function get_coulG</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auxcell</span> <span class="o">=</span> <span class="kc">None</span>
@@ -383,9 +404,10 @@
 <span class="c1"># If _cderi is specified, the 3C-integral tensor will be read from this file</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cderi</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rsh_df</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Range separated Coulomb DF objects</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
-<div class="viewcode-block" id="MDF.build"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">j_only</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_j3c</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kpts_band</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MDF.build">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.build">[docs]</a>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">j_only</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_j3c</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kpts_band</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">df</span><span class="o">.</span><span class="n">GDF</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">j_only</span><span class="p">,</span> <span class="n">with_j3c</span><span class="p">,</span> <span class="n">kpts_band</span><span class="p">)</span>
         <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
         <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span><span class="p">[:</span><span class="n">cell</span><span class="o">.</span><span class="n">dimension</span><span class="p">]):</span>
@@ -396,6 +418,7 @@
             <span class="c1"># hermitian of J and K matrices</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'MDF with even number in mesh may have significant errors'</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
+
 
     <span class="k">def</span> <span class="nf">_make_j3c</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auxcell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kptij_lst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cderi_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">cell</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
@@ -420,17 +443,23 @@
         <span class="n">dfbuilder</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span>
         <span class="n">dfbuilder</span><span class="o">.</span><span class="n">linear_dep_threshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_dep_threshold</span>
         <span class="n">j_only</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_j_only</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">kpts_union</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-        <span class="n">dfbuilder</span><span class="o">.</span><span class="n">make_j3c</span><span class="p">(</span><span class="n">cderi_file</span><span class="p">,</span> <span class="n">j_only</span><span class="o">=</span><span class="n">j_only</span><span class="p">)</span>
+        <span class="n">dfbuilder</span><span class="o">.</span><span class="n">make_j3c</span><span class="p">(</span><span class="n">cderi_file</span><span class="p">,</span> <span class="n">j_only</span><span class="o">=</span><span class="n">j_only</span><span class="p">,</span> <span class="n">dataname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataname</span><span class="p">,</span>
+                           <span class="n">kptij_lst</span><span class="o">=</span><span class="n">kptij_lst</span><span class="p">)</span>
 
-        <span class="c1"># mdf.mesh must be the same to the mesh used in generating cderi</span>
+        <span class="c1"># mdf.mesh must be the mesh to generate cderi</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="n">dfbuilder</span><span class="o">.</span><span class="n">mesh</span>
+
+    <span class="n">get_pp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">GDF</span><span class="o">.</span><span class="n">get_pp</span>
+    <span class="n">get_nuc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">GDF</span><span class="o">.</span><span class="n">get_nuc</span>
 
     <span class="c1"># Note: Special exxdiv by default should not be used for an arbitrary</span>
     <span class="c1"># input density matrix. When the df object was used with the molecular</span>
     <span class="c1"># post-HF code, get_jk was often called with an incomplete DM (e.g. the</span>
     <span class="c1"># core DM in CASCI). An SCF level exxdiv treatment is inadequate for</span>
     <span class="c1"># post-HF methods.</span>
-<div class="viewcode-block" id="MDF.get_jk"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.get_jk">[docs]</a>    <span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpts_band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="MDF.get_jk">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.get_jk">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpts_band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exxdiv</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">omega</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># J/K for RSH functionals</span>
             <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
@@ -447,23 +476,16 @@
                 <span class="n">cell</span><span class="o">.</span><span class="n">dimension</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">cell</span><span class="o">.</span><span class="n">low_dim_ft_type</span> <span class="o">!=</span> <span class="s1">'inf_vacuum'</span><span class="p">):</span>
                 <span class="n">mydf</span> <span class="o">=</span> <span class="n">aft</span><span class="o">.</span><span class="n">AFTDF</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">)</span>
                 <span class="n">ke_cutoff</span> <span class="o">=</span> <span class="n">aft</span><span class="o">.</span><span class="n">estimate_ke_cutoff_for_omega</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
-                <span class="n">mydf</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pbctools</span><span class="o">.</span><span class="n">cutoff_to_mesh</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">lattice_vectors</span><span class="p">(),</span> <span class="n">ke_cutoff</span><span class="p">)</span>
+                <span class="n">mydf</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">cutoff_to_mesh</span><span class="p">(</span><span class="n">ke_cutoff</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">mydf</span> <span class="o">=</span> <span class="bp">self</span>
             <span class="k">with</span> <span class="n">mydf</span><span class="o">.</span><span class="n">range_coulomb</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span> <span class="k">as</span> <span class="n">rsh_df</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">rsh_df</span><span class="o">.</span><span class="n">get_jk</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">kpts</span><span class="p">,</span> <span class="n">kpts_band</span><span class="p">,</span> <span class="n">with_j</span><span class="p">,</span> <span class="n">with_k</span><span class="p">,</span>
                                      <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exxdiv</span><span class="o">=</span><span class="n">exxdiv</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">kpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kpts</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-                <span class="c1"># Gamma-point calculation by default</span>
-                <span class="n">kpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">kpts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpts</span>
-        <span class="n">kpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">kpts</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">kpts</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
-            <span class="k">return</span> <span class="n">mdf_jk</span><span class="o">.</span><span class="n">get_jk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">kpts</span><span class="p">,</span> <span class="n">kpts_band</span><span class="p">,</span> <span class="n">with_j</span><span class="p">,</span>
+        <span class="n">kpts</span><span class="p">,</span> <span class="n">is_single_kpt</span> <span class="o">=</span> <span class="n">_check_kpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kpts</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_single_kpt</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mdf_jk</span><span class="o">.</span><span class="n">get_jk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">kpts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kpts_band</span><span class="p">,</span> <span class="n">with_j</span><span class="p">,</span>
                                  <span class="n">with_k</span><span class="p">,</span> <span class="n">exxdiv</span><span class="p">)</span>
 
         <span class="n">vj</span> <span class="o">=</span> <span class="n">vk</span> <span class="o">=</span> <span class="kc">None</span>
@@ -473,34 +495,51 @@
             <span class="n">vj</span> <span class="o">=</span> <span class="n">mdf_jk</span><span class="o">.</span><span class="n">get_j_kpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">kpts</span><span class="p">,</span> <span class="n">kpts_band</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span></div>
 
+
     <span class="n">get_eri</span> <span class="o">=</span> <span class="n">get_ao_eri</span> <span class="o">=</span> <span class="n">mdf_ao2mo</span><span class="o">.</span><span class="n">get_eri</span>
     <span class="n">ao2mo</span> <span class="o">=</span> <span class="n">get_mo_eri</span> <span class="o">=</span> <span class="n">mdf_ao2mo</span><span class="o">.</span><span class="n">general</span>
     <span class="n">ao2mo_7d</span> <span class="o">=</span> <span class="n">mdf_ao2mo</span><span class="o">.</span><span class="n">ao2mo_7d</span>
 
-<div class="viewcode-block" id="MDF.update_mp"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.update_mp">[docs]</a>    <span class="k">def</span> <span class="nf">update_mp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MDF.update_mp">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.update_mp">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_mp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="MDF.update_cc"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.update_cc">[docs]</a>    <span class="k">def</span> <span class="nf">update_cc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MDF.update_cc">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.update_cc">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_cc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="MDF.update"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MDF.update">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.update">[docs]</a>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
 
 <span class="c1">################################################################################</span>
 <span class="c1"># With this function to mimic the molecular DF.loop function, the pbc gamma</span>
 <span class="c1"># point DF object can be used in the molecular code</span>
-<div class="viewcode-block" id="MDF.loop"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.loop">[docs]</a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blksize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MDF.loop">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.loop">[docs]</a>
+    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blksize</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">dat</span> <span class="ow">in</span> <span class="n">aft</span><span class="o">.</span><span class="n">AFTDF</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blksize</span><span class="p">):</span>
             <span class="k">yield</span> <span class="n">dat</span>
         <span class="k">for</span> <span class="n">dat</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">DF</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blksize</span><span class="p">):</span>
             <span class="k">yield</span> <span class="n">dat</span></div>
 
-<div class="viewcode-block" id="MDF.get_naoaux"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.get_naoaux">[docs]</a>    <span class="k">def</span> <span class="nf">get_naoaux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">DF</span><span class="o">.</span><span class="n">get_naoaux</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">+</span> <span class="n">aft</span><span class="o">.</span><span class="n">AFTDF</span><span class="o">.</span><span class="n">get_naoaux</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="MDF.get_naoaux">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.df.html#pyscf.pbc.df.mdf.MDF.get_naoaux">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_naoaux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">DF</span><span class="o">.</span><span class="n">get_naoaux</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">+</span> <span class="n">aft</span><span class="o">.</span><span class="n">AFTDF</span><span class="o">.</span><span class="n">get_naoaux</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+</div>
+
 
 
 <span class="k">class</span> <span class="nc">_RSMDFBuilder</span><span class="p">(</span><span class="n">_RSGDFBuilder</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Use the range-separated algorithm to build mixed density fitting 3-center tensor</span>
 <span class="sd">    '''</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">auxcell</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))):</span>
@@ -543,7 +582,7 @@
         <span class="n">naux_rs</span> <span class="o">=</span> <span class="n">rs_auxcell</span><span class="o">.</span><span class="n">nao</span>
         <span class="n">naux</span> <span class="o">=</span> <span class="n">auxcell</span><span class="o">.</span><span class="n">nao</span>
         <span class="n">max_memory</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_memory</span> <span class="o">-</span> <span class="n">lib</span><span class="o">.</span><span class="n">current_memory</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">blksize</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">ngrids</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_memory</span><span class="o">*.</span><span class="mf">4e6</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="n">naux_rs</span><span class="p">),</span> <span class="mi">200000</span><span class="p">)</span>
+        <span class="n">blksize</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">ngrids</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_memory</span><span class="o">*</span><span class="mf">.4e6</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="n">naux_rs</span><span class="p">),</span> <span class="mi">200000</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'max_memory </span><span class="si">%s</span><span class="s1"> (MB)  blocksize </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">blksize</span><span class="p">)</span>
         <span class="n">j2c</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">kpt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">uniq_kpts</span><span class="p">):</span>
@@ -565,9 +604,9 @@
                 <span class="k">for</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="ow">in</span> <span class="n">lib</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ngrids</span><span class="p">,</span> <span class="n">blksize</span><span class="p">):</span>
                     <span class="n">auxG_sr</span> <span class="o">=</span> <span class="n">ft_ao</span><span class="o">.</span><span class="n">ft_ao</span><span class="p">(</span><span class="n">auxcell_c</span><span class="p">,</span> <span class="n">Gv</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">gxyz</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">Gvbase</span><span class="p">,</span> <span class="n">kpt</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
                     <span class="k">if</span> <span class="n">is_zero</span><span class="p">(</span><span class="n">kpt</span><span class="p">):</span>
-                        <span class="n">sr_j2c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">auxG_sr</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">*</span> <span class="n">coulG_sr</span><span class="p">,</span> <span class="n">auxG_sr</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+                        <span class="n">sr_j2c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">auxG_sr</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">*</span> <span class="n">coulG_sr</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">auxG_sr</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="n">sr_j2c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">auxG_sr</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">*</span> <span class="n">coulG_sr</span><span class="p">,</span> <span class="n">auxG_sr</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                        <span class="n">sr_j2c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">auxG_sr</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">*</span> <span class="n">coulG_sr</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">auxG_sr</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
                     <span class="n">auxG_sr</span> <span class="o">=</span> <span class="kc">None</span>
 
                 <span class="n">j2c_k</span> <span class="o">=</span> <span class="n">recontract_2d</span><span class="p">(</span><span class="n">j2c_k</span><span class="p">,</span> <span class="n">sr_j2c</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
@@ -578,14 +617,14 @@
 
     <span class="k">def</span> <span class="nf">outcore_auxe2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cderi_file</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'int3c2e'</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s2'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">j_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dataname</span><span class="o">=</span><span class="s1">'j3c'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                      <span class="n">fft_dd_block</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                      <span class="n">fft_dd_block</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kk_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># dd_block from real-space integrals will be cancelled by AFT part</span>
         <span class="c1"># anyway. It's safe to omit dd_block when computing real-space int3c2e</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">outcore_auxe2</span><span class="p">(</span><span class="n">cderi_file</span><span class="p">,</span> <span class="n">intor</span><span class="p">,</span> <span class="n">aosym</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">j_only</span><span class="p">,</span>
-                                     <span class="n">dataname</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">,</span> <span class="n">fft_dd_block</span><span class="p">)</span>
+                                     <span class="n">dataname</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">,</span> <span class="n">fft_dd_block</span><span class="p">,</span> <span class="n">kk_idx</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">weighted_ft_ao</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kpt</span><span class="p">):</span>
-        <span class="sd">'''exp(-i*(G + k) dot r) * Coulomb_kernel'''</span>
+<span class="w">        </span><span class="sd">'''exp(-i*(G + k) dot r) * Coulomb_kernel'''</span>
         <span class="n">rs_cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rs_cell</span>
         <span class="n">Gv</span><span class="p">,</span> <span class="n">Gvbase</span><span class="p">,</span> <span class="n">kws</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">get_Gv_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh</span><span class="p">)</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">rs_cell</span><span class="o">.</span><span class="n">reciprocal_vectors</span><span class="p">()</span>
@@ -612,7 +651,7 @@
 
 
 <span class="k">class</span> <span class="nc">_CCMDFBuilder</span><span class="p">(</span><span class="n">_CCGDFBuilder</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Use the compensated-charge algorithm to build mixed density fitting 3-center tensor</span>
 <span class="sd">    '''</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">auxcell</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))):</span>
@@ -641,11 +680,11 @@
         <span class="n">gxyz</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">cartesian_prod</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Gvbase</span><span class="p">])</span>
         <span class="n">ngrids</span> <span class="o">=</span> <span class="n">Gv</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">max_memory</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_memory</span> <span class="o">-</span> <span class="n">lib</span><span class="o">.</span><span class="n">current_memory</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">blksize</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_memory</span><span class="o">*.</span><span class="mf">4e6</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="n">fused_cell</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">()))</span>
+        <span class="n">blksize</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_memory</span><span class="o">*</span><span class="mf">.4e6</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="n">fused_cell</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">()))</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'max_memory </span><span class="si">%s</span><span class="s1"> (MB)  blocksize </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">max_memory</span><span class="p">,</span> <span class="n">blksize</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">kpt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">uniq_kpts</span><span class="p">):</span>
             <span class="n">j2c_k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="n">j2c</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">j2c_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">((</span><span class="n">j2c_k</span> <span class="o">+</span> <span class="n">j2c_k</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
+            <span class="n">j2c_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">((</span><span class="n">j2c_k</span> <span class="o">+</span> <span class="n">j2c_k</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
 
             <span class="n">coulG</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weighted_coulG</span><span class="p">(</span><span class="n">kpt</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="ow">in</span> <span class="n">lib</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ngrids</span><span class="p">,</span> <span class="n">blksize</span><span class="p">):</span>
@@ -662,9 +701,9 @@
 
     <span class="k">def</span> <span class="nf">outcore_auxe2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cderi_file</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'int3c2e'</span><span class="p">,</span> <span class="n">aosym</span><span class="o">=</span><span class="s1">'s2'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">j_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dataname</span><span class="o">=</span><span class="s1">'j3c'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                      <span class="n">fft_dd_block</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                      <span class="n">fft_dd_block</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kk_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">outcore_auxe2</span><span class="p">(</span><span class="n">cderi_file</span><span class="p">,</span> <span class="n">intor</span><span class="p">,</span> <span class="n">aosym</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">j_only</span><span class="p">,</span>
-                                     <span class="n">dataname</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">,</span> <span class="n">fft_dd_block</span><span class="p">)</span>
+                                     <span class="n">dataname</span><span class="p">,</span> <span class="n">shls_slice</span><span class="p">,</span> <span class="n">fft_dd_block</span><span class="p">,</span> <span class="n">kk_idx</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">weighted_ft_ao</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kpt</span><span class="p">):</span>
         <span class="n">fused_cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fused_cell</span>
@@ -741,7 +780,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

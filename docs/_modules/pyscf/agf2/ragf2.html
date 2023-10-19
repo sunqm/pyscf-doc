@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.agf2.ragf2 &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.agf2.ragf2 </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -332,7 +349,9 @@
 <span class="n">BLKMIN</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'agf2_blkmin'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="kernel"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.kernel">[docs]</a><span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dump_chk</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="kernel">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.kernel">[docs]</a>
+<span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dump_chk</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 
     <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
     <span class="n">cput1</span> <span class="o">=</span> <span class="n">cput0</span> <span class="o">=</span> <span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">())</span>
@@ -414,8 +433,11 @@
     <span class="k">return</span> <span class="n">converged</span><span class="p">,</span> <span class="n">e_1b</span><span class="p">,</span> <span class="n">e_2b</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">se</span></div>
 
 
-<div class="viewcode-block" id="build_se_part"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.build_se_part">[docs]</a><span class="k">def</span> <span class="nf">build_se_part</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf_occ</span><span class="p">,</span> <span class="n">gf_vir</span><span class="p">,</span> <span class="n">os_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ss_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-    <span class="sd">''' Builds either the auxiliaries of the occupied self-energy,</span>
+
+<div class="viewcode-block" id="build_se_part">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.build_se_part">[docs]</a>
+<span class="k">def</span> <span class="nf">build_se_part</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf_occ</span><span class="p">,</span> <span class="n">gf_vir</span><span class="p">,</span> <span class="n">os_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ss_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Builds either the auxiliaries of the occupied self-energy,</span>
 <span class="sd">        or virtual if :attr:`gf_occ` and :attr:`gf_vir` are swapped.</span>
 
 <span class="sd">    Args:</span>
@@ -478,8 +500,11 @@
     <span class="k">return</span> <span class="n">se</span></div>
 
 
-<div class="viewcode-block" id="get_jk"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.get_jk">[docs]</a><span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">rdm1</span><span class="p">,</span> <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">''' Get the J/K matrices.</span>
+
+<div class="viewcode-block" id="get_jk">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.get_jk">[docs]</a>
+<span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">rdm1</span><span class="p">,</span> <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Get the J/K matrices.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        eri : ndarray or H5 dataset</span>
@@ -538,8 +563,11 @@
     <span class="k">return</span> <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span></div>
 
 
-<div class="viewcode-block" id="get_fock"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.get_fock">[docs]</a><span class="k">def</span> <span class="nf">get_fock</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rdm1</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">''' Computes the physical space Fock matrix in MO basis. If :attr:`rdm1`</span>
+
+<div class="viewcode-block" id="get_fock">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.get_fock">[docs]</a>
+<span class="k">def</span> <span class="nf">get_fock</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rdm1</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Computes the physical space Fock matrix in MO basis. If :attr:`rdm1`</span>
 <span class="sd">        is not supplied, it is built from :attr:`gf`, which defaults to</span>
 <span class="sd">        the mean-field Green's function.</span>
 
@@ -566,8 +594,11 @@
     <span class="k">return</span> <span class="n">fock</span></div>
 
 
-<div class="viewcode-block" id="fock_loop"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.fock_loop">[docs]</a><span class="k">def</span> <span class="nf">fock_loop</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">se</span><span class="p">):</span>
-    <span class="sd">''' Self-consistent loop for the density matrix via the HF self-</span>
+
+<div class="viewcode-block" id="fock_loop">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.fock_loop">[docs]</a>
+<span class="k">def</span> <span class="nf">fock_loop</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">se</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Self-consistent loop for the density matrix via the HF self-</span>
 <span class="sd">        consistent field.</span>
 
 <span class="sd">    Args:</span>
@@ -580,7 +611,7 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        :class:`SelfEnergy`, :class:`GreensFunction` and a boolean</span>
-<span class="sd">        indicating wheter convergence was successful.</span>
+<span class="sd">        indicating whether convergence was successful.</span>
 <span class="sd">    '''</span>
 
     <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">gf</span><span class="p">)</span> <span class="ow">is</span> <span class="n">aux</span><span class="o">.</span><span class="n">GreensFunction</span>
@@ -639,8 +670,11 @@
     <span class="k">return</span> <span class="n">gf</span><span class="p">,</span> <span class="n">se</span><span class="p">,</span> <span class="n">converged</span></div>
 
 
-<div class="viewcode-block" id="energy_1body"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.energy_1body">[docs]</a><span class="k">def</span> <span class="nf">energy_1body</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf</span><span class="p">):</span>
-    <span class="sd">''' Calculates the one-body energy according to the RHF form.</span>
+
+<div class="viewcode-block" id="energy_1body">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.energy_1body">[docs]</a>
+<span class="k">def</span> <span class="nf">energy_1body</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Calculates the one-body energy according to the RHF form.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        eri : _ChemistsERIs</span>
@@ -663,8 +697,11 @@
     <span class="k">return</span> <span class="n">e1b</span></div>
 
 
-<div class="viewcode-block" id="energy_2body"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.energy_2body">[docs]</a><span class="k">def</span> <span class="nf">energy_2body</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">se</span><span class="p">):</span>
-    <span class="sd">''' Calculates the two-body energy using analytically integrated</span>
+
+<div class="viewcode-block" id="energy_2body">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.energy_2body">[docs]</a>
+<span class="k">def</span> <span class="nf">energy_2body</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">se</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Calculates the two-body energy using analytically integrated</span>
 <span class="sd">        Galitskii-Migdal formula. The formula is symmetric and only</span>
 <span class="sd">        one side needs to be calculated.</span>
 
@@ -702,8 +739,11 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">e2b</span><span class="o">.</span><span class="n">real</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="energy_mp2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.energy_mp2">[docs]</a><span class="k">def</span> <span class="nf">energy_mp2</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">se</span><span class="p">):</span>
-    <span class="sd">''' Calculates the two-body energy using analytically integrated</span>
+
+<div class="viewcode-block" id="energy_mp2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.energy_mp2">[docs]</a>
+<span class="k">def</span> <span class="nf">energy_mp2</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">,</span> <span class="n">se</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Calculates the two-body energy using analytically integrated</span>
 <span class="sd">        Galitskii-Migdal formula for an MP2 self-energy. Per the</span>
 <span class="sd">        definition of one- and two-body partitioning in the Dyson</span>
 <span class="sd">        equation, this result is half of :func:`energy_2body`.</span>
@@ -731,8 +771,11 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">emp2</span><span class="o">.</span><span class="n">real</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="RAGF2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2">[docs]</a><span class="k">class</span> <span class="nc">RAGF2</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
-    <span class="sd">''' Restricted AGF2 with canonical HF reference</span>
+
+<div class="viewcode-block" id="RAGF2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2">[docs]</a>
+<span class="k">class</span> <span class="nc">RAGF2</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">''' Restricted AGF2 with canonical HF reference</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        verbose : int</span>
@@ -803,6 +846,16 @@
     <span class="n">async_io</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'agf2_async_io'</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
     <span class="n">incore_complete</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'agf2_incore_complete'</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span>
+        <span class="s1">'async_io'</span><span class="p">,</span> <span class="s1">'mol'</span><span class="p">,</span> <span class="s1">'incore_complete'</span><span class="p">,</span>
+        <span class="s1">'conv_tol'</span><span class="p">,</span> <span class="s1">'conv_tol_rdm1'</span><span class="p">,</span> <span class="s1">'conv_tol_nelec'</span><span class="p">,</span> <span class="s1">'max_cycle'</span><span class="p">,</span>
+        <span class="s1">'max_cycle_outer'</span><span class="p">,</span> <span class="s1">'max_cycle_inner'</span><span class="p">,</span> <span class="s1">'weight_tol'</span><span class="p">,</span> <span class="s1">'fock_diis_space'</span><span class="p">,</span>
+        <span class="s1">'fock_diis_min_space'</span><span class="p">,</span> <span class="s1">'diis'</span><span class="p">,</span> <span class="s1">'diis_space'</span><span class="p">,</span> <span class="s1">'diis_min_space'</span><span class="p">,</span>
+        <span class="s1">'os_factor'</span><span class="p">,</span> <span class="s1">'ss_factor'</span><span class="p">,</span> <span class="s1">'damping'</span><span class="p">,</span>
+        <span class="s1">'mo_energy'</span><span class="p">,</span> <span class="s1">'mo_coeff'</span><span class="p">,</span> <span class="s1">'mo_occ'</span><span class="p">,</span> <span class="s1">'se'</span><span class="p">,</span> <span class="s1">'gf'</span><span class="p">,</span> <span class="s1">'e_1b'</span><span class="p">,</span> <span class="s1">'e_2b'</span><span class="p">,</span> <span class="s1">'e_init'</span><span class="p">,</span>
+        <span class="s1">'frozen'</span><span class="p">,</span> <span class="s1">'converged'</span><span class="p">,</span> <span class="s1">'chkfile'</span><span class="p">,</span>
+    <span class="p">))</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_occ</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">mo_energy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mo_energy</span> <span class="o">=</span> <span class="n">mpi_helper</span><span class="o">.</span><span class="n">bcast</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">mo_energy</span><span class="p">)</span>
@@ -845,7 +898,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_nocc</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chkfile</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">chkfile</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
     <span class="n">energy_1body</span> <span class="o">=</span> <span class="n">energy_1body</span>
     <span class="n">energy_2body</span> <span class="o">=</span> <span class="n">energy_2body</span>
@@ -853,8 +905,10 @@
     <span class="n">build_se_part</span> <span class="o">=</span> <span class="n">build_se_part</span>
     <span class="n">get_jk</span> <span class="o">=</span> <span class="n">get_jk</span>
 
-<div class="viewcode-block" id="RAGF2.ao2mo"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.ao2mo">[docs]</a>    <span class="k">def</span> <span class="nf">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">''' Get the electronic repulsion integrals in MO basis.</span>
+<div class="viewcode-block" id="RAGF2.ao2mo">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.ao2mo">[docs]</a>
+    <span class="k">def</span> <span class="nf">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Get the electronic repulsion integrals in MO basis.</span>
 <span class="sd">        '''</span>
 
         <span class="c1"># happens when e.g. restarting from chkfile</span>
@@ -875,8 +929,11 @@
 
         <span class="k">return</span> <span class="n">eri</span></div>
 
-<div class="viewcode-block" id="RAGF2.make_rdm1"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.make_rdm1">[docs]</a>    <span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">''' Computes the one-body reduced density matrix in MO basis.</span>
+
+<div class="viewcode-block" id="RAGF2.make_rdm1">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.make_rdm1">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Computes the one-body reduced density matrix in MO basis.</span>
 
 <span class="sd">        Kwargs:</span>
 <span class="sd">            gf : GreensFunction</span>
@@ -891,8 +948,11 @@
 
         <span class="k">return</span> <span class="n">gf</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="RAGF2.get_fock"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.get_fock">[docs]</a>    <span class="k">def</span> <span class="nf">get_fock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rdm1</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">''' Computes the physical space Fock matrix in MO basis.</span>
+
+<div class="viewcode-block" id="RAGF2.get_fock">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.get_fock">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_fock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rdm1</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Computes the physical space Fock matrix in MO basis.</span>
 <span class="sd">        '''</span>
 
         <span class="k">if</span> <span class="n">eri</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">eri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ao2mo</span><span class="p">()</span>
@@ -900,7 +960,10 @@
 
         <span class="k">return</span> <span class="n">get_fock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="n">gf</span><span class="p">,</span> <span class="n">rdm1</span><span class="o">=</span><span class="n">rdm1</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="RAGF2.energy_mp2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.energy_mp2">[docs]</a>    <span class="k">def</span> <span class="nf">energy_mp2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RAGF2.energy_mp2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.energy_mp2">[docs]</a>
+    <span class="k">def</span> <span class="nf">energy_mp2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mo_energy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mo_energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_energy</span>
         <span class="k">if</span> <span class="n">se</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">se</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_se</span><span class="p">(</span><span class="n">gf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">gf</span><span class="p">)</span>
 
@@ -908,8 +971,11 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_init</span></div>
 
-<div class="viewcode-block" id="RAGF2.init_gf"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.init_gf">[docs]</a>    <span class="k">def</span> <span class="nf">init_gf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">''' Builds the Hartree-Fock Green's function.</span>
+
+<div class="viewcode-block" id="RAGF2.init_gf">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.init_gf">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_gf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Builds the Hartree-Fock Green's function.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            :class:`GreensFunction`, :class:`SelfEnergy`</span>
@@ -929,8 +995,11 @@
 
         <span class="k">return</span> <span class="n">gf</span></div>
 
-<div class="viewcode-block" id="RAGF2.build_gf"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.build_gf">[docs]</a>    <span class="k">def</span> <span class="nf">build_gf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">''' Builds the auxiliaries of the Green's function by solving</span>
+
+<div class="viewcode-block" id="RAGF2.build_gf">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.build_gf">[docs]</a>
+    <span class="k">def</span> <span class="nf">build_gf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Builds the auxiliaries of the Green's function by solving</span>
 <span class="sd">            the Dyson equation.</span>
 
 <span class="sd">        Kwargs:</span>
@@ -954,8 +1023,11 @@
 
         <span class="k">return</span> <span class="n">se</span><span class="o">.</span><span class="n">get_greens_function</span><span class="p">(</span><span class="n">fock</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="RAGF2.build_se"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.build_se">[docs]</a>    <span class="k">def</span> <span class="nf">build_se</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">os_factor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ss_factor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se_prev</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">''' Builds the auxiliaries of the self-energy.</span>
+
+<div class="viewcode-block" id="RAGF2.build_se">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.build_se">[docs]</a>
+    <span class="k">def</span> <span class="nf">build_se</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">os_factor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ss_factor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se_prev</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Builds the auxiliaries of the self-energy.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            eri : _ChemistsERIs</span>
@@ -1005,8 +1077,11 @@
 
         <span class="k">return</span> <span class="n">se</span></div>
 
-<div class="viewcode-block" id="RAGF2.run_diis"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.run_diis">[docs]</a>    <span class="k">def</span> <span class="nf">run_diis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">se</span><span class="p">,</span> <span class="n">diis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">''' Runs the direct inversion of the iterative subspace for the</span>
+
+<div class="viewcode-block" id="RAGF2.run_diis">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.run_diis">[docs]</a>
+    <span class="k">def</span> <span class="nf">run_diis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">se</span><span class="p">,</span> <span class="n">diis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Runs the direct inversion of the iterative subspace for the</span>
 <span class="sd">            self-energy.</span>
 
 <span class="sd">        Args:</span>
@@ -1041,11 +1116,17 @@
 
         <span class="k">return</span> <span class="n">se</span></div>
 
-<div class="viewcode-block" id="RAGF2.energy_nuc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.energy_nuc">[docs]</a>    <span class="k">def</span> <span class="nf">energy_nuc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RAGF2.energy_nuc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.energy_nuc">[docs]</a>
+    <span class="k">def</span> <span class="nf">energy_nuc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scf</span><span class="o">.</span><span class="n">energy_nuc</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="RAGF2.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RAGF2.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'******** </span><span class="si">%s</span><span class="s1"> ********'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
@@ -1072,8 +1153,9 @@
                  <span class="bp">self</span><span class="o">.</span><span class="n">max_memory</span><span class="p">,</span> <span class="n">lib</span><span class="o">.</span><span class="n">current_memory</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
+
     <span class="k">def</span> <span class="nf">_finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">''' Hook for dumping results and clearing up the object.</span>
+<span class="w">        </span><span class="sd">''' Hook for dumping results and clearing up the object.</span>
 <span class="sd">        '''</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">converged</span><span class="p">:</span>
@@ -1091,13 +1173,18 @@
 
         <span class="k">return</span> <span class="bp">self</span>
 
-<div class="viewcode-block" id="RAGF2.reset"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="RAGF2.reset">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.reset">[docs]</a>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mol</span> <span class="o">=</span> <span class="n">mol</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_scf</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="RAGF2.kernel"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.kernel">[docs]</a>    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dump_chk</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RAGF2.kernel">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.kernel">[docs]</a>
+    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dump_chk</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">WARN</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">check_sanity</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">()</span>
@@ -1122,7 +1209,10 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">converged</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_1b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_2b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">se</span></div>
 
-<div class="viewcode-block" id="RAGF2.dump_chk"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.dump_chk">[docs]</a>    <span class="k">def</span> <span class="nf">dump_chk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chkfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'agf2'</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+
+<div class="viewcode-block" id="RAGF2.dump_chk">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.dump_chk">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_chk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chkfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'agf2'</span><span class="p">,</span> <span class="n">gf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">frozen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nmom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_occ</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">chkfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1136,7 +1226,10 @@
                           <span class="n">mo_energy</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="RAGF2.update_from_chk_"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.update_from_chk_">[docs]</a>    <span class="k">def</span> <span class="nf">update_from_chk_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chkfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'agf2'</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RAGF2.update_from_chk_">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.update_from_chk_">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_from_chk_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chkfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'agf2'</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">chkfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">chkfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chkfile</span>
 
@@ -1145,9 +1238,12 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
+
     <span class="n">update</span> <span class="o">=</span> <span class="n">update_from_chk</span> <span class="o">=</span> <span class="n">update_from_chk_</span>
 
-<div class="viewcode-block" id="RAGF2.density_fit"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.density_fit">[docs]</a>    <span class="k">def</span> <span class="nf">density_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auxbasis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="RAGF2.density_fit">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.density_fit">[docs]</a>
+    <span class="k">def</span> <span class="nf">density_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auxbasis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.agf2</span> <span class="kn">import</span> <span class="n">dfragf2</span>
         <span class="n">myagf2</span> <span class="o">=</span> <span class="n">dfragf2</span><span class="o">.</span><span class="n">DFRAGF2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_scf</span><span class="p">)</span>
         <span class="n">myagf2</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
@@ -1156,20 +1252,25 @@
             <span class="n">myagf2</span><span class="o">.</span><span class="n">with_df</span> <span class="o">=</span> <span class="n">with_df</span>
 
         <span class="k">if</span> <span class="n">auxbasis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">myagf2</span><span class="o">.</span><span class="n">with_df</span><span class="o">.</span><span class="n">auxbasis</span> <span class="o">!=</span> <span class="n">auxbasis</span><span class="p">:</span>
-            <span class="kn">import</span> <span class="nn">copy</span>
-            <span class="n">myagf2</span><span class="o">.</span><span class="n">with_df</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">myagf2</span><span class="o">.</span><span class="n">with_df</span><span class="p">)</span>
+            <span class="n">myagf2</span><span class="o">.</span><span class="n">with_df</span> <span class="o">=</span> <span class="n">myagf2</span><span class="o">.</span><span class="n">with_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
             <span class="n">myagf2</span><span class="o">.</span><span class="n">with_df</span><span class="o">.</span><span class="n">auxbasis</span> <span class="o">=</span> <span class="n">auxbasis</span>
 
         <span class="k">return</span> <span class="n">myagf2</span></div>
 
-<div class="viewcode-block" id="RAGF2.get_ip"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.get_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RAGF2.get_ip">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.get_ip">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
         <span class="n">gf_occ</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">get_occupied</span><span class="p">()</span>
         <span class="n">e_ip</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="o">-</span><span class="n">gf_occ</span><span class="o">.</span><span class="n">energy</span><span class="p">[</span><span class="o">-</span><span class="n">nroots</span><span class="p">:])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">v_ip</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">gf_occ</span><span class="o">.</span><span class="n">coupling</span><span class="p">[:,</span><span class="o">-</span><span class="n">nroots</span><span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">e_ip</span><span class="p">,</span> <span class="n">v_ip</span></div>
 
-<div class="viewcode-block" id="RAGF2.ipagf2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.ipagf2">[docs]</a>    <span class="k">def</span> <span class="nf">ipagf2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-        <span class="sd">''' Find the (N-1)-electron charged excitations, corresponding</span>
+
+<div class="viewcode-block" id="RAGF2.ipagf2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.ipagf2">[docs]</a>
+    <span class="k">def</span> <span class="nf">ipagf2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Find the (N-1)-electron charged excitations, corresponding</span>
 <span class="sd">            to the largest :attr:`nroots` poles of the occupied</span>
 <span class="sd">            Green's function.</span>
 
@@ -1194,14 +1295,20 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">e_ip</span><span class="p">,</span> <span class="n">v_ip</span></div>
 
-<div class="viewcode-block" id="RAGF2.get_ea"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.get_ea">[docs]</a>    <span class="k">def</span> <span class="nf">get_ea</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RAGF2.get_ea">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.get_ea">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ea</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
         <span class="n">gf_vir</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">get_virtual</span><span class="p">()</span>
         <span class="n">e_ea</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">gf_vir</span><span class="o">.</span><span class="n">energy</span><span class="p">[:</span><span class="n">nroots</span><span class="p">])</span>
         <span class="n">v_ea</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">gf_vir</span><span class="o">.</span><span class="n">coupling</span><span class="p">[:,:</span><span class="n">nroots</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">e_ea</span><span class="p">,</span> <span class="n">v_ea</span></div>
 
-<div class="viewcode-block" id="RAGF2.eaagf2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.eaagf2">[docs]</a>    <span class="k">def</span> <span class="nf">eaagf2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-        <span class="sd">''' Find the (N+1)-electron charged excitations, corresponding</span>
+
+<div class="viewcode-block" id="RAGF2.eaagf2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.RAGF2.eaagf2">[docs]</a>
+    <span class="k">def</span> <span class="nf">eaagf2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' Find the (N+1)-electron charged excitations, corresponding</span>
 <span class="sd">            to the smallest :attr:`nroots` poles of the virtual</span>
 <span class="sd">            Green's function.</span>
 
@@ -1219,6 +1326,7 @@
             <span class="k">return</span> <span class="n">e_ea</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v_ea</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">e_ea</span><span class="p">,</span> <span class="n">v_ea</span></div>
+
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">nocc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1254,7 +1362,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">qmo_coeff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">''' Gives the couplings in AO basis '''</span>
+<span class="w">        </span><span class="sd">''' Gives the couplings in AO basis '''</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gf</span><span class="o">.</span><span class="n">coupling</span><span class="p">)</span>
 
     <span class="nd">@property</span>
@@ -1266,13 +1374,17 @@
         <span class="k">return</span> <span class="n">qmo_occ</span></div>
 
 
-<div class="viewcode-block" id="get_frozen_mask"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.get_frozen_mask">[docs]</a><span class="k">def</span> <span class="nf">get_frozen_mask</span><span class="p">(</span><span class="n">agf2</span><span class="p">):</span>
+
+<div class="viewcode-block" id="get_frozen_mask">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2.get_frozen_mask">[docs]</a>
+<span class="k">def</span> <span class="nf">get_frozen_mask</span><span class="p">(</span><span class="n">agf2</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">lib</span><span class="o">.</span><span class="n">temporary_env</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">_nocc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_nmo</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_get_frozen_mask</span><span class="p">(</span><span class="n">agf2</span><span class="p">)</span></div>
 
 
+
 <span class="k">class</span> <span class="nc">_ChemistsERIs</span><span class="p">:</span>
-    <span class="sd">''' (pq|rs)</span>
+<span class="w">    </span><span class="sd">''' (pq|rs)</span>
 
 <span class="sd">    MO integrals stored in s4 symmetry, we only need QMO integrals</span>
 <span class="sd">    in low-symmetry tensors and s4 is highest supported by _vhf</span>
@@ -1319,7 +1431,7 @@
         <span class="k">return</span> <span class="bp">self</span>
 
 <span class="k">def</span> <span class="nf">_make_mo_eris_incore</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">''' Returns _ChemistsERIs</span>
+<span class="w">    </span><span class="sd">''' Returns _ChemistsERIs</span>
 <span class="sd">    '''</span>
 
     <span class="n">cput0</span> <span class="o">=</span> <span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">())</span>
@@ -1338,7 +1450,7 @@
     <span class="k">return</span> <span class="n">eris</span>
 
 <span class="k">def</span> <span class="nf">_make_mo_eris_outcore</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">''' Returns _ChemistsERIs</span>
+<span class="w">    </span><span class="sd">''' Returns _ChemistsERIs</span>
 <span class="sd">    '''</span>
 
     <span class="n">cput0</span> <span class="o">=</span> <span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">())</span>
@@ -1360,7 +1472,7 @@
     <span class="k">return</span> <span class="n">eris</span>
 
 <span class="k">def</span> <span class="nf">_make_qmo_eris_incore</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">):</span>
-    <span class="sd">''' Returns ndarray</span>
+<span class="w">    </span><span class="sd">''' Returns ndarray</span>
 <span class="sd">    '''</span>
 
     <span class="n">cput0</span> <span class="o">=</span> <span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">())</span>
@@ -1382,7 +1494,7 @@
     <span class="k">return</span> <span class="n">qeri</span>
 
 <span class="k">def</span> <span class="nf">_make_qmo_eris_outcore</span><span class="p">(</span><span class="n">agf2</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">):</span>
-    <span class="sd">''' Returns H5 dataset</span>
+<span class="w">    </span><span class="sd">''' Returns H5 dataset</span>
 <span class="sd">    '''</span>
 
     <span class="n">cput0</span> <span class="o">=</span> <span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">())</span>
@@ -1480,7 +1592,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

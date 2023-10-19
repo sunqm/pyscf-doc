@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.df.addons &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.df.addons </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -313,7 +330,6 @@
 <span class="c1">#</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">from</span> <span class="nn">pyscf.lib</span> <span class="kn">import</span> <span class="n">logger</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span>
@@ -325,10 +341,6 @@
 <span class="n">DFBASIS</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'df_addons_aug_etb_beta'</span><span class="p">,</span> <span class="s1">'weigend'</span><span class="p">)</span>
 <span class="n">ETB_BETA</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'df_addons_aug_dfbasis'</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 <span class="n">FIRST_ETB_ELEMENT</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'df_addons_aug_start_at'</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span>  <span class="c1"># 'Rb'</span>
-
-<span class="c1"># For code compatiblity in python-2 and python-3</span>
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
-    <span class="n">unicode</span> <span class="o">=</span> <span class="nb">str</span>
 
 <span class="c1"># Obtained from http://www.psicode.org/psi4manual/master/basissets_byfamily.html</span>
 <span class="n">DEFAULT_AUXBASIS</span> <span class="o">=</span> <span class="p">{</span>
@@ -363,8 +375,10 @@
     <span class="s1">'6311++g'</span>     <span class="p">:</span> <span class="p">(</span><span class="s1">'aug-cc-pvtz-jkfit'</span>      <span class="p">,</span> <span class="s1">'aug-cc-pvtz-ri'</span>     <span class="p">),</span>
 <span class="p">}</span>
 
-<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.load">[docs]</a><span class="k">class</span> <span class="nc">load</span><span class="p">(</span><span class="n">ao2mo</span><span class="o">.</span><span class="n">load</span><span class="p">):</span>
-    <span class="sd">'''load 3c2e integrals from hdf5 file. It can be used in the context</span>
+<div class="viewcode-block" id="load">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.load">[docs]</a>
+<span class="k">class</span> <span class="nc">load</span><span class="p">(</span><span class="n">ao2mo</span><span class="o">.</span><span class="n">load</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''load 3c2e integrals from hdf5 file. It can be used in the context</span>
 <span class="sd">    manager:</span>
 
 <span class="sd">    with load(cderifile) as eri:</span>
@@ -374,9 +388,12 @@
         <span class="n">ao2mo</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">dataname</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="aug_etb_for_dfbasis"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.aug_etb_for_dfbasis">[docs]</a><span class="k">def</span> <span class="nf">aug_etb_for_dfbasis</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dfbasis</span><span class="o">=</span><span class="n">DFBASIS</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">ETB_BETA</span><span class="p">,</span>
+
+<div class="viewcode-block" id="aug_etb_for_dfbasis">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.aug_etb_for_dfbasis">[docs]</a>
+<span class="k">def</span> <span class="nf">aug_etb_for_dfbasis</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dfbasis</span><span class="o">=</span><span class="n">DFBASIS</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">ETB_BETA</span><span class="p">,</span>
                         <span class="n">start_at</span><span class="o">=</span><span class="n">FIRST_ETB_ELEMENT</span><span class="p">):</span>
-    <span class="sd">'''augment weigend basis with even-tempered gaussian basis</span>
+<span class="w">    </span><span class="sd">'''augment weigend basis with even-tempered gaussian basis</span>
 <span class="sd">    exps = alpha*beta^i for i = 1..N</span>
 <span class="sd">    '''</span>
     <span class="n">nuc_start</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">charge</span><span class="p">(</span><span class="n">start_at</span><span class="p">)</span>
@@ -436,12 +453,18 @@
 
     <span class="k">return</span> <span class="n">newbasis</span></div>
 
-<div class="viewcode-block" id="aug_etb"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.aug_etb">[docs]</a><span class="k">def</span> <span class="nf">aug_etb</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">ETB_BETA</span><span class="p">):</span>
-    <span class="sd">'''To generate the even-tempered auxiliary Gaussian basis'''</span>
+
+<div class="viewcode-block" id="aug_etb">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.aug_etb">[docs]</a>
+<span class="k">def</span> <span class="nf">aug_etb</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">ETB_BETA</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''To generate the even-tempered auxiliary Gaussian basis'''</span>
     <span class="k">return</span> <span class="n">aug_etb_for_dfbasis</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">,</span> <span class="n">start_at</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="make_auxbasis"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.make_auxbasis">[docs]</a><span class="k">def</span> <span class="nf">make_auxbasis</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mp2fit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">'''Depending on the orbital basis, generating even-tempered Gaussians or</span>
+
+<div class="viewcode-block" id="make_auxbasis">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.make_auxbasis">[docs]</a>
+<span class="k">def</span> <span class="nf">make_auxbasis</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mp2fit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Depending on the orbital basis, generating even-tempered Gaussians or</span>
 <span class="sd">    the optimized auxiliary basis defined in DEFAULT_AUXBASIS</span>
 <span class="sd">    '''</span>
     <span class="n">uniq_atoms</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">_atom</span><span class="p">])</span>
@@ -489,8 +512,11 @@
                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s1">'  ETB auxbasis for </span><span class="si">%s</span><span class="s1">  </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">auxbasis</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">auxbasis</span></div>
 
-<div class="viewcode-block" id="make_auxmol"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.make_auxmol">[docs]</a><span class="k">def</span> <span class="nf">make_auxmol</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">auxbasis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''Generate a fake Mole object which uses the density fitting auxbasis as</span>
+
+<div class="viewcode-block" id="make_auxmol">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.df.html#pyscf.df.addons.make_auxmol">[docs]</a>
+<span class="k">def</span> <span class="nf">make_auxmol</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">auxbasis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Generate a fake Mole object which uses the density fitting auxbasis as</span>
 <span class="sd">    the basis sets.  If auxbasis is not specified, the optimized auxiliary fitting</span>
 <span class="sd">    basis set will be generated according to the rules recorded in</span>
 <span class="sd">    pyscf.df.addons.DEFAULT_AUXBASIS.  If the optimized auxiliary basis is not</span>
@@ -500,16 +526,16 @@
 
 <span class="sd">    See also the paper JCTC, 13, 554 about generating auxiliary fitting basis.</span>
 <span class="sd">    '''</span>
-    <span class="n">pmol</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>  <span class="c1"># just need shallow copy</span>
+    <span class="n">pmol</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">auxbasis</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">auxbasis</span> <span class="o">=</span> <span class="n">make_auxbasis</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="s1">'+etb'</span> <span class="ow">in</span> <span class="n">auxbasis</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">auxbasis</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">'+etb'</span> <span class="ow">in</span> <span class="n">auxbasis</span><span class="p">:</span>
         <span class="n">dfbasis</span> <span class="o">=</span> <span class="n">auxbasis</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
         <span class="n">auxbasis</span> <span class="o">=</span> <span class="n">aug_etb_for_dfbasis</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dfbasis</span><span class="p">)</span>
     <span class="n">pmol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="n">auxbasis</span>
 
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">auxbasis</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">unicode</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">auxbasis</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
         <span class="n">uniq_atoms</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">_atom</span><span class="p">])</span>
         <span class="n">_basis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">a</span><span class="p">,</span> <span class="n">auxbasis</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">uniq_atoms</span><span class="p">])</span>
     <span class="k">elif</span> <span class="s1">'default'</span> <span class="ow">in</span> <span class="n">auxbasis</span><span class="p">:</span>
@@ -529,6 +555,7 @@
     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s1">'num shells = </span><span class="si">%d</span><span class="s1">, num cGTOs = </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span>
                  <span class="n">pmol</span><span class="o">.</span><span class="n">nbas</span><span class="p">,</span> <span class="n">pmol</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">pmol</span></div>
+
 
 <span class="k">del</span> <span class="p">(</span><span class="n">DFBASIS</span><span class="p">,</span> <span class="n">ETB_BETA</span><span class="p">,</span> <span class="n">FIRST_ETB_ELEMENT</span><span class="p">)</span>
 </pre></div>
@@ -555,7 +582,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

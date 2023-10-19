@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -48,20 +47,18 @@
   
   
     <title>Geometry optimization &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Developer Guide" href="../develop.html" />
+    <link rel="next" title="References" href="reference.html" />
     <link rel="prev" title="Seminumerical exchange (SGX)" href="sgx.html" />
   
    
@@ -89,8 +86,7 @@
         <a href="../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -99,7 +95,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> Geometry optimization </span>
         </div>
       </div>
@@ -110,7 +106,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -201,11 +197,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -229,7 +225,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -395,7 +412,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-geomopt--page-root" class="md-nav__link">Geometry optimization</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -416,6 +433,13 @@
 
   </ul>
 </nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="reference.html" class="md-nav__link">References</a>
       
     
     </li></ul>
@@ -454,7 +478,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-geomopt--page-root" class="md-nav__link">Geometry optimization</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -485,10 +509,10 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="geometry-optimization">
-<span id="user-geomopt"></span><h1 id="user-geomopt--page-root">Geometry optimization<a class="headerlink" href="#user-geomopt--page-root" title="Permalink to this heading">¶</a></h1>
-<p><em>Modules</em>: <a class="reference internal" href="../interface/geomopt.html#module-geomopt" title="geomopt: geometry optimization"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geomopt</span></code></a></p>
+<span id="user-geomopt"></span><h1 id="user-geomopt--page-root">Geometry optimization<a class="headerlink" href="#user-geomopt--page-root" title="Link to this heading">¶</a></h1>
+<p><em>Modules</em>: <a class="reference internal" href="../pyscf_api_docs/pyscf.geomopt.html#module-pyscf.geomopt" title="pyscf.geomopt"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyscf.geomopt</span></code></a></p>
 <section id="basics">
-<h2 id="basics">Basics<a class="headerlink" href="#basics" title="Permalink to this heading">¶</a></h2>
+<h2 id="basics">Basics<a class="headerlink" href="#basics" title="Link to this heading">¶</a></h2>
 <p>PySCF implements geometry optimization via
 interfaces to <a class="reference external" href="https://github.com/leeping/geomeTRIC">geomeTRIC</a> and
 <a class="reference external" href="https://github.com/jhrmnn/pyberny">PyBerny</a>, and through PySCF extension
@@ -550,11 +574,12 @@ controlled by the following parameters:</p>
 </div>
 </section>
 <section id="constraints">
-<h2 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permalink to this heading">¶</a></h2>
+<h2 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">geomeTRIC</span></code> supports user defined constraints. The constraints can
-be specified in a text file with the format described
-<a class="reference external" href="https://github.com/leeping/geomeTRIC/blob/master/examples/constraints.txt">here</a>.
-One needs to pass the name of this file to PySCF:</p>
+be specified in a text file. Its format can be found
+in the <a class="reference external" href="https://geometric.readthedocs.io/en/latest/constraints.html#input-format">online documentation</a>
+or in the <a class="reference external" href="https://github.com/leeping/geomeTRIC/blob/master/examples/constraints.txt">template file</a>.
+Then the name of the constraints file needs to be passed to PySCF:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"constraints"</span><span class="p">:</span> <span class="s2">"constraints.txt"</span><span class="p">,}</span>
 <span class="n">mol_eq</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
 <span class="n">mol_eq</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">Gradients</span><span class="p">()</span><span class="o">.</span><span class="n">optimizer</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">'geomeTRIC'</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
@@ -612,7 +637,8 @@ custom energy and gradient functions:</p>
 </div>
 </section>
 <section id="transition-state-optimization">
-<h2 id="transition-state-optimization">Transition state optimization<a class="headerlink" href="#transition-state-optimization" title="Permalink to this heading">¶</a></h2>
+<h2 id="transition-state-optimization">Transition state optimization<a class="headerlink" href="#transition-state-optimization" title="Link to this heading">¶</a></h2>
+<p>Transition state optimization are available in <code class="docutils literal notranslate"><span class="pre">geomeTRIC</span></code> and <code class="docutils literal notranslate"><span class="pre">qsdopt</span></code>.</p>
 <p>The PySCF extension <a class="reference external" href="https://github.com/pyscf/qsdopt">qsdopt</a> performs transition
 state optimizations through
 <a class="reference external" href="https://aip.scitation.org/doi/10.1063/1.467721">quadratic steepest descent method</a>
@@ -663,9 +689,36 @@ to consider convergence reached. (Default: 1e-6)</p></li>
 <span class="n">optimizer</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">hess_update_freq</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">hmin</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>When using <cite>geomeTRIC</cite> to search transition state, you can simply add the
+keyword <cite>transition</cite> in geomeTRIC input configuration to trigger the TS search
+module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'transition'</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">mol_ts</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">Gradients</span><span class="p">()</span><span class="o">.</span><span class="n">optimizer</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">'geomeTRIC'</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'transition'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">'trust'</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s1">'tmax'</span><span class="p">:</span> <span class="mf">0.06</span><span class="p">}</span>
+<span class="n">mol_ts</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">Gradients</span><span class="p">()</span><span class="o">.</span><span class="n">optimizer</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">'geomeTRIC'</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Keywords <cite>trust</cite> and <cite>tmax</cite> control the trust region in TS search. They are
+not mandatory input settings. The default settings in
+geomeTRIC library are chosen to maximize job success rates. Tuning trust region
+may bring small improvements to the TS optimization performance.
+For more detailed discussions of available options,
+we refer to the <a class="reference external" href="https://geometric.readthedocs.io/en/latest/transition.html">online documentation of geomeTRIC transition states</a>.</p>
+<p>Except the initial step, geomeTRIC library does not support the ability to read
+analytical Hessian from quantum chemistry calculations at runtime.
+The initial Hessian can be fed to the optimizer after enabling the keyword
+<cite>hessian</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'transition'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">'hessian'</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">mol_ts</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">Gradients</span><span class="p">()</span><span class="o">.</span><span class="n">optimizer</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">'geomeTRIC'</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The interface implemented in PySCF can generate a temporary file to save the
+initial Hessian and pass to geomeTRIC. This keyword will be ignored if the
+analytical Hessian of the underlying method was not implemented.</p>
 </section>
 <section id="excited-states">
-<h2 id="excited-states">Excited states<a class="headerlink" href="#excited-states" title="Permalink to this heading">¶</a></h2>
+<h2 id="excited-states">Excited states<a class="headerlink" href="#excited-states" title="Link to this heading">¶</a></h2>
 <p>For excited-state geometry optimizations, the state to be optimized
 needs to be specified in the respective <code class="xref py py-class docutils literal notranslate"><span class="pre">Gradients</span></code> objects:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -720,7 +773,7 @@ needs to be specified in the respective <code class="xref py py-class docutils l
 see <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/examples/geomopt/12-mcscf_excited_states.py">examples/geomopt/12-mcscf_excited_states.py</a>.</p>
 </section>
 <section id="callback">
-<h2 id="callback">Callback<a class="headerlink" href="#callback" title="Permalink to this heading">¶</a></h2>
+<h2 id="callback">Callback<a class="headerlink" href="#callback" title="Link to this heading">¶</a></h2>
 <p>Callback functions can be invoked at each optimization step.
 The following example shows how to add charge analysis for each
 geometry during the optimization.</p>
@@ -786,17 +839,17 @@ geometry during the optimization.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Seminumerical exchange (SGX) </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Seminumerical exchange (SGX) </span>
               </div>
             </a>
           
           
-            <a href="../develop.html" title="Developer Guide"
+            <a href="reference.html" title="References"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Developer Guide </span>
+                class="md-footer-nav__direction"> "Next" </span> References </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -814,7 +867,7 @@ geometry during the optimization.</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

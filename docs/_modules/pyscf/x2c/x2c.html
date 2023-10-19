@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.x2c.x2c &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.x2c.x2c </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -199,11 +195,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -227,7 +223,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -313,7 +330,6 @@
 <span class="sd">'''</span>
 
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy.linalg</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">lib</span>
@@ -326,8 +342,10 @@
 
 <span class="n">LINEAR_DEP_THRESHOLD</span> <span class="o">=</span> <span class="mf">1e-9</span>
 
-<div class="viewcode-block" id="X2CHelperMixin"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperMixin">[docs]</a><span class="k">class</span> <span class="nc">X2CHelperMixin</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
-    <span class="sd">'''2-component X2c (including spin-free and spin-dependent terms) in</span>
+<div class="viewcode-block" id="X2CHelperBase">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperBase">[docs]</a>
+<span class="k">class</span> <span class="nc">X2CHelperBase</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">StreamObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''2-component X2c (including spin-free and spin-dependent terms) in</span>
 <span class="sd">    the j-adapted spinor basis.</span>
 <span class="sd">    '''</span>
     <span class="n">approx</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'x2c_X2C_approx'</span><span class="p">,</span> <span class="s1">'1e'</span><span class="p">)</span>  <span class="c1"># 'atom1e'</span>
@@ -338,7 +356,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">stdout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">verbose</span>
 
-<div class="viewcode-block" id="X2CHelperMixin.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperMixin.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="X2CHelperBase.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperBase.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'******** </span><span class="si">%s</span><span class="s1"> ********'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
@@ -348,12 +368,15 @@
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'basis for X matrix = </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="X2CHelperMixin.get_xmol"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperMixin.get_xmol">[docs]</a>    <span class="k">def</span> <span class="nf">get_xmol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="X2CHelperBase.get_xmol">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperBase.get_xmol">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_xmol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">xmol</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+            <span class="n">xmol</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="n">xmol</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">xmol</span><span class="p">,</span> <span class="kc">None</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">xuncontract</span><span class="p">:</span>
@@ -362,8 +385,11 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">mol</span><span class="p">,</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="X2CHelperMixin.get_hcore"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperMixin.get_hcore">[docs]</a>    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''2-component X2c Foldy-Wouthuysen (FW) Hamiltonian (including</span>
+
+<div class="viewcode-block" id="X2CHelperBase.get_hcore">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperBase.get_hcore">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''2-component X2c Foldy-Wouthuysen (FW) Hamiltonian (including</span>
 <span class="sd">        spin-free and spin-dependent terms) in the j-adapted spinor basis.</span>
 <span class="sd">        '''</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
@@ -374,7 +400,7 @@
         <span class="n">c</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">param</span><span class="o">.</span><span class="n">LIGHT_SPEED</span>
         <span class="k">assert</span> <span class="p">(</span><span class="s1">'1E'</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">approx</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_ovlp_spinor'</span><span class="p">)</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_nuc_spinor'</span><span class="p">)</span>
         <span class="n">w</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spnucsp_spinor'</span><span class="p">)</span>
         <span class="k">if</span> <span class="s1">'get_xmat'</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
@@ -391,7 +417,7 @@
                 <span class="n">ish0</span><span class="p">,</span> <span class="n">ish1</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">atom_slices</span><span class="p">[</span><span class="n">ia</span><span class="p">]</span>
                 <span class="n">shls_slice</span> <span class="o">=</span> <span class="p">(</span><span class="n">ish0</span><span class="p">,</span> <span class="n">ish1</span><span class="p">,</span> <span class="n">ish0</span><span class="p">,</span> <span class="n">ish1</span><span class="p">)</span>
                 <span class="n">s1</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_ovlp_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span>
-                <span class="n">t1</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+                <span class="n">t1</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
                 <span class="k">with</span> <span class="n">xmol</span><span class="o">.</span><span class="n">with_rinv_at_nucleus</span><span class="p">(</span><span class="n">ia</span><span class="p">):</span>
                     <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="n">xmol</span><span class="o">.</span><span class="n">atom_charge</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
                     <span class="n">v1</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_rinv_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span>
@@ -415,8 +441,9 @@
             <span class="n">h1</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">contr_coeff</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">h1</span><span class="p">,</span> <span class="n">contr_coeff</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">h1</span></div>
 
+
     <span class="k">def</span> <span class="nf">_picture_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xmol</span><span class="p">,</span> <span class="n">even_operator</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">odd_operator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''Picture change for even_operator + odd_operator</span>
+<span class="w">        </span><span class="sd">'''Picture change for even_operator + odd_operator</span>
 
 <span class="sd">        even_operator has two terms at diagonal blocks</span>
 <span class="sd">        [ v  0 ]</span>
@@ -434,9 +461,9 @@
             <span class="n">v_op</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="n">v_op</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w_op</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">w_op</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="n">w_op</span><span class="p">)</span>
-            <span class="n">w_op</span> <span class="o">*=</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">w_op</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">.5</span><span class="o">/</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">odd_operator</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">odd_operator</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="n">odd_operator</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">odd_operator</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="n">odd_operator</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.5</span><span class="o">/</span><span class="n">c</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">v_op</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">shape</span> <span class="o">=</span> <span class="n">v_op</span><span class="o">.</span><span class="n">shape</span>
@@ -483,8 +510,10 @@
 
         <span class="k">return</span> <span class="n">pc_mat</span>
 
-<div class="viewcode-block" id="X2CHelperMixin.picture_change"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperMixin.picture_change">[docs]</a>    <span class="k">def</span> <span class="nf">picture_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">even_operator</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">odd_operator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''Picture change for even_operator + odd_operator</span>
+<div class="viewcode-block" id="X2CHelperBase.picture_change">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperBase.picture_change">[docs]</a>
+    <span class="k">def</span> <span class="nf">picture_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">even_operator</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">odd_operator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Picture change for even_operator + odd_operator</span>
 
 <span class="sd">        even_operator has two terms at diagonal blocks</span>
 <span class="sd">        [ v  0 ]</span>
@@ -519,7 +548,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'pi,xpq,qj-&gt;xij'</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">pc_mat</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="X2CHelperMixin.get_xmat"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperMixin.get_xmat">[docs]</a>    <span class="k">def</span> <span class="nf">get_xmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="X2CHelperBase.get_xmat">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperBase.get_xmat">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_xmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">xmol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xmol</span><span class="p">(</span><span class="n">mol</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -535,7 +567,7 @@
                 <span class="n">ish0</span><span class="p">,</span> <span class="n">ish1</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">atom_slices</span><span class="p">[</span><span class="n">ia</span><span class="p">]</span>
                 <span class="n">shls_slice</span> <span class="o">=</span> <span class="p">(</span><span class="n">ish0</span><span class="p">,</span> <span class="n">ish1</span><span class="p">,</span> <span class="n">ish0</span><span class="p">,</span> <span class="n">ish1</span><span class="p">)</span>
                 <span class="n">s1</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_ovlp_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span>
-                <span class="n">t1</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+                <span class="n">t1</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
                 <span class="k">with</span> <span class="n">xmol</span><span class="o">.</span><span class="n">with_rinv_at_nucleus</span><span class="p">(</span><span class="n">ia</span><span class="p">):</span>
                     <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="n">xmol</span><span class="o">.</span><span class="n">atom_charge</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
                     <span class="n">v1</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">xmol</span><span class="o">.</span><span class="n">intor</span><span class="p">(</span><span class="s1">'int1e_rinv_spinor'</span><span class="p">,</span> <span class="n">shls_slice</span><span class="o">=</span><span class="n">shls_slice</span><span class="p">)</span>
@@ -543,41 +575,53 @@
                 <span class="n">x</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">,</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span> <span class="o">=</span> <span class="n">_x2c1e_xmatrix</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_ovlp_spinor'</span><span class="p">)</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_nuc_spinor'</span><span class="p">)</span>
             <span class="n">w</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spnucsp_spinor'</span><span class="p">)</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">_x2c1e_xmatrix</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">x</span></div>
 
+
     <span class="k">def</span> <span class="nf">_get_rmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''The matrix (in AO basis) that changes metric from NESC metric to NR metric'''</span>
+<span class="w">        </span><span class="sd">'''The matrix (in AO basis) that changes metric from NESC metric to NR metric'''</span>
         <span class="n">xmol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xmol</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xmat</span><span class="p">(</span><span class="n">xmol</span><span class="p">)</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">param</span><span class="o">.</span><span class="n">LIGHT_SPEED</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_ovlp_spinor'</span><span class="p">)</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_spsp_spinor'</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">_get_r</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span>
 
-<div class="viewcode-block" id="X2CHelperMixin.reset"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperMixin.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
-        <span class="sd">'''Reset mol and clean up relevant attributes for scanner mode'''</span>
+<div class="viewcode-block" id="X2CHelperBase.reset">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2CHelperBase.reset">[docs]</a>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Reset mol and clean up relevant attributes for scanner mode'''</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mol</span> <span class="o">=</span> <span class="n">mol</span>
-        <span class="k">return</span> <span class="bp">self</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span></div>
+</div>
 
-<div class="viewcode-block" id="SpinorX2CHelper"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinorX2CHelper">[docs]</a><span class="k">class</span> <span class="nc">SpinorX2CHelper</span><span class="p">(</span><span class="n">X2CHelperMixin</span><span class="p">):</span>
-    <span class="sd">'''2-component X2c (including spin-free and spin-dependent terms) in</span>
+
+<div class="viewcode-block" id="SpinorX2CHelper">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinorX2CHelper">[docs]</a>
+<span class="k">class</span> <span class="nc">SpinorX2CHelper</span><span class="p">(</span><span class="n">X2CHelperBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''2-component X2c (including spin-free and spin-dependent terms) in</span>
 <span class="sd">    the j-adapted spinor basis.</span>
 <span class="sd">    '''</span>
     <span class="k">pass</span></div>
 
+
 <span class="n">X2C</span> <span class="o">=</span> <span class="n">SpinorX2CHelper</span>
 
-<div class="viewcode-block" id="SpinOrbitalX2CHelper"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper">[docs]</a><span class="k">class</span> <span class="nc">SpinOrbitalX2CHelper</span><span class="p">(</span><span class="n">X2CHelperMixin</span><span class="p">):</span>
-    <span class="sd">'''2-component X2c (including spin-free and spin-dependent terms) in</span>
+<div class="viewcode-block" id="SpinOrbitalX2CHelper">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper">[docs]</a>
+<span class="k">class</span> <span class="nc">SpinOrbitalX2CHelper</span><span class="p">(</span><span class="n">X2CHelperBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''2-component X2c (including spin-free and spin-dependent terms) in</span>
 <span class="sd">    the Gaussian type spin-orbital basis (as the spin-orbital basis in GHF)</span>
 <span class="sd">    '''</span>
-<div class="viewcode-block" id="SpinOrbitalX2CHelper.get_hcore"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper.get_hcore">[docs]</a>    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SpinOrbitalX2CHelper.get_hcore">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper.get_hcore">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">has_ecp</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>
@@ -627,7 +671,10 @@
             <span class="n">h1</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">lib</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">contr_coeff</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">contr_coeff</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">h1</span></div>
 
-<div class="viewcode-block" id="SpinOrbitalX2CHelper.picture_change"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper.picture_change">[docs]</a>    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">X2CHelperMixin</span><span class="o">.</span><span class="n">picture_change</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SpinOrbitalX2CHelper.picture_change">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper.picture_change">[docs]</a>
+    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">X2CHelperBase</span><span class="o">.</span><span class="n">picture_change</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">picture_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">even_operator</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">odd_operator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="n">xmol</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xmol</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
@@ -650,7 +697,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'pi,xpq,qj-&gt;xij'</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">pc_mat</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SpinOrbitalX2CHelper.get_xmat"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper.get_xmat">[docs]</a>    <span class="k">def</span> <span class="nf">get_xmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SpinOrbitalX2CHelper.get_xmat">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SpinOrbitalX2CHelper.get_xmat">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_xmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">xmol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xmol</span><span class="p">(</span><span class="n">mol</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -682,26 +732,33 @@
             <span class="n">x</span> <span class="o">=</span> <span class="n">_x2c1e_xmatrix</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">x</span></div>
 
+
     <span class="k">def</span> <span class="nf">_get_rmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''The matrix (in AO basis) that changes metric from NESC metric to NR metric'''</span>
+<span class="w">        </span><span class="sd">'''The matrix (in AO basis) that changes metric from NESC metric to NR metric'''</span>
         <span class="n">xmol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xmol</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xmat</span><span class="p">(</span><span class="n">xmol</span><span class="p">)</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">param</span><span class="o">.</span><span class="n">LIGHT_SPEED</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">_block_diag</span><span class="p">(</span><span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_ovlp'</span><span class="p">))</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">_block_diag</span><span class="p">(</span><span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_kin'</span><span class="p">))</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">_get_r</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_hcore"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.get_hcore">[docs]</a><span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-    <span class="sd">'''2-component X2c hcore Hamiltonian (including spin-free and</span>
+
+<div class="viewcode-block" id="get_hcore">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.get_hcore">[docs]</a>
+<span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''2-component X2c hcore Hamiltonian (including spin-free and</span>
 <span class="sd">    spin-dependent terms) in the j-adapted spinor basis.</span>
 <span class="sd">    '''</span>
     <span class="k">return</span> <span class="n">SpinorX2CHelper</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="get_jk"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.get_jk">[docs]</a><span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mf_opt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''non-relativistic J/K matrices (without SSO,SOO etc) in the j-adapted</span>
+
+<div class="viewcode-block" id="get_jk">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.get_jk">[docs]</a>
+<span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mf_opt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''non-relativistic J/K matrices (without SSO,SOO etc) in the j-adapted</span>
 <span class="sd">    spinor basis.</span>
 <span class="sd">    '''</span>
     <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span> <span class="o">=</span> <span class="n">_vhf</span><span class="o">.</span><span class="n">rdirect_mapdm</span><span class="p">(</span><span class="s1">'int2e_spinor'</span><span class="p">,</span> <span class="s1">'s8'</span><span class="p">,</span>
@@ -711,31 +768,45 @@
     <span class="n">vk</span> <span class="o">=</span> <span class="n">vk</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dhf</span><span class="o">.</span><span class="n">_jk_triu_</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span><span class="p">,</span> <span class="n">hermi</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="make_rdm1"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.make_rdm1">[docs]</a><span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mo_coeff</span><span class="o">*</span><span class="n">mo_occ</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span></div>
 
-<div class="viewcode-block" id="init_guess_by_minao"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_minao">[docs]</a><span class="k">def</span> <span class="nf">init_guess_by_minao</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-    <span class="sd">'''Initial guess in terms of the overlap to minimal basis.'''</span>
+<span class="n">make_rdm1</span> <span class="o">=</span> <span class="n">hf</span><span class="o">.</span><span class="n">make_rdm1</span>
+
+<div class="viewcode-block" id="init_guess_by_minao">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_minao">[docs]</a>
+<span class="k">def</span> <span class="nf">init_guess_by_minao</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Initial guess in terms of the overlap to minimal basis.'''</span>
     <span class="n">dm</span> <span class="o">=</span> <span class="n">hf</span><span class="o">.</span><span class="n">init_guess_by_minao</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_proj_dmll</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="init_guess_by_1e"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_1e">[docs]</a><span class="k">def</span> <span class="nf">init_guess_by_1e</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-    <span class="sd">'''Initial guess from one electron system.'''</span>
+
+<div class="viewcode-block" id="init_guess_by_1e">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_1e">[docs]</a>
+<span class="k">def</span> <span class="nf">init_guess_by_1e</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Initial guess from one electron system.'''</span>
     <span class="n">mf</span> <span class="o">=</span> <span class="n">UHF</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">mf</span><span class="o">.</span><span class="n">init_guess_by_1e</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="init_guess_by_atom"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_atom">[docs]</a><span class="k">def</span> <span class="nf">init_guess_by_atom</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-    <span class="sd">'''Initial guess from atom calculation.'''</span>
+
+<div class="viewcode-block" id="init_guess_by_atom">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_atom">[docs]</a>
+<span class="k">def</span> <span class="nf">init_guess_by_atom</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Initial guess from atom calculation.'''</span>
     <span class="n">dm</span> <span class="o">=</span> <span class="n">hf</span><span class="o">.</span><span class="n">init_guess_by_atom</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_proj_dmll</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="init_guess_by_chkfile"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_chkfile">[docs]</a><span class="k">def</span> <span class="nf">init_guess_by_chkfile</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">chkfile_name</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="init_guess_by_chkfile">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.init_guess_by_chkfile">[docs]</a>
+<span class="k">def</span> <span class="nf">init_guess_by_chkfile</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">chkfile_name</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">dm</span> <span class="o">=</span> <span class="n">dhf</span><span class="o">.</span><span class="n">init_guess_by_chkfile</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">chkfile_name</span><span class="p">,</span> <span class="n">project</span><span class="p">)</span>
     <span class="n">n2c</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">dm</span><span class="p">[:</span><span class="n">n2c</span><span class="p">,:</span><span class="n">n2c</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="get_init_guess"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.get_init_guess">[docs]</a><span class="k">def</span> <span class="nf">get_init_guess</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'minao'</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+
+<div class="viewcode-block" id="get_init_guess">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.get_init_guess">[docs]</a>
+<span class="k">def</span> <span class="nf">get_init_guess</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'minao'</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">key</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'1e'</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">init_guess_by_1e</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
@@ -747,38 +818,58 @@
         <span class="k">return</span> <span class="n">init_guess_by_minao</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SCF"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF">[docs]</a><span class="k">class</span> <span class="nc">SCF</span><span class="p">(</span><span class="n">hf</span><span class="o">.</span><span class="n">SCF</span><span class="p">):</span>
-    <span class="sd">'''The full X2C problem (scaler + soc terms) in j-adapted spinor basis'''</span>
+
+<div class="viewcode-block" id="SCF">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF">[docs]</a>
+<span class="k">class</span> <span class="nc">SCF</span><span class="p">(</span><span class="n">hf</span><span class="o">.</span><span class="n">SCF</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''The full X2C problem (scaler + soc terms) in j-adapted spinor basis'''</span>
+
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">'with_x2c'</span><span class="p">])</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
         <span class="n">hf</span><span class="o">.</span><span class="n">SCF</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="o">=</span> <span class="n">SpinorX2CHelper</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
         <span class="c1">#self.with_x2c.xuncontract = False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="s1">'with_x2c'</span><span class="p">])</span>
 
-<div class="viewcode-block" id="SCF.build"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SCF.build">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.build">[docs]</a>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="n">logger</span><span class="o">.</span><span class="n">WARN</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">check_sanity</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direct_scf</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_direct_scf</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="SCF.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">hf</span><span class="o">.</span><span class="n">SCF</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="SCF.init_guess_by_minao"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_guess_by_minao">[docs]</a>    <span class="k">def</span> <span class="nf">init_guess_by_minao</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">'''Initial guess in terms of the overlap to minimal basis.'''</span>
+
+<div class="viewcode-block" id="SCF.init_guess_by_minao">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_guess_by_minao">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_guess_by_minao</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Initial guess in terms of the overlap to minimal basis.'''</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">return</span> <span class="n">init_guess_by_minao</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.init_guess_by_atom"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_guess_by_atom">[docs]</a>    <span class="k">def</span> <span class="nf">init_guess_by_atom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.init_guess_by_atom">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_guess_by_atom">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_guess_by_atom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">return</span> <span class="n">init_guess_by_atom</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.init_guess_by_chkfile"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_guess_by_chkfile">[docs]</a>    <span class="k">def</span> <span class="nf">init_guess_by_chkfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chkfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.init_guess_by_chkfile">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_guess_by_chkfile">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_guess_by_chkfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chkfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">chkfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">chkfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chkfile</span>
         <span class="k">return</span> <span class="n">init_guess_by_chkfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">chkfile</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">)</span></div>
+
 
     <span class="k">def</span> <span class="nf">_eigh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
         <span class="n">e</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
@@ -786,15 +877,23 @@
         <span class="n">c</span><span class="p">[:,</span><span class="n">c</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="p">))]</span><span class="o">.</span><span class="n">real</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">return</span> <span class="n">e</span><span class="p">,</span> <span class="n">c</span>
 
-<div class="viewcode-block" id="SCF.get_hcore"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_hcore">[docs]</a>    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SCF.get_hcore">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_hcore">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.get_ovlp"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_ovlp">[docs]</a>    <span class="k">def</span> <span class="nf">get_ovlp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.get_ovlp">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_ovlp">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ovlp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">return</span> <span class="n">mol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_ovlp_spinor'</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.get_occ"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_occ">[docs]</a>    <span class="k">def</span> <span class="nf">get_occ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.get_occ">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_occ">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_occ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mo_energy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mo_energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_energy</span>
         <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="n">mo_occ</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">mo_energy</span><span class="p">)</span>
@@ -813,35 +912,40 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'  mo_energy = </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">mo_energy</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">mo_occ</span></div>
 
-<div class="viewcode-block" id="SCF.make_rdm1"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.make_rdm1">[docs]</a>    <span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_occ</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">mo_coeff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mo_coeff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span>
-        <span class="k">if</span> <span class="n">mo_occ</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mo_occ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span>
-        <span class="k">return</span> <span class="n">make_rdm1</span><span class="p">(</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.init_direct_scf"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_direct_scf">[docs]</a>    <span class="k">def</span> <span class="nf">init_direct_scf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">make_rdm1</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">module_method</span><span class="p">(</span><span class="n">make_rdm1</span><span class="p">,</span> <span class="n">absences</span><span class="o">=</span><span class="p">[</span><span class="s1">'mo_coeff'</span><span class="p">,</span> <span class="s1">'mo_occ'</span><span class="p">])</span>
+
+<div class="viewcode-block" id="SCF.init_direct_scf">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.init_direct_scf">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_direct_scf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
-        <span class="k">def</span> <span class="nf">set_vkscreen</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-            <span class="n">opt</span><span class="o">.</span><span class="n">_this</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">r_vkscreen</span> <span class="o">=</span> <span class="n">_vhf</span><span class="o">.</span><span class="n">_fpointer</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">opt</span> <span class="o">=</span> <span class="n">_vhf</span><span class="o">.</span><span class="n">VHFOpt</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s1">'int2e_spinor'</span><span class="p">,</span> <span class="s1">'CVHFrkbllll_prescreen'</span><span class="p">,</span>
-                          <span class="s1">'CVHFrkbllll_direct_scf'</span><span class="p">,</span>
-                          <span class="s1">'CVHFrkbllll_direct_scf_dm'</span><span class="p">)</span>
-        <span class="n">opt</span><span class="o">.</span><span class="n">direct_scf_tol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">direct_scf_tol</span>
-        <span class="n">set_vkscreen</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="s1">'CVHFrkbllll_vkscreen'</span><span class="p">)</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">dhf</span><span class="o">.</span><span class="n">_VHFOpt</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s1">'int2e_spinor'</span><span class="p">,</span> <span class="s1">'CVHFrkbllll_prescreen'</span><span class="p">,</span>
+                          <span class="s1">'CVHFrkb_q_cond'</span><span class="p">,</span> <span class="s1">'CVHFrkb_dm_cond'</span><span class="p">,</span>
+                          <span class="n">direct_scf_tol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">direct_scf_tol</span><span class="p">)</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">_this</span><span class="o">.</span><span class="n">r_vkscreen</span> <span class="o">=</span> <span class="n">_vhf</span><span class="o">.</span><span class="n">_fpointer</span><span class="p">(</span><span class="s1">'CVHFrkbllll_vkscreen'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">opt</span></div>
 
-<div class="viewcode-block" id="SCF.get_jk"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_jk">[docs]</a>    <span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+<div class="viewcode-block" id="SCF.get_jk">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_jk">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">with_j</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_k</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">if</span> <span class="n">dm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">dm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">()</span>
         <span class="n">t0</span> <span class="o">=</span> <span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">())</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direct_scf</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_direct_scf</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
-        <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span> <span class="o">=</span> <span class="n">get_jk</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">opt</span><span class="p">,</span> <span class="n">with_j</span><span class="p">,</span> <span class="n">with_k</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direct_scf</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">mol</span><span class="o">.</span><span class="n">with_range_coulomb</span><span class="p">(</span><span class="n">omega</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_opt</span><span class="p">[</span><span class="n">omega</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_direct_scf</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+        <span class="n">vhfopt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+        <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span> <span class="o">=</span> <span class="n">get_jk</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="p">,</span> <span class="n">vhfopt</span><span class="p">,</span> <span class="n">with_j</span><span class="p">,</span> <span class="n">with_k</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'vj and vk'</span><span class="p">,</span> <span class="o">*</span><span class="n">t0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span></div>
 
-<div class="viewcode-block" id="SCF.get_veff"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_veff">[docs]</a>    <span class="k">def</span> <span class="nf">get_veff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm_last</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vhf_last</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">'''Dirac-Coulomb'''</span>
+
+<div class="viewcode-block" id="SCF.get_veff">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.get_veff">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_veff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm_last</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vhf_last</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Dirac-Coulomb'''</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">if</span> <span class="n">dm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">dm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direct_scf</span><span class="p">:</span>
@@ -852,13 +956,19 @@
             <span class="n">vj</span><span class="p">,</span> <span class="n">vk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_jk</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">hermi</span><span class="o">=</span><span class="n">hermi</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">vj</span> <span class="o">-</span> <span class="n">vk</span></div>
 
-<div class="viewcode-block" id="SCF.analyze"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.analyze">[docs]</a>    <span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.analyze">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.analyze">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">verbose</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">verbose</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>
         <span class="k">return</span> <span class="n">dhf</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.dip_moment"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.dip_moment">[docs]</a>    <span class="k">def</span> <span class="nf">dip_moment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'Debye'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">NOTE</span><span class="p">,</span>
+
+<div class="viewcode-block" id="SCF.dip_moment">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.dip_moment">[docs]</a>
+    <span class="k">def</span> <span class="nf">dip_moment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'Debye'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">NOTE</span><span class="p">,</span>
                    <span class="n">picture_change</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sa">r</span><span class="sd">''' Dipole moment calculation with picture change correction</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">''' Dipole moment calculation with picture change correction</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">             mol: an instance of :class:`Mole`</span>
@@ -900,19 +1010,31 @@
             <span class="n">log</span><span class="o">.</span><span class="n">note</span><span class="p">(</span><span class="s1">'Dipole moment(X, Y, Z, A.U.): </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">'</span><span class="p">,</span> <span class="o">*</span><span class="n">mol_dip</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">mol_dip</span></div>
 
-<div class="viewcode-block" id="SCF.x2c1e"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.x2c1e">[docs]</a>    <span class="k">def</span> <span class="nf">x2c1e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.x2c1e">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.x2c1e">[docs]</a>
+    <span class="k">def</span> <span class="nf">x2c1e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span></div>
+
     <span class="n">x2c</span> <span class="o">=</span> <span class="n">x2c1e</span>
 
-<div class="viewcode-block" id="SCF.sfx2c1e"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.sfx2c1e">[docs]</a>    <span class="k">def</span> <span class="nf">sfx2c1e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SCF.sfx2c1e">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.sfx2c1e">[docs]</a>
+    <span class="k">def</span> <span class="nf">sfx2c1e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="SCF.newton"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.newton">[docs]</a>    <span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SCF.newton">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.newton">[docs]</a>
+    <span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.x2c.newton_ah</span> <span class="kn">import</span> <span class="n">newton</span>
         <span class="k">return</span> <span class="n">newton</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.stability"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.stability">[docs]</a>    <span class="k">def</span> <span class="nf">stability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">internal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">external</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_status</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">'''</span>
+
+<div class="viewcode-block" id="SCF.stability">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.stability">[docs]</a>
+    <span class="k">def</span> <span class="nf">stability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">internal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">external</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_status</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
 <span class="sd">        X2C-HF/X2C-KS stability analysis.</span>
 
 <span class="sd">        See also pyscf.scf.stability.rhf_stability function.</span>
@@ -935,27 +1057,45 @@
         <span class="kn">from</span> <span class="nn">pyscf.x2c.stability</span> <span class="kn">import</span> <span class="n">x2chf_stability</span>
         <span class="k">return</span> <span class="n">x2chf_stability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">return_status</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SCF.nuc_grad_method"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.nuc_grad_method">[docs]</a>    <span class="k">def</span> <span class="nf">nuc_grad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+<div class="viewcode-block" id="SCF.nuc_grad_method">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.SCF.nuc_grad_method">[docs]</a>
+    <span class="k">def</span> <span class="nf">nuc_grad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_transfer_attrs_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="s1">'with_x2c'</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Destination object of to_hf/to_ks method is not '</span>
+                        <span class="s1">'an X2C object. Convert dst to X2C object.'</span><span class="p">)</span>
+            <span class="n">dst</span> <span class="o">=</span> <span class="n">dst</span><span class="o">.</span><span class="n">x2c</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hf</span><span class="o">.</span><span class="n">SCF</span><span class="o">.</span><span class="n">_transfer_attrs_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span></div>
+
 
 <span class="n">X2C_SCF</span> <span class="o">=</span> <span class="n">SCF</span>
 
-<div class="viewcode-block" id="UHF"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.UHF">[docs]</a><span class="k">class</span> <span class="nc">UHF</span><span class="p">(</span><span class="n">SCF</span><span class="p">):</span>
-<div class="viewcode-block" id="UHF.to_ks"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.UHF.to_ks">[docs]</a>    <span class="k">def</span> <span class="nf">to_ks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="s1">'HF'</span><span class="p">):</span>
-        <span class="sd">'''Convert the input mean-field object to an X2C-KS object.</span>
+<div class="viewcode-block" id="UHF">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.UHF">[docs]</a>
+<span class="k">class</span> <span class="nc">UHF</span><span class="p">(</span><span class="n">SCF</span><span class="p">):</span>
+<div class="viewcode-block" id="UHF.to_ks">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.UHF.to_ks">[docs]</a>
+    <span class="k">def</span> <span class="nf">to_ks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="s1">'HF'</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Convert the input mean-field object to an X2C-KS object.</span>
 
 <span class="sd">        Note this conversion only changes the class of the mean-field object.</span>
 <span class="sd">        The total energy and wave-function are the same as them in the input</span>
 <span class="sd">        mean-field object.</span>
 <span class="sd">        '''</span>
         <span class="kn">from</span> <span class="nn">pyscf.x2c</span> <span class="kn">import</span> <span class="n">dft</span>
-        <span class="n">mf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">dft</span><span class="o">.</span><span class="n">UKS</span><span class="p">)</span>
-        <span class="n">mf</span><span class="o">.</span><span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="n">mf</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transfer_attrs_</span><span class="p">(</span><span class="n">dft</span><span class="o">.</span><span class="n">UKS</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="n">xc</span><span class="p">))</span></div>
+</div>
+
 
 <span class="n">X2C_UHF</span> <span class="o">=</span> <span class="n">UHF</span>
 
-<div class="viewcode-block" id="RHF"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.RHF">[docs]</a><span class="k">class</span> <span class="nc">RHF</span><span class="p">(</span><span class="n">SCF</span><span class="p">):</span>
+<div class="viewcode-block" id="RHF">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.RHF">[docs]</a>
+<span class="k">class</span> <span class="nc">RHF</span><span class="p">(</span><span class="n">SCF</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">dhf</span><span class="o">.</span><span class="n">zquatev</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -964,22 +1104,26 @@
     <span class="k">def</span> <span class="nf">_eigh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">dhf</span><span class="o">.</span><span class="n">zquatev</span><span class="o">.</span><span class="n">solve_KR_FCSCE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 
-<div class="viewcode-block" id="RHF.to_ks"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.RHF.to_ks">[docs]</a>    <span class="k">def</span> <span class="nf">to_ks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="s1">'HF'</span><span class="p">):</span>
-        <span class="sd">'''Convert the input mean-field object to an X2C-KS object.</span>
+<div class="viewcode-block" id="RHF.to_ks">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.RHF.to_ks">[docs]</a>
+    <span class="k">def</span> <span class="nf">to_ks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="s1">'HF'</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Convert the input mean-field object to an X2C-KS object.</span>
 
 <span class="sd">        Note this conversion only changes the class of the mean-field object.</span>
 <span class="sd">        The total energy and wave-function are the same as them in the input</span>
 <span class="sd">        mean-field object.</span>
 <span class="sd">        '''</span>
         <span class="kn">from</span> <span class="nn">pyscf.x2c</span> <span class="kn">import</span> <span class="n">dft</span>
-        <span class="n">mf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">dft</span><span class="o">.</span><span class="n">RKS</span><span class="p">)</span>
-        <span class="n">mf</span><span class="o">.</span><span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="n">mf</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transfer_attrs_</span><span class="p">(</span><span class="n">dft</span><span class="o">.</span><span class="n">RKS</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="n">xc</span><span class="p">))</span></div>
+</div>
+
 
 <span class="n">X2C_RHF</span> <span class="o">=</span> <span class="n">RHF</span>
 
-<div class="viewcode-block" id="x2c1e_ghf"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.x2c1e_ghf">[docs]</a><span class="k">def</span> <span class="nf">x2c1e_ghf</span><span class="p">(</span><span class="n">mf</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<div class="viewcode-block" id="x2c1e_ghf">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.x2c1e_ghf">[docs]</a>
+<span class="k">def</span> <span class="nf">x2c1e_ghf</span><span class="p">(</span><span class="n">mf</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    For the given *GHF* object, generate X2C-GSCF object in GHF spin-orbital</span>
 <span class="sd">    basis. Note the orbital basis of X2C_GSCF is different to the X2C_RHF and</span>
 <span class="sd">    X2C_UHF objects. X2C_RHF and X2C_UHF use spinor basis.</span>
@@ -1007,85 +1151,113 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">mf</span>
 
-    <span class="n">mf_class</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="vm">__class__</span>
-    <span class="k">if</span> <span class="n">mf_class</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">doc</span> <span class="o">=</span> <span class="s1">''</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">doc</span> <span class="o">=</span> <span class="n">mf_class</span><span class="o">.</span><span class="vm">__doc__</span>
+    <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">set_class</span><span class="p">(</span><span class="n">X2C1E_GSCF</span><span class="p">(</span><span class="n">mf</span><span class="p">),</span> <span class="p">(</span><span class="n">X2C1E_GSCF</span><span class="p">,</span> <span class="n">mf</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span></div>
 
-    <span class="k">class</span> <span class="nc">X2C1E_GSCF</span><span class="p">(</span><span class="n">_X2C_SCF</span><span class="p">,</span> <span class="n">mf_class</span><span class="p">):</span>
-        <span class="vm">__doc__</span> <span class="o">=</span> <span class="n">doc</span> <span class="o">+</span> <span class="s1">'''</span>
-<span class="s1">        Attributes for spin-orbital X2C:</span>
-<span class="s1">            with_x2c : X2C object</span>
-<span class="s1">        '''</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="n">mf_class</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="o">=</span> <span class="n">SpinOrbitalX2CHelper</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">mol</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="s1">'with_x2c'</span><span class="p">])</span>
 
-        <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="c1"># A tag to label the derived SCF class</span>
+<span class="k">class</span> <span class="nc">_X2C_SCF</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
 
-        <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-            <span class="n">mf_class</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">mf_class</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
+<div class="viewcode-block" id="X2C1E_GSCF">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2C1E_GSCF">[docs]</a>
+<span class="k">class</span> <span class="nc">X2C1E_GSCF</span><span class="p">(</span><span class="n">_X2C_SCF</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Attributes for spin-orbital X2C:</span>
+<span class="sd">        with_x2c : X2C object</span>
+<span class="sd">    '''</span>
 
-        <span class="k">def</span> <span class="nf">dip_moment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'Debye'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">NOTE</span><span class="p">,</span>
-                       <span class="n">picture_change</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="sa">r</span><span class="sd">''' Dipole moment calculation with picture change correction</span>
+    <span class="n">__name_mixin__</span> <span class="o">=</span> <span class="s1">'X2C1e'</span>
 
-<span class="sd">            Args:</span>
-<span class="sd">                 mol: an instance of :class:`Mole`</span>
-<span class="sd">                 dm : a 2D ndarrays density matrices</span>
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">'with_x2c'</span><span class="p">])</span>
 
-<span class="sd">            Kwarg:</span>
-<span class="sd">                picture_change (bool) : Whether to compute the dipole moment with</span>
-<span class="sd">                picture change correction.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="o">=</span> <span class="n">SpinOrbitalX2CHelper</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">mol</span><span class="p">)</span>
 
-<span class="sd">            Return:</span>
-<span class="sd">                A list: the dipole moment on x, y and z component</span>
-<span class="sd">            '''</span>
-            <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
-            <span class="k">if</span> <span class="n">dm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">dm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">()</span>
-            <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+<div class="viewcode-block" id="X2C1E_GSCF.undo_x2c">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2C1E_GSCF.undo_x2c">[docs]</a>
+    <span class="k">def</span> <span class="nf">undo_x2c</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Remove the X2C Mixin'''</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lib</span><span class="o">.</span><span class="n">drop_class</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">X2C1E_GSCF</span><span class="p">))</span>
+        <span class="k">del</span> <span class="n">obj</span><span class="o">.</span><span class="n">with_x2c</span>
+        <span class="k">return</span> <span class="n">obj</span></div>
 
-            <span class="n">nao</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">nao</span>
-            <span class="n">dm</span> <span class="o">=</span> <span class="n">dm</span><span class="p">[:</span><span class="n">nao</span><span class="p">,:</span><span class="n">nao</span><span class="p">]</span> <span class="o">+</span> <span class="n">dm</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span>
 
-            <span class="n">charges</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">atom_charges</span><span class="p">()</span>
-            <span class="n">coords</span>  <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">atom_coords</span><span class="p">()</span>
-            <span class="n">nucl_dip</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'i,ix-&gt;x'</span><span class="p">,</span> <span class="n">charges</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span>
-            <span class="k">with</span> <span class="n">mol</span><span class="o">.</span><span class="n">with_common_orig</span><span class="p">(</span><span class="n">nucl_dip</span><span class="p">):</span>
-                <span class="n">ao_dip</span> <span class="o">=</span> <span class="n">_block_diag</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_r'</span><span class="p">))</span>
-                <span class="k">if</span> <span class="n">picture_change</span><span class="p">:</span>
-                    <span class="n">xmol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">get_xmol</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">nao</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">nao</span>
-                    <span class="n">prp</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_sprsp'</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">prp</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">_block_diag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">prp</span><span class="p">])</span>
-                    <span class="n">ao_dip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">picture_change</span><span class="p">((</span><span class="n">ao_dip</span><span class="p">,</span> <span class="n">prp</span><span class="p">))</span>
+<div class="viewcode-block" id="X2C1E_GSCF.get_hcore">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2C1E_GSCF.get_hcore">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span></div>
 
-            <span class="n">mol_dip</span> <span class="o">=</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'xij,ji-&gt;x'</span><span class="p">,</span> <span class="n">ao_dip</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
 
-            <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'DEBYE'</span><span class="p">:</span>
-                <span class="n">mol_dip</span> <span class="o">*=</span> <span class="n">nist</span><span class="o">.</span><span class="n">AU2DEBYE</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">note</span><span class="p">(</span><span class="s1">'Dipole moment(X, Y, Z, Debye): </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">'</span><span class="p">,</span> <span class="o">*</span><span class="n">mol_dip</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">log</span><span class="o">.</span><span class="n">note</span><span class="p">(</span><span class="s1">'Dipole moment(X, Y, Z, A.U.): </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">'</span><span class="p">,</span> <span class="o">*</span><span class="n">mol_dip</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">mol_dip</span>
+<div class="viewcode-block" id="X2C1E_GSCF.dip_moment">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2C1E_GSCF.dip_moment">[docs]</a>
+    <span class="k">def</span> <span class="nf">dip_moment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'Debye'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">NOTE</span><span class="p">,</span>
+                   <span class="n">picture_change</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">''' Dipole moment calculation with picture change correction</span>
 
-    <span class="n">with_x2c</span> <span class="o">=</span> <span class="n">SpinOrbitalX2CHelper</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">mol</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">mf</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">X2C1E_GSCF</span><span class="p">)</span><span class="o">.</span><span class="n">add_keys</span><span class="p">(</span><span class="n">with_x2c</span><span class="o">=</span><span class="n">with_x2c</span><span class="p">)</span></div>
+<span class="sd">        Args:</span>
+<span class="sd">             mol: an instance of :class:`Mole`</span>
+<span class="sd">             dm : a 2D ndarrays density matrices</span>
+
+<span class="sd">        Kwarg:</span>
+<span class="sd">            picture_change (bool) : Whether to compute the dipole moment with</span>
+<span class="sd">            picture change correction.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            A list: the dipole moment on x, y and z component</span>
+<span class="sd">        '''</span>
+        <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
+        <span class="k">if</span> <span class="n">dm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">dm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">()</span>
+        <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="n">charges</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">atom_charges</span><span class="p">()</span>
+        <span class="n">coords</span>  <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">atom_coords</span><span class="p">()</span>
+        <span class="n">nucl_dip</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'i,ix-&gt;x'</span><span class="p">,</span> <span class="n">charges</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">mol</span><span class="o">.</span><span class="n">with_common_orig</span><span class="p">(</span><span class="n">nucl_dip</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_r'</span><span class="p">)</span>
+            <span class="n">ao_dip</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">_block_diag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">r</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">picture_change</span><span class="p">:</span>
+                <span class="n">xmol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">get_xmol</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">nao</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">nao</span>
+                <span class="n">prp</span> <span class="o">=</span> <span class="n">xmol</span><span class="o">.</span><span class="n">intor_symmetric</span><span class="p">(</span><span class="s1">'int1e_sprsp'</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">prp</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">_block_diag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">prp</span><span class="p">])</span>
+                <span class="n">ao_dip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">picture_change</span><span class="p">((</span><span class="n">ao_dip</span><span class="p">,</span> <span class="n">prp</span><span class="p">))</span>
+
+        <span class="n">mol_dip</span> <span class="o">=</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'xij,ji-&gt;x'</span><span class="p">,</span> <span class="n">ao_dip</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+
+        <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'DEBYE'</span><span class="p">:</span>
+            <span class="n">mol_dip</span> <span class="o">*=</span> <span class="n">nist</span><span class="o">.</span><span class="n">AU2DEBYE</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">note</span><span class="p">(</span><span class="s1">'Dipole moment(X, Y, Z, Debye): </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">'</span><span class="p">,</span> <span class="o">*</span><span class="n">mol_dip</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">note</span><span class="p">(</span><span class="s1">'Dipole moment(X, Y, Z, A.U.): </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">, </span><span class="si">%8.5f</span><span class="s1">'</span><span class="p">,</span> <span class="o">*</span><span class="n">mol_dip</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mol_dip</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_transfer_attrs_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="s1">'with_x2c'</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Destination object of to_hf/to_ks method is not '</span>
+                        <span class="s1">'an X2C object. Convert dst to X2C object.'</span><span class="p">)</span>
+            <span class="n">dst</span> <span class="o">=</span> <span class="n">dst</span><span class="o">.</span><span class="n">x2c</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hf</span><span class="o">.</span><span class="n">SCF</span><span class="o">.</span><span class="n">_transfer_attrs_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+
+<div class="viewcode-block" id="X2C1E_GSCF.to_ks">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.x2c.html#pyscf.x2c.x2c.X2C1E_GSCF.to_ks">[docs]</a>
+    <span class="k">def</span> <span class="nf">to_ks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="s1">'HF'</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+</div>
+
 
 
 <span class="k">def</span> <span class="nf">_uncontract_mol</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">xuncontract</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exp_drop</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
-    <span class="sd">'''mol._basis + uncontracted steep functions'''</span>
+<span class="w">    </span><span class="sd">'''mol._basis + uncontracted steep functions'''</span>
     <span class="n">pmol</span><span class="p">,</span> <span class="n">contr_coeff</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">decontract_basis</span><span class="p">(</span><span class="n">atoms</span><span class="o">=</span><span class="n">xuncontract</span><span class="p">)</span>
     <span class="n">contr_coeff</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">block_diag</span><span class="p">(</span><span class="o">*</span><span class="n">contr_coeff</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pmol</span><span class="p">,</span> <span class="n">contr_coeff</span>
@@ -1103,12 +1275,12 @@
 
 <span class="k">def</span> <span class="nf">_get_hcore_fw</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="c1"># s1 = s + (1/2c^2)(X^{\dag}*T*X)</span>
-    <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="c1"># tx = T * X</span>
     <span class="n">tx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="c1"># h1 = (v + T*X + V^{\dag}*T^{\dag} - (X^{\dag} * T * X) + (X^{\dag} * W * X)*(1/4c^2)</span>
     <span class="n">h1</span> <span class="o">=</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">tx</span> <span class="o">+</span> <span class="n">tx</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">tx</span><span class="p">)</span> <span class="o">+</span>
-         <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+         <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.25</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
     <span class="c1"># R = S^{-1/2} * (S^{-1/2}\tilde{S}S^{-1/2})^{-1/2} * S^{1/2}</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">_get_r</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span>
     <span class="c1"># H1 = R^{\dag} * H1 * R</span>
@@ -1145,9 +1317,9 @@
     <span class="n">h</span><span class="p">[:</span><span class="n">nao</span><span class="p">,:</span><span class="n">nao</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
     <span class="n">h</span><span class="p">[:</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">t</span>
     <span class="n">h</span><span class="p">[</span><span class="n">nao</span><span class="p">:,:</span><span class="n">nao</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
-    <span class="n">h</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">t</span>
+    <span class="n">h</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.25</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">t</span>
     <span class="n">m</span><span class="p">[:</span><span class="n">nao</span><span class="p">,:</span><span class="n">nao</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
-    <span class="n">m</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">m</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
@@ -1177,9 +1349,9 @@
     <span class="n">h</span><span class="p">[:</span><span class="n">nao</span><span class="p">,:</span><span class="n">nao</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
     <span class="n">h</span><span class="p">[:</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">t</span>
     <span class="n">h</span><span class="p">[</span><span class="n">nao</span><span class="p">:,:</span><span class="n">nao</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
-    <span class="n">h</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">t</span>
+    <span class="n">h</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.25</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">t</span>
     <span class="n">m</span><span class="p">[:</span><span class="n">nao</span><span class="p">,:</span><span class="n">nao</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
-    <span class="n">m</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">m</span><span class="p">[</span><span class="n">nao</span><span class="p">:,</span><span class="n">nao</span><span class="p">:]</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="mf">.5</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">e</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
@@ -1241,27 +1413,22 @@
     <span class="kn">from</span> <span class="nn">pyscf.scf</span> <span class="kn">import</span> <span class="n">addons</span>
     <span class="n">proj</span> <span class="o">=</span> <span class="n">addons</span><span class="o">.</span><span class="n">project_mo_nr2r</span><span class="p">(</span><span class="n">mol_nr</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">mol_nr</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">()),</span> <span class="n">mol</span><span class="p">)</span>
     <span class="c1"># *.5 because alpha and beta are summed in project_mo_nr2r</span>
-    <span class="n">dm_ll</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">proj</span><span class="p">,</span> <span class="n">dm_nr</span><span class="o">*.</span><span class="mi">5</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()))</span>
-    <span class="n">dm_ll</span> <span class="o">=</span> <span class="p">(</span><span class="n">dm_ll</span> <span class="o">+</span> <span class="n">dhf</span><span class="o">.</span><span class="n">time_reversal_matrix</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm_ll</span><span class="p">))</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">dm_ll</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">(</span><span class="n">proj</span><span class="p">,</span> <span class="n">dm_nr</span><span class="o">*</span><span class="mf">.5</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()))</span>
+    <span class="n">dm_ll</span> <span class="o">=</span> <span class="p">(</span><span class="n">dm_ll</span> <span class="o">+</span> <span class="n">dhf</span><span class="o">.</span><span class="n">time_reversal_matrix</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm_ll</span><span class="p">))</span> <span class="o">*</span> <span class="mf">.5</span>
     <span class="k">return</span> <span class="n">dm_ll</span>
 
 <span class="k">def</span> <span class="nf">_block_diag</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    [A 0]</span>
 <span class="sd">    [0 A]</span>
 <span class="sd">    '''</span>
     <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">block_diag</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">_sigma_dot</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-    <span class="sd">'''sigma dot A x B + A dot B'''</span>
+<span class="w">    </span><span class="sd">'''sigma dot A x B + A dot B'''</span>
     <span class="n">quaternion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">PauliMatrices</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="kc">None</span><span class="p">,:,:]])</span>
     <span class="n">nao</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'sxy,spq-&gt;xpyq'</span><span class="p">,</span> <span class="n">quaternion</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nao</span><span class="p">,</span> <span class="n">nao</span><span class="p">)</span>
-
-
-<span class="c1"># A tag to label the derived SCF class</span>
-<span class="k">class</span> <span class="nc">_X2C_SCF</span><span class="p">:</span>
-    <span class="k">pass</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
@@ -1314,7 +1481,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

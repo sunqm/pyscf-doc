@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.scf.uhf_symm &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.scf.uhf_symm </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -332,7 +349,9 @@
 <span class="n">MO_BASE</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'MO_BASE'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="analyze"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.analyze">[docs]</a><span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">with_meta_lowdin</span><span class="o">=</span><span class="n">WITH_META_LOWDIN</span><span class="p">,</span>
+<div class="viewcode-block" id="analyze">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.analyze">[docs]</a>
+<span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">with_meta_lowdin</span><span class="o">=</span><span class="n">WITH_META_LOWDIN</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">pyscf.lo</span> <span class="kn">import</span> <span class="n">orth</span>
     <span class="kn">from</span> <span class="nn">pyscf.tools</span> <span class="kn">import</span> <span class="n">dump_mat</span>
@@ -439,8 +458,11 @@
     <span class="n">dip</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">dip_moment</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pop_and_charge</span><span class="p">,</span> <span class="n">dip</span></div>
 
-<div class="viewcode-block" id="get_irrep_nelec"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.get_irrep_nelec">[docs]</a><span class="k">def</span> <span class="nf">get_irrep_nelec</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''Alpha/beta electron numbers for each irreducible representation.</span>
+
+<div class="viewcode-block" id="get_irrep_nelec">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.get_irrep_nelec">[docs]</a>
+<span class="k">def</span> <span class="nf">get_irrep_nelec</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Alpha/beta electron numbers for each irreducible representation.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        mol : an instance of :class:`Mole`</span>
@@ -480,8 +502,11 @@
                         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">ir</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">irrep_id</span><span class="p">)])</span>
     <span class="k">return</span> <span class="n">irrep_nelec</span></div>
 
-<div class="viewcode-block" id="canonicalize"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.canonicalize">[docs]</a><span class="k">def</span> <span class="nf">canonicalize</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">fock</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''Canonicalization diagonalizes the UHF Fock matrix in occupied, virtual</span>
+
+<div class="viewcode-block" id="canonicalize">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.canonicalize">[docs]</a>
+<span class="k">def</span> <span class="nf">canonicalize</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">fock</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Canonicalization diagonalizes the UHF Fock matrix in occupied, virtual</span>
 <span class="sd">    subspaces separatedly (without change occupancy).</span>
 <span class="sd">    '''</span>
     <span class="n">mol</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">mol</span>
@@ -541,7 +566,10 @@
           <span class="n">lib</span><span class="o">.</span><span class="n">tag_array</span><span class="p">(</span><span class="n">mo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">orbsym</span><span class="o">=</span><span class="n">orbsymb</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">mo_e</span><span class="p">,</span> <span class="n">mo</span></div>
 
-<div class="viewcode-block" id="get_orbsym"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.get_orbsym">[docs]</a><span class="k">def</span> <span class="nf">get_orbsym</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="get_orbsym">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.get_orbsym">[docs]</a>
+<span class="k">def</span> <span class="nf">get_orbsym</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="s1">'orbsym'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">orbsym</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mo_coeff</span><span class="o">.</span><span class="n">orbsym</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -549,7 +577,10 @@
                   <span class="n">hf_symm</span><span class="o">.</span><span class="n">get_orbsym</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="p">,</span> <span class="n">check</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">orbsym</span></div>
 
-<div class="viewcode-block" id="get_wfnsym"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.get_wfnsym">[docs]</a><span class="k">def</span> <span class="nf">get_wfnsym</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_occ</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orbsym</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="get_wfnsym">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.get_wfnsym">[docs]</a>
+<span class="k">def</span> <span class="nf">get_wfnsym</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_occ</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orbsym</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mo_occ</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">mo_occ</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">mo_occ</span>
     <span class="k">if</span> <span class="n">orbsym</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -581,7 +612,10 @@
     <span class="k">return</span> <span class="n">wfnsym</span></div>
 
 
-<div class="viewcode-block" id="SymAdaptedUHF"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF">[docs]</a><span class="k">class</span> <span class="nc">SymAdaptedUHF</span><span class="p">(</span><span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SymAdaptedUHF">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF">[docs]</a>
+<span class="k">class</span> <span class="nc">SymAdaptedUHF</span><span class="p">(</span><span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="p">):</span>
     <span class="vm">__doc__</span> <span class="o">=</span> <span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+</span> <span class="s1">'''</span>
 <span class="s1">    Attributes for symmetry allowed UHF:</span>
 <span class="s1">        irrep_nelec : dict</span>
@@ -604,26 +638,36 @@
 <span class="s1">    &gt;&gt;&gt; mf.get_irrep_nelec()</span>
 <span class="s1">    {'A1': (3, 3), 'A2': (0, 0), 'B1': (1, 0), 'B2': (1, 1)}</span>
 <span class="s1">    '''</span>
+
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">'irrep_nelec'</span><span class="p">])</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
         <span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
         <span class="c1"># number of electrons for each irreps</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">irrep_nelec</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="s1">'irrep_nelec'</span><span class="p">])</span>
 
-<div class="viewcode-block" id="SymAdaptedUHF.dump_flags"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SymAdaptedUHF.dump_flags">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">irrep_nelec</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'irrep_nelec </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">irrep_nelec</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="SymAdaptedUHF.build"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SymAdaptedUHF.build">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.build">[docs]</a>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">mol</span><span class="o">.</span><span class="n">symmetry</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">'mol.symmetry not enabled'</span><span class="p">)</span>
         <span class="n">hf_symm</span><span class="o">.</span><span class="n">check_irrep_nelec</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">irrep_nelec</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nelec</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SymAdaptedUHF.eig"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.eig">[docs]</a>    <span class="k">def</span> <span class="nf">eig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SymAdaptedUHF.eig">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.eig">[docs]</a>
+    <span class="k">def</span> <span class="nf">eig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
         <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="n">nirrep</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">symm_orb</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">symm</span><span class="o">.</span><span class="n">symmetrize_matrix</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">symm_orb</span><span class="p">)</span>
@@ -679,7 +723,10 @@
         <span class="n">cb</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">tag_array</span><span class="p">(</span><span class="n">cb</span><span class="p">,</span> <span class="n">orbsym</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">orbsym_b</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">((</span><span class="n">ea</span><span class="p">,</span><span class="n">eb</span><span class="p">)),</span> <span class="p">(</span><span class="n">ca</span><span class="p">,</span><span class="n">cb</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SymAdaptedUHF.get_grad"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_grad">[docs]</a>    <span class="k">def</span> <span class="nf">get_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">fock</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SymAdaptedUHF.get_grad">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_grad">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">fock</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">g</span> <span class="o">=</span> <span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="o">.</span><span class="n">get_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">fock</span><span class="p">)</span>
         <span class="n">occidxa</span> <span class="o">=</span> <span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">occidxb</span> <span class="o">=</span> <span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
@@ -693,8 +740,11 @@
         <span class="n">g</span><span class="p">[</span><span class="n">sym_forbid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">g</span></div>
 
-<div class="viewcode-block" id="SymAdaptedUHF.get_occ"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_occ">[docs]</a>    <span class="k">def</span> <span class="nf">get_occ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">''' We assumed mo_energy are grouped by symmetry irreps, (see function</span>
+
+<div class="viewcode-block" id="SymAdaptedUHF.get_occ">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_occ">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_occ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">''' We assumed mo_energy are grouped by symmetry irreps, (see function</span>
 <span class="sd">        self.eig). The orbitals are sorted after SCF.</span>
 <span class="sd">        '''</span>
         <span class="k">if</span> <span class="n">mo_energy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mo_energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_energy</span>
@@ -717,8 +767,8 @@
                     <span class="n">neleca</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">irrep_nelec</span><span class="p">[</span><span class="n">irname</span><span class="p">]</span> <span class="o">-</span> <span class="n">nelecb</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">neleca</span><span class="p">,</span> <span class="n">nelecb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">irrep_nelec</span><span class="p">[</span><span class="n">irname</span><span class="p">]</span>
-                <span class="n">ea_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mo_energy</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">ir_idxa</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
-                <span class="n">eb_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mo_energy</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">ir_idxb</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
+                <span class="n">ea_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mo_energy</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">ir_idxa</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
+                <span class="n">eb_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mo_energy</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">ir_idxb</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
                 <span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">ir_idxa</span><span class="p">[</span><span class="n">ea_idx</span><span class="p">[:</span><span class="n">neleca</span><span class="p">]]]</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">ir_idxb</span><span class="p">[</span><span class="n">eb_idx</span><span class="p">[:</span><span class="n">nelecb</span><span class="p">]]]</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">neleca_fix</span> <span class="o">+=</span> <span class="n">neleca</span>
@@ -735,13 +785,13 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx_ea_left</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">idx_ea_left</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">idx_ea_left</span><span class="p">)</span>
             <span class="n">ea_left</span> <span class="o">=</span> <span class="n">mo_energy</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">idx_ea_left</span><span class="p">]</span>
-            <span class="n">ea_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">ea_left</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
+            <span class="n">ea_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">ea_left</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
             <span class="n">occ_idx</span> <span class="o">=</span> <span class="n">idx_ea_left</span><span class="p">[</span><span class="n">ea_sort</span><span class="p">][:</span><span class="n">neleca_float</span><span class="p">]</span>
             <span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">occ_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx_eb_left</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">idx_eb_left</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">idx_eb_left</span><span class="p">)</span>
             <span class="n">eb_left</span> <span class="o">=</span> <span class="n">mo_energy</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">idx_eb_left</span><span class="p">]</span>
-            <span class="n">eb_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">eb_left</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
+            <span class="n">eb_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">eb_left</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
             <span class="n">occ_idx</span> <span class="o">=</span> <span class="n">idx_eb_left</span><span class="p">[</span><span class="n">eb_sort</span><span class="p">][:</span><span class="n">nelecb_float</span><span class="p">]</span>
             <span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">occ_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -787,6 +837,7 @@
                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'multiplicity &lt;S^2&gt; = </span><span class="si">%.8g</span><span class="s1">  2S+1 = </span><span class="si">%.8g</span><span class="s1">'</span><span class="p">,</span> <span class="n">ss</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">mo_occ</span></div>
 
+
     <span class="k">def</span> <span class="nf">_finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="o">.</span><span class="n">_finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
@@ -794,10 +845,10 @@
         <span class="n">eb</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_energy</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="c1"># Using mergesort because it is stable. We don't want to change the</span>
         <span class="c1"># ordering of the symmetry labels when two orbitals are degenerated.</span>
-        <span class="n">oa_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">ea</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span> <span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
-        <span class="n">va_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">ea</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
-        <span class="n">ob_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">eb</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span> <span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
-        <span class="n">vb_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">eb</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'mergesort'</span><span class="p">)</span>
+        <span class="n">oa_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">ea</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span> <span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
+        <span class="n">va_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">ea</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
+        <span class="n">ob_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">eb</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span> <span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
+        <span class="n">vb_sort</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">eb</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'stable'</span><span class="p">)</span>
         <span class="n">idxa</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ea</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
         <span class="n">idxa</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">idxa</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span> <span class="mi">0</span><span class="p">][</span><span class="n">oa_sort</span><span class="p">],</span>
                              <span class="n">idxa</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="n">va_sort</span><span class="p">]))</span>
@@ -830,13 +881,18 @@
                              <span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span><span class="p">,</span> <span class="n">overwrite_mol</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-<div class="viewcode-block" id="SymAdaptedUHF.analyze"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.analyze">[docs]</a>    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">analyze</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="viewcode-block" id="SymAdaptedUHF.analyze">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.analyze">[docs]</a>
+    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">analyze</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">with_meta_lowdin</span><span class="o">=</span><span class="n">WITH_META_LOWDIN</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">verbose</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">verbose</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>
         <span class="k">return</span> <span class="n">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">with_meta_lowdin</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SymAdaptedUHF.get_irrep_nelec"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_irrep_nelec">[docs]</a>    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">get_irrep_nelec</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SymAdaptedUHF.get_irrep_nelec">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_irrep_nelec">[docs]</a>
+    <span class="nd">@lib</span><span class="o">.</span><span class="n">with_doc</span><span class="p">(</span><span class="n">get_irrep_nelec</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">get_irrep_nelec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_occ</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol</span>
         <span class="k">if</span> <span class="n">mo_occ</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">mo_occ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_occ</span>
@@ -844,7 +900,10 @@
         <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ovlp</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">get_irrep_nelec</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SymAdaptedUHF.get_orbsym"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_orbsym">[docs]</a>    <span class="k">def</span> <span class="nf">get_orbsym</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SymAdaptedUHF.get_orbsym">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.SymAdaptedUHF.get_orbsym">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_orbsym</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mo_coeff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mo_coeff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mo_coeff</span><span class="p">,</span> <span class="s1">'orbsym'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -852,6 +911,7 @@
         <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ovlp</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">get_orbsym</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span></div>
+
     <span class="n">orbsym</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_orbsym</span><span class="p">)</span>
 
     <span class="n">get_wfnsym</span> <span class="o">=</span> <span class="n">get_wfnsym</span>
@@ -859,11 +919,15 @@
 
     <span class="n">canonicalize</span> <span class="o">=</span> <span class="n">canonicalize</span></div>
 
+
 <span class="n">UHF</span> <span class="o">=</span> <span class="n">SymAdaptedUHF</span>
 
 
-<div class="viewcode-block" id="HF1e"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.HF1e">[docs]</a><span class="k">class</span> <span class="nc">HF1e</span><span class="p">(</span><span class="n">UHF</span><span class="p">):</span>
+<div class="viewcode-block" id="HF1e">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.scf.html#pyscf.scf.uhf_symm.HF1e">[docs]</a>
+<span class="k">class</span> <span class="nc">HF1e</span><span class="p">(</span><span class="n">UHF</span><span class="p">):</span>
     <span class="n">scf</span> <span class="o">=</span> <span class="n">uhf</span><span class="o">.</span><span class="n">_hf1e_scf</span></div>
+
 
 
 <span class="k">del</span> <span class="p">(</span><span class="n">WITH_META_LOWDIN</span><span class="p">)</span>
@@ -891,7 +955,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

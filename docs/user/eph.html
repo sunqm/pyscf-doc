@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -48,16 +47,14 @@
   
   
     <title>Electron-phonon coupling &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -89,8 +86,7 @@
         <a href="../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -99,7 +95,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> Electron-phonon coupling </span>
         </div>
       </div>
@@ -110,7 +106,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -201,11 +197,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -229,7 +225,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -374,7 +391,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-eph--page-root" class="md-nav__link">Electron-phonon coupling</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -395,8 +412,6 @@
         <li class="md-nav__item"><a href="#matrix-element-representation" class="md-nav__link">Matrix element representation</a>
         </li></ul>
             </nav>
-        </li>
-        <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
         </li></ul>
             </nav>
         </li>
@@ -426,6 +441,13 @@
     
     
       <a href="geomopt.html" class="md-nav__link">Geometry optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="reference.html" class="md-nav__link">References</a>
       
     
     </li></ul>
@@ -464,7 +486,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#user-eph--page-root" class="md-nav__link">Electron-phonon coupling</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -485,8 +507,6 @@
         <li class="md-nav__item"><a href="#matrix-element-representation" class="md-nav__link">Matrix element representation</a>
         </li></ul>
             </nav>
-        </li>
-        <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
         </li></ul>
             </nav>
         </li>
@@ -505,14 +525,14 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="electron-phonon-coupling">
-<span id="user-eph"></span><h1 id="user-eph--page-root">Electron-phonon coupling<a class="headerlink" href="#user-eph--page-root" title="Permalink to this heading">¶</a></h1>
-<p><em>Modules</em>: <code class="xref py py-mod docutils literal notranslate"><span class="pre">eph</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">pbc.eph</span></code></p>
+<span id="user-eph"></span><h1 id="user-eph--page-root">Electron-phonon coupling<a class="headerlink" href="#user-eph--page-root" title="Link to this heading">¶</a></h1>
+<p><em>Modules</em>: <a class="reference internal" href="../pyscf_api_docs/pyscf.eph.html#module-pyscf.eph" title="pyscf.eph"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyscf.eph</span></code></a>, <a class="reference internal" href="../pyscf_api_docs/pyscf.pbc.eph.html#module-pyscf.pbc.eph" title="pyscf.pbc.eph"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyscf.pbc.eph</span></code></a></p>
 <section id="introduction">
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Because nuclei are much heavier than the electrons, one usually assumes the Born-Oppenheimer (BO) approximation, which
 defines an adiabatic electronic wavefunction for fixed nuclear positions. However, this approximation breaks down when the electronic states both change very rapidly with nuclear position and approach each other in energy.</p>
 <p>To move beyond the BO approximation, one can assume that the electrons experience the moving nuclei as a perturbation of the external potential. Carrying out an expansion to linear order in nuclear positions and assuming quadratic nuclear motion around the minimum leads to an approximate Hamiltonian for the electron and nuclear motion
-known as the linear electron-phonon coupling approximation. When deriving this Hamiltonian, the electronic degrees of freedom are assumed to be treated within a mean-field theory. This approximation is widely used in solid state calculations to model phenomena arising from coupled electron/nuclear motion (see <span id="id1">[]</span> for more discussion).</p>
+known as the linear electron-phonon coupling approximation. When deriving this Hamiltonian, the electronic degrees of freedom are assumed to be treated within a mean-field theory. This approximation is widely used in solid state calculations to model phenomena arising from coupled electron/nuclear motion (see <span id="id1">[<a class="reference internal" href="reference.html#id34" title="Feliciano Giustino. Electron-phonon interactions from first principles. Rev. Mod. Phys., 89:015003, 2017.">67</a>]</span> for more discussion).</p>
 <p>PySCF supports the calculation of the first-order electron-phonon (e-ph) coupling matrix elements using either coupled perturbed Kohn-Sham/Hartree-Fock (CPKS/CPHF) or finite differences. In periodic systems, only FFTDF-based Gamma-point calculations are supported by the finite difference implementation. In both cases, a geometrically relaxed structure is required for the consistency of the theory.</p>
 <p>A minimal example of an analytical e-ph matrix calculation is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span><span class="p">,</span> <span class="n">eph</span>
@@ -550,10 +570,10 @@ known as the linear electron-phonon coupling approximation. When deriving this H
 </div>
 </section>
 <section id="spin-symmetry">
-<h2 id="spin-symmetry">Spin symmetry<a class="headerlink" href="#spin-symmetry" title="Permalink to this heading">¶</a></h2>
+<h2 id="spin-symmetry">Spin symmetry<a class="headerlink" href="#spin-symmetry" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">eph</span></code> module in PySCF supports mean field methods including Hartree Fock and DFT using either spin-restricted or spin-unrestricted reference.</p>
 <section id="analytical-eph-matrix-elements">
-<h3 id="analytical-eph-matrix-elements">Analytical eph matrix elements<a class="headerlink" href="#analytical-eph-matrix-elements" title="Permalink to this heading">¶</a></h3>
+<h3 id="analytical-eph-matrix-elements">Analytical eph matrix elements<a class="headerlink" href="#analytical-eph-matrix-elements" title="Link to this heading">¶</a></h3>
 <p>The module-level <code class="docutils literal notranslate"><span class="pre">eph.EPH(mf)</span></code> constructor can infer the correct method based
 on the type of the mf argument.  For more explicit
 control or inspection, the respective classes and functions can be found in
@@ -569,14 +589,14 @@ as follows:</p>
 </div>
 </section>
 <section id="finite-difference">
-<h3 id="finite-difference">Finite difference<a class="headerlink" href="#finite-difference" title="Permalink to this heading">¶</a></h3>
+<h3 id="finite-difference">Finite difference<a class="headerlink" href="#finite-difference" title="Link to this heading">¶</a></h3>
 <p>The finite difference kernel function <code class="docutils literal notranslate"><span class="pre">eph.eph_fd.kernel</span></code> can handle all the supported mean field methods above.</p>
 </section>
 </section>
 <section id="output-control">
-<h2 id="output-control">Output control<a class="headerlink" href="#output-control" title="Permalink to this heading">¶</a></h2>
+<h2 id="output-control">Output control<a class="headerlink" href="#output-control" title="Link to this heading">¶</a></h2>
 <section id="filtering-noisy-frequencies">
-<h3 id="filtering-noisy-frequencies">Filtering noisy frequencies<a class="headerlink" href="#filtering-noisy-frequencies" title="Permalink to this heading">¶</a></h3>
+<h3 id="filtering-noisy-frequencies">Filtering noisy frequencies<a class="headerlink" href="#filtering-noisy-frequencies" title="Link to this heading">¶</a></h3>
 <p>The diagonalization of the mass-weighted hessian can sometimes yield unphysical vibrational modes that correspond to imaginary frequencies or to non-zero frequencies which should strictly vanish. These unphysical modes may arise either from the use of not fully relaxed geometries, the use of insufficiently accurate density functional quadrature, or simply numerical noise. By default, modes below 80 cm-1 are filtered out in PySCF; note that this also includes any negative frequencies.</p>
 <p>One can specify a different cutoff frequency (in cm-1) when constructing the EPH object as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myeph</span> <span class="o">=</span> <span class="n">eph</span><span class="o">.</span><span class="n">EPH</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">cutoff_frequency</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
@@ -590,7 +610,7 @@ as follows:</p>
 </div>
 </section>
 <section id="matrix-element-representation">
-<h3 id="matrix-element-representation">Matrix element representation<a class="headerlink" href="#matrix-element-representation" title="Permalink to this heading">¶</a></h3>
+<h3 id="matrix-element-representation">Matrix element representation<a class="headerlink" href="#matrix-element-representation" title="Link to this heading">¶</a></h3>
 <p>The eph matrix is computed in the atomic orbital (AO) basis by default. One can also request it in the MO basis as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myeph</span> <span class="o">=</span> <span class="n">eph</span><span class="o">.</span><span class="n">EPH</span><span class="p">(</span><span class="n">mf</span><span class="p">)</span>
 <span class="n">ephmat</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">myeph</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">mo_rep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -598,9 +618,6 @@ as follows:</p>
 </div>
 </section>
 </section>
-<section id="references">
-<h2 id="references">References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
-<span class="target" id="id2"></span></section>
 </section>
 
 
@@ -622,7 +639,7 @@ as follows:</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Mixing PBC and molecular modules </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Mixing PBC and molecular modules </span>
               </div>
             </a>
           
@@ -632,7 +649,7 @@ as follows:</p>
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Localized orbitals </span>
+                class="md-footer-nav__direction"> "Next" </span> Localized orbitals </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -650,7 +667,7 @@ as follows:</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

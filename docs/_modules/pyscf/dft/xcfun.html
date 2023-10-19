@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.dft.xcfun &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.dft.xcfun </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -318,13 +335,13 @@
 <span class="sd">U. Ekstrom et al, J. Chem. Theory Comput., 6, 1971</span>
 <span class="sd">'''</span>
 
-<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">ctypes</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">lib</span>
 <span class="kn">from</span> <span class="nn">pyscf.dft.xc.utils</span> <span class="kn">import</span> <span class="n">remove_dup</span><span class="p">,</span> <span class="n">format_xc_code</span>
+<span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">__config__</span>
 
 <span class="n">_itrf</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">load_library</span><span class="p">(</span><span class="s1">'libxcfun_itrf'</span><span class="p">)</span>
 
@@ -441,12 +458,12 @@
 <span class="s1">'PBE0'</span>          <span class="p">:</span> <span class="s1">'.25*HF + .75*PBEX + PBEC'</span><span class="p">,</span>  <span class="c1"># Perdew-Burke-Ernzerhof, JCP, 110, 6158</span>
 <span class="s1">'PBE1PBE'</span>       <span class="p">:</span> <span class="s1">'PBE0'</span><span class="p">,</span>
 <span class="s1">'PBEH'</span>          <span class="p">:</span> <span class="s1">'PBE0'</span><span class="p">,</span>
-<span class="s1">'B3P86'</span>         <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*P86C + .19*VWN5C'</span><span class="p">,</span>
+<span class="s1">'B3P86'</span>         <span class="p">:</span> <span class="s1">'B3P86G'</span><span class="p">,</span>
 <span class="s1">'B3P86G'</span>        <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*P86C + .19*VWN3C'</span><span class="p">,</span>
-<span class="s1">'B3PW91'</span>        <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*PW91C + .19*VWN5C'</span><span class="p">,</span>
-<span class="s1">'B3PW91G'</span>       <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*PW91C + .19*VWN3C'</span><span class="p">,</span>
-<span class="c1"># Note, use VWN5 for B3LYP. It is different to the libxc default B3LYP</span>
-<span class="s1">'B3LYP'</span>         <span class="p">:</span> <span class="s1">'B3LYP5'</span><span class="p">,</span>
+<span class="s1">'B3P86V5'</span>       <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*P86C + .19*VWN5C'</span><span class="p">,</span>
+<span class="s1">'B3PW91'</span>        <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*PW91C + .19*PW92C'</span><span class="p">,</span>
+<span class="c1"># Note, B3LYP uses VWN3 https://doi.org/10.1016/S0009-2614(97)00207-8.</span>
+<span class="s1">'B3LYP'</span>         <span class="p">:</span> <span class="s1">'B3LYPG'</span><span class="p">,</span>
 <span class="s1">'B3LYP5'</span>        <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*LYP + .19*VWN5C'</span><span class="p">,</span>
 <span class="s1">'B3LYPG'</span>        <span class="p">:</span> <span class="s1">'.2*HF + .08*SLATER + .72*B88 + .81*LYP + .19*VWN3C'</span><span class="p">,</span> <span class="c1"># B3LYP-VWN3 used by Gaussian and libxc</span>
 <span class="c1">#'O3LYP'         : '.1161*HF + .9262*SLATER + .8133*OPTXCORR + .81*LYP + .19*VWN5C',  # Mol. Phys. 99 607</span>
@@ -455,8 +472,9 @@
 <span class="c1">#'O3LYP'         : '.1161*HF + .9262*SLATER + 1.164393477*OPTXCORR + .81*LYP + .19*VWN5C', #1.164393477 = .8133*1.43169</span>
 <span class="c1">#'O3LYPG'        : '.1161*HF + .9262*SLATER + 1.164393477*OPTXCORR + .81*LYP + .19*VWN3C',</span>
 <span class="s1">'O3LYP'</span>         <span class="p">:</span> <span class="s1">'.1161*HF + 0.071006917*SLATER + .8133*OPTX, .81*LYP + .19*VWN5'</span><span class="p">,</span>  <span class="c1"># libxc implementation</span>
-<span class="s1">'X3LYP'</span>         <span class="p">:</span> <span class="s1">'.218*HF + .073*SLATER + 0.542385*B88 + .166615*PW91X + .871*LYP + .129*VWN5C'</span><span class="p">,</span>  <span class="c1"># Xu, PNAS, 101, 2673</span>
+<span class="s1">'X3LYP'</span>         <span class="p">:</span> <span class="s1">'X3LYPG'</span><span class="p">,</span>
 <span class="s1">'X3LYPG'</span>        <span class="p">:</span> <span class="s1">'.218*HF + .073*SLATER + 0.542385*B88 + .166615*PW91X + .871*LYP + .129*VWN3C'</span><span class="p">,</span>
+<span class="s1">'X3LYP5'</span>        <span class="p">:</span> <span class="s1">'.218*HF + .073*SLATER + 0.542385*B88 + .166615*PW91X + .871*LYP + .129*VWN5C'</span><span class="p">,</span>  <span class="c1"># Xu, PNAS, 101, 2673</span>
 <span class="c1"># Range-separated-hybrid functional: (alpha+beta)*SR_HF(0.33) + alpha*LR_HF(0.33)</span>
 <span class="c1"># Note default mu of xcfun is 0.4. It can cause discrepancy for CAMB3LYP</span>
 <span class="s1">'CAMB3LYP'</span>      <span class="p">:</span> <span class="s1">'0.19*SR_HF(0.33) + 0.65*LR_HF(0.33) + 0.46*BECKESRX + 0.35*B88 + VWN5C*0.19 + LYPC*0.81'</span><span class="p">,</span>
@@ -468,6 +486,10 @@
 <span class="s1">'TPSSH'</span>         <span class="p">:</span> <span class="s1">'0.1*HF + 0.9*TPSSX + TPSSC'</span><span class="p">,</span>
 <span class="s1">'TF'</span>            <span class="p">:</span> <span class="s1">'TFK'</span><span class="p">,</span>
 <span class="p">}</span>
+
+<span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'B3LYP_WITH_VWN5'</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">XC_CODES</span><span class="p">[</span><span class="s1">'B3P86'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'B3P86V5'</span>
+    <span class="n">XC_CODES</span><span class="p">[</span><span class="s1">'B3LYP'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'B3LYP5'</span>
 
 <span class="c1"># Some XC functionals have conventional name, like M06-L means M06-L for X</span>
 <span class="c1"># functional and M06-L for C functional, PBE mean PBE-X plus PBE-C. If the</span>
@@ -557,16 +579,17 @@
 <span class="p">}</span>
 <span class="n">VV10_XC</span><span class="o">.</span><span class="n">update</span><span class="p">([(</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'_'</span><span class="p">,</span> <span class="s1">''</span><span class="p">),</span> <span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">VV10_XC</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
 
-<div class="viewcode-block" id="xc_type"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.xc_type">[docs]</a><span class="nd">@lru_cache</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="viewcode-block" id="xc_type">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.xc_type">[docs]</a>
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">xc_type</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">xc_code</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">is_nlc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s1">'NLC'</span>
         <span class="n">hyb</span><span class="p">,</span> <span class="n">fn_facs</span> <span class="o">=</span> <span class="n">parse_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">fn_facs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">xc_code</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>  <span class="c1"># mimic fn_facs</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="n">fn_facs</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">'HF'</span>
     <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="n">_itrf</span><span class="o">.</span><span class="n">XCFUN_xc_type</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">xid</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">xid</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">fn_facs</span><span class="p">):</span>
@@ -575,81 +598,116 @@
         <span class="k">return</span> <span class="s1">'MGGA'</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># all((xid in GGA_IDS or xid in LDA_IDS for xid, val in fn_fns)):</span>
-        <span class="c1"># include hybrid_xc</span>
+        <span class="c1"># include hybrid_xc and NLC</span>
         <span class="k">return</span> <span class="s1">'GGA'</span></div>
 
-<div class="viewcode-block" id="is_lda"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_lda">[docs]</a><span class="k">def</span> <span class="nf">is_lda</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+
+<div class="viewcode-block" id="is_lda">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_lda">[docs]</a>
+<span class="k">def</span> <span class="nf">is_lda</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">xc_type</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'LDA'</span></div>
 
-<div class="viewcode-block" id="is_hybrid_xc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_hybrid_xc">[docs]</a><span class="k">def</span> <span class="nf">is_hybrid_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+
+<div class="viewcode-block" id="is_hybrid_xc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_hybrid_xc">[docs]</a>
+<span class="k">def</span> <span class="nf">is_hybrid_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">xc_code</span> <span class="o">=</span> <span class="n">xc_code</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span><span class="s1">'HF'</span> <span class="ow">in</span> <span class="n">xc_code</span> <span class="ow">or</span> <span class="n">xc_code</span> <span class="ow">in</span> <span class="n">HYB_XC</span> <span class="ow">or</span>
                 <span class="n">hybrid_coeff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="n">numpy</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">xc_code</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">any</span><span class="p">((</span><span class="n">is_hybrid_xc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xc_code</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="is_meta_gga"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_meta_gga">[docs]</a><span class="k">def</span> <span class="nf">is_meta_gga</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+
+<div class="viewcode-block" id="is_meta_gga">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_meta_gga">[docs]</a>
+<span class="k">def</span> <span class="nf">is_meta_gga</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">xc_type</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'MGGA'</span></div>
 
-<div class="viewcode-block" id="is_gga"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_gga">[docs]</a><span class="k">def</span> <span class="nf">is_gga</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+
+<div class="viewcode-block" id="is_gga">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_gga">[docs]</a>
+<span class="k">def</span> <span class="nf">is_gga</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">xc_type</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'GGA'</span></div>
 
-<div class="viewcode-block" id="is_nlc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_nlc">[docs]</a><span class="k">def</span> <span class="nf">is_nlc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">'__VV10'</span> <span class="ow">in</span> <span class="n">xc_code</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="nlc_coeff"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.nlc_coeff">[docs]</a><span class="k">def</span> <span class="nf">nlc_coeff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
-    <span class="sd">'''Get NLC coefficients</span>
+<span class="c1"># Assign a temporary Id to VV10 functionals. parse_xc function needs them to</span>
+<span class="c1"># parse NLC functionals</span>
+<span class="n">XC_CODES</span><span class="o">.</span><span class="n">update</span><span class="p">([(</span><span class="n">key</span><span class="p">,</span> <span class="mi">5000</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">VV10_XC</span><span class="p">)])</span>
+<span class="n">VV10_XC</span><span class="o">.</span><span class="n">update</span><span class="p">([(</span><span class="mi">5000</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">VV10_XC</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">VV10_XC</span><span class="p">)])</span>
+
+<div class="viewcode-block" id="is_nlc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.is_nlc">[docs]</a>
+<span class="k">def</span> <span class="nf">is_nlc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+    <span class="n">fn_facs</span> <span class="o">=</span> <span class="n">parse_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">xid</span> <span class="o">&gt;=</span> <span class="mi">5000</span> <span class="k">for</span> <span class="n">xid</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">fn_facs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="nlc_coeff">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.nlc_coeff">[docs]</a>
+<span class="k">def</span> <span class="nf">nlc_coeff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Get NLC coefficients</span>
 <span class="sd">    '''</span>
     <span class="n">xc_code</span> <span class="o">=</span> <span class="n">xc_code</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-
-    <span class="n">nlc_part</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="s1">'__VV10'</span> <span class="ow">in</span> <span class="n">xc_code</span><span class="p">:</span>
-        <span class="n">xc_code</span><span class="p">,</span> <span class="n">nlc_part</span> <span class="o">=</span> <span class="n">xc_code</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'__'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">'Deprecated notation for NLC functional.'</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">xc_code</span> <span class="ow">in</span> <span class="n">VV10_XC</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">VV10_XC</span><span class="p">[</span><span class="n">xc_code</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">nlc_part</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># Use VV10 NLC parameters by default for the general case</span>
-        <span class="k">return</span> <span class="n">VV10_XC</span><span class="p">[</span><span class="n">nlc_part</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="s1">'</span><span class="si">%s</span><span class="s1"> does not have NLC part. Available functionals are </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span>
-            <span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">VV10_XC</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span></div>
+    <span class="n">fn_facs</span> <span class="o">=</span> <span class="n">parse_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">nlc_pars</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xid</span><span class="p">,</span> <span class="n">fac</span> <span class="ow">in</span> <span class="n">fn_facs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">xid</span> <span class="o">&gt;=</span> <span class="mi">5000</span><span class="p">:</span>
+            <span class="n">nlc_pars</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">VV10_XC</span><span class="p">[</span><span class="n">xid</span><span class="p">],</span> <span class="n">fac</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">nlc_pars</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="rsh_coeff"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.rsh_coeff">[docs]</a><span class="k">def</span> <span class="nf">rsh_coeff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
-    <span class="sd">'''Get Range-separated-hybrid coefficients</span>
+
+<div class="viewcode-block" id="rsh_coeff">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.rsh_coeff">[docs]</a>
+<span class="k">def</span> <span class="nf">rsh_coeff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Get Range-separated-hybrid coefficients</span>
 <span class="sd">    '''</span>
     <span class="n">hyb</span><span class="p">,</span> <span class="n">fn_facs</span> <span class="o">=</span> <span class="n">parse_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span>
     <span class="n">hyb</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">hyb</span>
     <span class="n">beta</span> <span class="o">=</span> <span class="n">hyb</span> <span class="o">-</span> <span class="n">alpha</span>
     <span class="k">return</span> <span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span></div>
 
-<div class="viewcode-block" id="max_deriv_order"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.max_deriv_order">[docs]</a><span class="k">def</span> <span class="nf">max_deriv_order</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
+
+<div class="viewcode-block" id="max_deriv_order">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.max_deriv_order">[docs]</a>
+<span class="k">def</span> <span class="nf">max_deriv_order</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">MAX_DERIV_ORDER</span></div>
 
-<div class="viewcode-block" id="test_deriv_order"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.test_deriv_order">[docs]</a><span class="k">def</span> <span class="nf">test_deriv_order</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">deriv</span><span class="p">,</span> <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="test_deriv_order">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.test_deriv_order">[docs]</a>
+<span class="k">def</span> <span class="nf">test_deriv_order</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">deriv</span><span class="p">,</span> <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">support</span> <span class="o">=</span> <span class="n">deriv</span> <span class="o">&lt;=</span> <span class="n">max_deriv_order</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">support</span> <span class="ow">and</span> <span class="n">raise_error</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'xcfun library does not support derivative '</span>
                                   <span class="s1">'order </span><span class="si">%d</span><span class="s1"> for  </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="n">xc_code</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">support</span></div>
 
-<div class="viewcode-block" id="hybrid_coeff"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.hybrid_coeff">[docs]</a><span class="k">def</span> <span class="nf">hybrid_coeff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">is_nlc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="hybrid_coeff">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.hybrid_coeff">[docs]</a>
+<span class="k">def</span> <span class="nf">hybrid_coeff</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="n">hyb</span><span class="p">,</span> <span class="n">fn_facs</span> <span class="o">=</span> <span class="n">parse_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">hyb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="parse_xc_name"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.parse_xc_name">[docs]</a><span class="k">def</span> <span class="nf">parse_xc_name</span><span class="p">(</span><span class="n">xc_name</span><span class="p">):</span>
+
+<div class="viewcode-block" id="parse_xc_name">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.parse_xc_name">[docs]</a>
+<span class="k">def</span> <span class="nf">parse_xc_name</span><span class="p">(</span><span class="n">xc_name</span><span class="p">):</span>
     <span class="n">fn_facs</span> <span class="o">=</span> <span class="n">parse_xc</span><span class="p">(</span><span class="n">xc_name</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">fn_facs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fn_facs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="parse_xc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.parse_xc">[docs]</a><span class="nd">@lru_cache</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<div class="viewcode-block" id="parse_xc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.parse_xc">[docs]</a>
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">parse_xc</span><span class="p">(</span><span class="n">description</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''Rules to input functional description:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''Rules to input functional description:</span>
 
 <span class="sd">    * The given functional description must be a one-line string.</span>
 <span class="sd">    * The functional description is case-insensitive.</span>
@@ -701,7 +759,7 @@
     <span class="n">hyb</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># hybrid, alpha, omega</span>
     <span class="k">if</span> <span class="n">description</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">hyb</span><span class="p">),</span> <span class="p">()</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="n">numpy</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">description</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">hyb</span><span class="p">),</span> <span class="p">((</span><span class="n">description</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),)</span>
     <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="c1">#isinstance(description, (tuple,list)):</span>
         <span class="k">return</span> <span class="n">parse_xc</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">description</span><span class="p">))</span>
@@ -728,7 +786,7 @@
                 <span class="n">fac</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'*'</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">fac</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
                     <span class="n">fac</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">,</span> <span class="n">fac</span>
-                <span class="n">fac</span> <span class="o">=</span> <span class="n">sign</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">fac</span><span class="p">)</span>
+                <span class="n">fac</span> <span class="o">=</span> <span class="n">sign</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">fac</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'_'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">fac</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">sign</span><span class="p">,</span> <span class="n">token</span>
 
@@ -794,16 +852,20 @@
         <span class="n">hyb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">hyb</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">remove_dup</span><span class="p">(</span><span class="n">fn_facs</span><span class="p">))</span></div>
 
+
 <span class="n">_NAME_WITH_DASH</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'SR-HF'</span>  <span class="p">:</span> <span class="s1">'SR_HF'</span><span class="p">,</span>
                    <span class="s1">'LR-HF'</span>  <span class="p">:</span> <span class="s1">'LR_HF'</span><span class="p">,</span>
                    <span class="s1">'M06-L'</span>  <span class="p">:</span> <span class="s1">'M06L'</span><span class="p">,</span>
                    <span class="s1">'M05-2X'</span> <span class="p">:</span> <span class="s1">'M052X'</span><span class="p">,</span>
                    <span class="s1">'M06-HF'</span> <span class="p">:</span> <span class="s1">'M06HF'</span><span class="p">,</span>
-                   <span class="s1">'M06-2X'</span> <span class="p">:</span> <span class="s1">'M062X'</span><span class="p">,}</span>
+                   <span class="s1">'M06-2X'</span> <span class="p">:</span> <span class="s1">'M062X'</span><span class="p">,</span>
+                   <span class="s1">'E-'</span>     <span class="p">:</span> <span class="s1">'E_'</span><span class="p">}</span> <span class="c1"># For scientific notation</span>
 
 
-<div class="viewcode-block" id="eval_xc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.eval_xc">[docs]</a><span class="k">def</span> <span class="nf">eval_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">relativity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">'''Interface to call xcfun library to evaluate XC functional, potential</span>
+<div class="viewcode-block" id="eval_xc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.eval_xc">[docs]</a>
+<span class="k">def</span> <span class="nf">eval_xc</span><span class="p">(</span><span class="n">xc_code</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">relativity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">'''Interface to call xcfun library to evaluate XC functional, potential</span>
 <span class="sd">    and functional derivatives.</span>
 
 <span class="sd">    See also :func:`pyscf.dft.libxc.eval_xc`</span>
@@ -812,6 +874,7 @@
     <span class="k">if</span> <span class="n">omega</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">hyb</span> <span class="o">=</span> <span class="n">hyb</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">omega</span><span class="p">),)</span>
     <span class="k">return</span> <span class="n">_eval_xc</span><span class="p">(</span><span class="n">hyb</span><span class="p">,</span> <span class="n">fn_facs</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">spin</span><span class="p">,</span> <span class="n">relativity</span><span class="p">,</span> <span class="n">deriv</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span></div>
+
 
 <span class="n">XC_D0</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">XC_D1</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1311,8 +1374,10 @@
     <span class="k">return</span> <span class="n">exc</span><span class="p">,</span> <span class="n">vxc</span><span class="p">,</span> <span class="n">fxc</span><span class="p">,</span> <span class="n">kxc</span>
 
 
-<div class="viewcode-block" id="define_xc_"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.define_xc_">[docs]</a><span class="k">def</span> <span class="nf">define_xc_</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">xctype</span><span class="o">=</span><span class="s1">'LDA'</span><span class="p">,</span> <span class="n">hyb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rsh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
-    <span class="sd">'''Define XC functional.  See also :func:`eval_xc` for the rules of input description.</span>
+<div class="viewcode-block" id="define_xc_">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.define_xc_">[docs]</a>
+<span class="k">def</span> <span class="nf">define_xc_</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">xctype</span><span class="o">=</span><span class="s1">'LDA'</span><span class="p">,</span> <span class="n">hyb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rsh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">'''Define XC functional.  See also :func:`eval_xc` for the rules of input description.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        ni : an instance of :class:`NumInt`</span>
@@ -1361,7 +1426,7 @@
         <span class="n">ni</span><span class="o">.</span><span class="n">rsh_coeff</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">rsh_coeff</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
         <span class="n">ni</span><span class="o">.</span><span class="n">_xc_type</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">xc_type</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="n">description</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">callable</span><span class="p">(</span><span class="n">description</span><span class="p">):</span>
         <span class="n">ni</span><span class="o">.</span><span class="n">eval_xc</span> <span class="o">=</span> <span class="n">description</span>
         <span class="n">ni</span><span class="o">.</span><span class="n">hybrid_coeff</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">hyb</span>
         <span class="n">ni</span><span class="o">.</span><span class="n">rsh_coeff</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">rsh</span>
@@ -1370,8 +1435,12 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Unknown description </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">description</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ni</span></div>
 
-<div class="viewcode-block" id="define_xc"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.define_xc">[docs]</a><span class="k">def</span> <span class="nf">define_xc</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">xctype</span><span class="o">=</span><span class="s1">'LDA'</span><span class="p">,</span> <span class="n">hyb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rsh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
-    <span class="k">return</span> <span class="n">define_xc_</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">ni</span><span class="p">),</span> <span class="n">description</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hyb</span><span class="p">,</span> <span class="n">rsh</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="define_xc">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.dft.html#pyscf.dft.xcfun.define_xc">[docs]</a>
+<span class="k">def</span> <span class="nf">define_xc</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">xctype</span><span class="o">=</span><span class="s1">'LDA'</span><span class="p">,</span> <span class="n">hyb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rsh</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">define_xc_</span><span class="p">(</span><span class="n">ni</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">description</span><span class="p">,</span> <span class="n">xctype</span><span class="p">,</span> <span class="n">hyb</span><span class="p">,</span> <span class="n">rsh</span><span class="p">)</span></div>
+
 <span class="n">define_xc</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">define_xc_</span><span class="o">.</span><span class="vm">__doc__</span>
 </pre></div>
 
@@ -1397,7 +1466,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.cc.uccsd &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.cc.uccsd </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -334,7 +351,9 @@
 
 <span class="c1"># This is unrestricted (U)CCSD, in spatial-orbital form.</span>
 
-<div class="viewcode-block" id="update_amps"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.update_amps">[docs]</a><span class="k">def</span> <span class="nf">update_amps</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">eris</span><span class="p">):</span>
+<div class="viewcode-block" id="update_amps">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.update_amps">[docs]</a>
+<span class="k">def</span> <span class="nf">update_amps</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">eris</span><span class="p">):</span>
     <span class="n">time0</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
     <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">cc</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
     <span class="n">t1a</span><span class="p">,</span> <span class="n">t1b</span> <span class="o">=</span> <span class="n">t1</span>
@@ -357,13 +376,13 @@
     <span class="c1">#:u2ab += lib.einsum('iJeF,aeBF-&gt;iJaB', tauab, eris_vvVV)</span>
     <span class="n">tauaa</span><span class="p">,</span> <span class="n">tauab</span><span class="p">,</span> <span class="n">taubb</span> <span class="o">=</span> <span class="n">make_tau</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span>
     <span class="n">u2aa</span><span class="p">,</span> <span class="n">u2ab</span><span class="p">,</span> <span class="n">u2bb</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">_add_vvvv</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="n">tauaa</span><span class="p">,</span><span class="n">tauab</span><span class="p">,</span><span class="n">taubb</span><span class="p">),</span> <span class="n">eris</span><span class="p">)</span>
-    <span class="n">u2aa</span> <span class="o">*=</span> <span class="o">.</span><span class="mi">5</span>
-    <span class="n">u2bb</span> <span class="o">*=</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">u2aa</span> <span class="o">*=</span> <span class="mf">.5</span>
+    <span class="n">u2bb</span> <span class="o">*=</span> <span class="mf">.5</span>
 
-    <span class="n">Fooa</span> <span class="o">=</span>  <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ie-&gt;mi'</span><span class="p">,</span> <span class="n">fova</span><span class="p">,</span> <span class="n">t1a</span><span class="p">)</span>
-    <span class="n">Foob</span> <span class="o">=</span>  <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ie-&gt;mi'</span><span class="p">,</span> <span class="n">fovb</span><span class="p">,</span> <span class="n">t1b</span><span class="p">)</span>
-    <span class="n">Fvva</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ma-&gt;ae'</span><span class="p">,</span> <span class="n">fova</span><span class="p">,</span> <span class="n">t1a</span><span class="p">)</span>
-    <span class="n">Fvvb</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ma-&gt;ae'</span><span class="p">,</span> <span class="n">fovb</span><span class="p">,</span> <span class="n">t1b</span><span class="p">)</span>
+    <span class="n">Fooa</span> <span class="o">=</span>  <span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ie-&gt;mi'</span><span class="p">,</span> <span class="n">fova</span><span class="p">,</span> <span class="n">t1a</span><span class="p">)</span>
+    <span class="n">Foob</span> <span class="o">=</span>  <span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ie-&gt;mi'</span><span class="p">,</span> <span class="n">fovb</span><span class="p">,</span> <span class="n">t1b</span><span class="p">)</span>
+    <span class="n">Fvva</span> <span class="o">=</span> <span class="o">-</span><span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ma-&gt;ae'</span><span class="p">,</span> <span class="n">fova</span><span class="p">,</span> <span class="n">t1a</span><span class="p">)</span>
+    <span class="n">Fvvb</span> <span class="o">=</span> <span class="o">-</span><span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'me,ma-&gt;ae'</span><span class="p">,</span> <span class="n">fovb</span><span class="p">,</span> <span class="n">t1b</span><span class="p">)</span>
     <span class="n">Fooa</span> <span class="o">+=</span> <span class="n">eris</span><span class="o">.</span><span class="n">focka</span><span class="p">[:</span><span class="n">nocca</span><span class="p">,:</span><span class="n">nocca</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">mo_ea_o</span><span class="p">)</span>
     <span class="n">Foob</span> <span class="o">+=</span> <span class="n">eris</span><span class="o">.</span><span class="n">fockb</span><span class="p">[:</span><span class="n">noccb</span><span class="p">,:</span><span class="n">noccb</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">mo_eb_o</span><span class="p">)</span>
     <span class="n">Fvva</span> <span class="o">+=</span> <span class="n">eris</span><span class="o">.</span><span class="n">focka</span><span class="p">[</span><span class="n">nocca</span><span class="p">:,</span><span class="n">nocca</span><span class="p">:]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">mo_ea_v</span><span class="p">)</span>
@@ -388,7 +407,7 @@
             <span class="n">u1a</span> <span class="o">+=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mief,meaf-&gt;ia'</span><span class="p">,</span> <span class="n">t2aa</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">ovvv</span><span class="p">)</span>
             <span class="n">u2aa</span><span class="p">[:,</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ie,mbea-&gt;imab'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">ovvv</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span>
             <span class="n">tmp1aa</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijef,mebf-&gt;ijmb'</span><span class="p">,</span> <span class="n">tauaa</span><span class="p">,</span> <span class="n">ovvv</span><span class="p">)</span>
-            <span class="n">u2aa</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijmb,ma-&gt;ijab'</span><span class="p">,</span> <span class="n">tmp1aa</span><span class="p">,</span> <span class="n">t1a</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span><span class="o">*.</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">u2aa</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijmb,ma-&gt;ijab'</span><span class="p">,</span> <span class="n">tmp1aa</span><span class="p">,</span> <span class="n">t1a</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span><span class="o">*</span><span class="mf">.5</span><span class="p">)</span>
             <span class="n">ovvv</span> <span class="o">=</span> <span class="n">tmp1aa</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">if</span> <span class="n">nvirb</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">noccb</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -401,7 +420,7 @@
             <span class="n">u1b</span> <span class="o">+=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'MIEF,MEAF-&gt;IA'</span><span class="p">,</span> <span class="n">t2bb</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">OVVV</span><span class="p">)</span>
             <span class="n">u2bb</span><span class="p">[:,</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ie,mbea-&gt;imab'</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">OVVV</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span>
             <span class="n">tmp1bb</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijef,mebf-&gt;ijmb'</span><span class="p">,</span> <span class="n">taubb</span><span class="p">,</span> <span class="n">OVVV</span><span class="p">)</span>
-            <span class="n">u2bb</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijmb,ma-&gt;ijab'</span><span class="p">,</span> <span class="n">tmp1bb</span><span class="p">,</span> <span class="n">t1b</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span><span class="o">*.</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">u2bb</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijmb,ma-&gt;ijab'</span><span class="p">,</span> <span class="n">tmp1bb</span><span class="p">,</span> <span class="n">t1b</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span><span class="o">*</span><span class="mf">.5</span><span class="p">)</span>
             <span class="n">OVVV</span> <span class="o">=</span> <span class="n">tmp1bb</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">if</span> <span class="n">nvirb</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nocca</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -435,8 +454,8 @@
     <span class="n">Woooo</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'je,nemi-&gt;mnij'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">eris_ovoo</span><span class="p">)</span>
     <span class="n">Woooo</span> <span class="o">=</span> <span class="n">Woooo</span> <span class="o">-</span> <span class="n">Woooo</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">Woooo</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">eris</span><span class="o">.</span><span class="n">oooo</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">Woooo</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijef,menf-&gt;mnij'</span><span class="p">,</span> <span class="n">tauaa</span><span class="p">,</span> <span class="n">eris_ovov</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
-    <span class="n">u2aa</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mnab,mnij-&gt;ijab'</span><span class="p">,</span> <span class="n">tauaa</span><span class="p">,</span> <span class="n">Woooo</span><span class="o">*.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">Woooo</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijef,menf-&gt;mnij'</span><span class="p">,</span> <span class="n">tauaa</span><span class="p">,</span> <span class="n">eris_ovov</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
+    <span class="n">u2aa</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mnab,mnij-&gt;ijab'</span><span class="p">,</span> <span class="n">tauaa</span><span class="p">,</span> <span class="n">Woooo</span><span class="o">*</span><span class="mf">.5</span><span class="p">)</span>
     <span class="n">Woooo</span> <span class="o">=</span> <span class="n">tauaa</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">ovoo</span> <span class="o">=</span> <span class="n">eris_ovoo</span> <span class="o">-</span> <span class="n">eris_ovoo</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">Fooa</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ne,nemi-&gt;mi'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">ovoo</span><span class="p">)</span>
@@ -446,10 +465,10 @@
 
     <span class="n">tilaa</span> <span class="o">=</span> <span class="n">make_tau_aa</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">ovov</span> <span class="o">=</span> <span class="n">eris_ovov</span> <span class="o">-</span> <span class="n">eris_ovov</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">Fvva</span> <span class="o">-=</span> <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mnaf,menf-&gt;ae'</span><span class="p">,</span> <span class="n">tilaa</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
-    <span class="n">Fooa</span> <span class="o">+=</span> <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'inef,menf-&gt;mi'</span><span class="p">,</span> <span class="n">tilaa</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
+    <span class="n">Fvva</span> <span class="o">-=</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mnaf,menf-&gt;ae'</span><span class="p">,</span> <span class="n">tilaa</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
+    <span class="n">Fooa</span> <span class="o">+=</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'inef,menf-&gt;mi'</span><span class="p">,</span> <span class="n">tilaa</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
     <span class="n">Fova</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'nf,menf-&gt;me'</span><span class="p">,</span><span class="n">t1a</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
-    <span class="n">u2aa</span> <span class="o">+=</span> <span class="n">ovov</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">u2aa</span> <span class="o">+=</span> <span class="n">ovov</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
     <span class="n">wovvo</span> <span class="o">-=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'jnfb,menf-&gt;mbej'</span><span class="p">,</span> <span class="n">t2aa</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
     <span class="n">woVvO</span> <span class="o">+=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'nJfB,menf-&gt;mBeJ'</span><span class="p">,</span> <span class="n">t2ab</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
     <span class="n">tmpaa</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'jf,menf-&gt;mnej'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">ovov</span><span class="p">)</span>
@@ -461,8 +480,8 @@
     <span class="n">WOOOO</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'je,nemi-&gt;mnij'</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">eris_OVOO</span><span class="p">)</span>
     <span class="n">WOOOO</span> <span class="o">=</span> <span class="n">WOOOO</span> <span class="o">-</span> <span class="n">WOOOO</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">WOOOO</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">eris</span><span class="o">.</span><span class="n">OOOO</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">WOOOO</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijef,menf-&gt;mnij'</span><span class="p">,</span> <span class="n">taubb</span><span class="p">,</span> <span class="n">eris_OVOV</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
-    <span class="n">u2bb</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mnab,mnij-&gt;ijab'</span><span class="p">,</span> <span class="n">taubb</span><span class="p">,</span> <span class="n">WOOOO</span><span class="o">*.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">WOOOO</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijef,menf-&gt;mnij'</span><span class="p">,</span> <span class="n">taubb</span><span class="p">,</span> <span class="n">eris_OVOV</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
+    <span class="n">u2bb</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mnab,mnij-&gt;ijab'</span><span class="p">,</span> <span class="n">taubb</span><span class="p">,</span> <span class="n">WOOOO</span><span class="o">*</span><span class="mf">.5</span><span class="p">)</span>
     <span class="n">WOOOO</span> <span class="o">=</span> <span class="n">taubb</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">OVOO</span> <span class="o">=</span> <span class="n">eris_OVOO</span> <span class="o">-</span> <span class="n">eris_OVOO</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">Foob</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ne,nemi-&gt;mi'</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">OVOO</span><span class="p">)</span>
@@ -472,10 +491,10 @@
 
     <span class="n">tilbb</span> <span class="o">=</span> <span class="n">make_tau_aa</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">OVOV</span> <span class="o">=</span> <span class="n">eris_OVOV</span> <span class="o">-</span> <span class="n">eris_OVOV</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">Fvvb</span> <span class="o">-=</span> <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'MNAF,MENF-&gt;AE'</span><span class="p">,</span> <span class="n">tilbb</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
-    <span class="n">Foob</span> <span class="o">+=</span> <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'inef,menf-&gt;mi'</span><span class="p">,</span> <span class="n">tilbb</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
+    <span class="n">Fvvb</span> <span class="o">-=</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'MNAF,MENF-&gt;AE'</span><span class="p">,</span> <span class="n">tilbb</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
+    <span class="n">Foob</span> <span class="o">+=</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'inef,menf-&gt;mi'</span><span class="p">,</span> <span class="n">tilbb</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
     <span class="n">Fovb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'nf,menf-&gt;me'</span><span class="p">,</span><span class="n">t1b</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
-    <span class="n">u2bb</span> <span class="o">+=</span> <span class="n">OVOV</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">u2bb</span> <span class="o">+=</span> <span class="n">OVOV</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
     <span class="n">wOVVO</span> <span class="o">-=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'jnfb,menf-&gt;mbej'</span><span class="p">,</span> <span class="n">t2bb</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
     <span class="n">wOvVo</span> <span class="o">+=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'jNbF,MENF-&gt;MbEj'</span><span class="p">,</span> <span class="n">t2ab</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
     <span class="n">tmpbb</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'jf,menf-&gt;mnej'</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">OVOV</span><span class="p">)</span>
@@ -589,8 +608,8 @@
     <span class="n">u2ab</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mIaE,mBEj-&gt;jIaB'</span><span class="p">,</span> <span class="n">t2ab</span><span class="p">,</span> <span class="n">woVVo</span><span class="p">)</span>
     <span class="n">wovvo</span> <span class="o">=</span> <span class="n">wOVVO</span> <span class="o">=</span> <span class="n">woVvO</span> <span class="o">=</span> <span class="n">wOvVo</span> <span class="o">=</span> <span class="n">woVVo</span> <span class="o">=</span> <span class="n">wOvvO</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="n">Ftmpa</span> <span class="o">=</span> <span class="n">Fvva</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mb,me-&gt;be'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">Fova</span><span class="p">)</span>
-    <span class="n">Ftmpb</span> <span class="o">=</span> <span class="n">Fvvb</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mb,me-&gt;be'</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">Fovb</span><span class="p">)</span>
+    <span class="n">Ftmpa</span> <span class="o">=</span> <span class="n">Fvva</span> <span class="o">-</span> <span class="mf">.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mb,me-&gt;be'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">Fova</span><span class="p">)</span>
+    <span class="n">Ftmpb</span> <span class="o">=</span> <span class="n">Fvvb</span> <span class="o">-</span> <span class="mf">.5</span><span class="o">*</span><span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'mb,me-&gt;be'</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">Fovb</span><span class="p">)</span>
     <span class="n">u2aa</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijae,be-&gt;ijab'</span><span class="p">,</span> <span class="n">t2aa</span><span class="p">,</span> <span class="n">Ftmpa</span><span class="p">)</span>
     <span class="n">u2bb</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijae,be-&gt;ijab'</span><span class="p">,</span> <span class="n">t2bb</span><span class="p">,</span> <span class="n">Ftmpb</span><span class="p">)</span>
     <span class="n">u2ab</span> <span class="o">+=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'iJaE,BE-&gt;iJaB'</span><span class="p">,</span> <span class="n">t2ab</span><span class="p">,</span> <span class="n">Ftmpb</span><span class="p">)</span>
@@ -614,8 +633,8 @@
     <span class="n">u2ab</span> <span class="o">-=</span> <span class="n">lib</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'MA,ibJM-&gt;iJbA'</span><span class="p">,</span> <span class="n">t1b</span><span class="p">,</span> <span class="n">eris_ovOO</span><span class="p">)</span>
     <span class="n">eris_ovoo</span> <span class="o">=</span> <span class="n">eris_OVoo</span> <span class="o">=</span> <span class="n">eris_OVOO</span> <span class="o">=</span> <span class="n">eris_ovOO</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="n">u2aa</span> <span class="o">*=</span> <span class="o">.</span><span class="mi">5</span>
-    <span class="n">u2bb</span> <span class="o">*=</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">u2aa</span> <span class="o">*=</span> <span class="mf">.5</span>
+    <span class="n">u2bb</span> <span class="o">*=</span> <span class="mf">.5</span>
     <span class="n">u2aa</span> <span class="o">=</span> <span class="n">u2aa</span> <span class="o">-</span> <span class="n">u2aa</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">u2aa</span> <span class="o">=</span> <span class="n">u2aa</span> <span class="o">-</span> <span class="n">u2aa</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">u2bb</span> <span class="o">=</span> <span class="n">u2bb</span> <span class="o">-</span> <span class="n">u2bb</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -636,8 +655,11 @@
     <span class="k">return</span> <span class="n">t1new</span><span class="p">,</span> <span class="n">t2new</span></div>
 
 
-<div class="viewcode-block" id="energy"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.energy">[docs]</a><span class="k">def</span> <span class="nf">energy</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''UCCSD correlation energy'''</span>
+
+<div class="viewcode-block" id="energy">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.energy">[docs]</a>
+<span class="k">def</span> <span class="nf">energy</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''UCCSD correlation energy'''</span>
     <span class="k">if</span> <span class="n">t1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">t1</span>
     <span class="k">if</span> <span class="n">t2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">t2</span>
     <span class="k">if</span> <span class="n">eris</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">eris</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ao2mo</span><span class="p">()</span>
@@ -667,12 +689,15 @@
     <span class="k">return</span> <span class="n">e</span><span class="o">.</span><span class="n">real</span></div>
 
 
+
 <span class="n">get_nocc</span> <span class="o">=</span> <span class="n">ump2</span><span class="o">.</span><span class="n">get_nocc</span>
 <span class="n">get_nmo</span> <span class="o">=</span> <span class="n">ump2</span><span class="o">.</span><span class="n">get_nmo</span>
 <span class="n">get_frozen_mask</span> <span class="o">=</span> <span class="n">ump2</span><span class="o">.</span><span class="n">get_frozen_mask</span>
 
 
-<div class="viewcode-block" id="amplitudes_to_vector"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.amplitudes_to_vector">[docs]</a><span class="k">def</span> <span class="nf">amplitudes_to_vector</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="amplitudes_to_vector">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.amplitudes_to_vector">[docs]</a>
+<span class="k">def</span> <span class="nf">amplitudes_to_vector</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">nocca</span><span class="p">,</span> <span class="n">nvira</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">noccb</span><span class="p">,</span> <span class="n">nvirb</span> <span class="o">=</span> <span class="n">t1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">sizea</span> <span class="o">=</span> <span class="n">nocca</span> <span class="o">*</span> <span class="n">nvira</span> <span class="o">+</span> <span class="n">nocca</span><span class="o">*</span><span class="p">(</span><span class="n">nocca</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="o">*</span><span class="n">nvira</span><span class="o">*</span><span class="p">(</span><span class="n">nvira</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
@@ -684,7 +709,10 @@
     <span class="n">vector</span><span class="p">[</span><span class="n">sizea</span><span class="o">+</span><span class="n">sizeb</span><span class="p">:]</span> <span class="o">=</span> <span class="n">t2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">vector</span></div>
 
-<div class="viewcode-block" id="vector_to_amplitudes"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.vector_to_amplitudes">[docs]</a><span class="k">def</span> <span class="nf">vector_to_amplitudes</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">nmo</span><span class="p">,</span> <span class="n">nocc</span><span class="p">):</span>
+
+<div class="viewcode-block" id="vector_to_amplitudes">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.vector_to_amplitudes">[docs]</a>
+<span class="k">def</span> <span class="nf">vector_to_amplitudes</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">nmo</span><span class="p">,</span> <span class="n">nocc</span><span class="p">):</span>
     <span class="n">nocca</span><span class="p">,</span> <span class="n">noccb</span> <span class="o">=</span> <span class="n">nocc</span>
     <span class="n">nmoa</span><span class="p">,</span> <span class="n">nmob</span> <span class="o">=</span> <span class="n">nmo</span>
     <span class="n">nvira</span><span class="p">,</span> <span class="n">nvirb</span> <span class="o">=</span> <span class="n">nmoa</span><span class="o">-</span><span class="n">nocca</span><span class="p">,</span> <span class="n">nmob</span><span class="o">-</span><span class="n">noccb</span>
@@ -705,13 +733,17 @@
         <span class="n">t2ab</span> <span class="o">=</span> <span class="n">t2ab</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nocca</span><span class="p">,</span><span class="n">noccb</span><span class="p">,</span><span class="n">nvira</span><span class="p">,</span><span class="n">nvirb</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span><span class="p">),</span> <span class="p">(</span><span class="n">t2aa</span><span class="p">,</span><span class="n">t2ab</span><span class="p">,</span><span class="n">t2bb</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="amplitudes_from_rccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.amplitudes_from_rccsd">[docs]</a><span class="k">def</span> <span class="nf">amplitudes_from_rccsd</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+
+<div class="viewcode-block" id="amplitudes_from_rccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.amplitudes_from_rccsd">[docs]</a>
+<span class="k">def</span> <span class="nf">amplitudes_from_rccsd</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
     <span class="n">t2aa</span> <span class="o">=</span> <span class="n">t2</span> <span class="o">-</span> <span class="n">t2</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t1</span><span class="p">),</span> <span class="p">(</span><span class="n">t2aa</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="n">t2aa</span><span class="p">)</span></div>
 
 
+
 <span class="k">def</span> <span class="nf">_add_vvVV</span><span class="p">(</span><span class="n">mycc</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2ab</span><span class="p">,</span> <span class="n">eris</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''Ht2 = np.einsum('iJcD,acBD-&gt;iJaB', t2ab, vvVV)</span>
+<span class="w">    </span><span class="sd">'''Ht2 = np.einsum('iJcD,acBD-&gt;iJaB', t2ab, vvVV)</span>
 <span class="sd">    without using symmetry in t2ab or Ht2</span>
 <span class="sd">    '''</span>
     <span class="n">time0</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
@@ -832,7 +864,9 @@
     <span class="k">return</span> <span class="n">u2aa</span><span class="p">,</span><span class="n">u2ab</span><span class="p">,</span><span class="n">u2bb</span>
 
 
-<div class="viewcode-block" id="UCCSD"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD">[docs]</a><span class="k">class</span> <span class="nc">UCCSD</span><span class="p">(</span><span class="n">ccsd</span><span class="o">.</span><span class="n">CCSD</span><span class="p">):</span>
+<div class="viewcode-block" id="UCCSD">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD">[docs]</a>
+<span class="k">class</span> <span class="nc">UCCSD</span><span class="p">(</span><span class="n">ccsd</span><span class="o">.</span><span class="n">CCSDBase</span><span class="p">):</span>
 
     <span class="n">conv_tol</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'cc_uccsd_UCCSD_conv_tol'</span><span class="p">,</span> <span class="mf">1e-7</span><span class="p">)</span>
     <span class="n">conv_tol_normt</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">__config__</span><span class="p">,</span> <span class="s1">'cc_uccsd_UCCSD_conv_tol_normt'</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">)</span>
@@ -844,13 +878,15 @@
 <span class="c1">#       orbitals, second list is for beta orbitals</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mo_occ</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">scf</span><span class="o">.</span><span class="n">uhf</span><span class="o">.</span><span class="n">UHF</span><span class="p">)</span>
-        <span class="n">ccsd</span><span class="o">.</span><span class="n">CCSD</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">frozen</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">)</span>
+        <span class="n">ccsd</span><span class="o">.</span><span class="n">CCSDBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">frozen</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">,</span> <span class="n">mo_occ</span><span class="p">)</span>
 
     <span class="n">get_nocc</span> <span class="o">=</span> <span class="n">get_nocc</span>
     <span class="n">get_nmo</span> <span class="o">=</span> <span class="n">get_nmo</span>
     <span class="n">get_frozen_mask</span> <span class="o">=</span> <span class="n">get_frozen_mask</span>
 
-<div class="viewcode-block" id="UCCSD.init_amps"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.init_amps">[docs]</a>    <span class="k">def</span> <span class="nf">init_amps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="UCCSD.init_amps">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.init_amps">[docs]</a>
+    <span class="k">def</span> <span class="nf">init_amps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">time0</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">process_clock</span><span class="p">(),</span> <span class="n">logger</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">eris</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">eris</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">)</span>
@@ -886,15 +922,21 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'init mp2'</span><span class="p">,</span> <span class="o">*</span><span class="n">time0</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">emp2</span><span class="p">,</span> <span class="p">(</span><span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span><span class="p">),</span> <span class="p">(</span><span class="n">t2aa</span><span class="p">,</span><span class="n">t2ab</span><span class="p">,</span><span class="n">t2bb</span><span class="p">)</span></div>
 
+
     <span class="n">energy</span> <span class="o">=</span> <span class="n">energy</span>
     <span class="n">update_amps</span> <span class="o">=</span> <span class="n">update_amps</span>
     <span class="n">_add_vvvv</span> <span class="o">=</span> <span class="n">_add_vvvv</span>
     <span class="n">_add_vvVV</span> <span class="o">=</span> <span class="n">_add_vvVV</span>
 
-<div class="viewcode-block" id="UCCSD.kernel"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.kernel">[docs]</a>    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbpt2</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="UCCSD.kernel">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.kernel">[docs]</a>
+    <span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbpt2</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ccsd</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">eris</span><span class="p">,</span> <span class="n">mbpt2</span><span class="p">)</span></div>
-<div class="viewcode-block" id="UCCSD.ccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ccsd">[docs]</a>    <span class="k">def</span> <span class="nf">ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbpt2</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">'''Ground-state unrestricted (U)CCSD.</span>
+
+<div class="viewcode-block" id="UCCSD.ccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ccsd">[docs]</a>
+    <span class="k">def</span> <span class="nf">ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mbpt2</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Ground-state unrestricted (U)CCSD.</span>
 
 <span class="sd">        Kwargs:</span>
 <span class="sd">            mbpt2 : bool</span>
@@ -908,9 +950,12 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nocca</span><span class="p">,</span><span class="n">nvira</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">noccb</span><span class="p">,</span><span class="n">nvirb</span><span class="p">)))</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">e_corr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span>
 
-        <span class="k">return</span> <span class="n">ccsd</span><span class="o">.</span><span class="n">CCSD</span><span class="o">.</span><span class="n">ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">eris</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">ccsd</span><span class="o">.</span><span class="n">CCSDBase</span><span class="o">.</span><span class="n">ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">eris</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.solve_lambda"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.solve_lambda">[docs]</a>    <span class="k">def</span> <span class="nf">solve_lambda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+
+<div class="viewcode-block" id="UCCSD.solve_lambda">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.solve_lambda">[docs]</a>
+    <span class="k">def</span> <span class="nf">solve_lambda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">uccsd_lambda</span>
         <span class="k">if</span> <span class="n">t1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span>
@@ -923,17 +968,23 @@
                                     <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">l1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l2</span></div>
 
-<div class="viewcode-block" id="UCCSD.ccsd_t"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ccsd_t">[docs]</a>    <span class="k">def</span> <span class="nf">ccsd_t</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.ccsd_t">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ccsd_t">[docs]</a>
+    <span class="k">def</span> <span class="nf">ccsd_t</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">uccsd_t</span>
         <span class="k">if</span> <span class="n">t1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span>
         <span class="k">if</span> <span class="n">t2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span>
         <span class="k">if</span> <span class="n">eris</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">eris</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">uccsd_t</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eris</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span></div>
+
     <span class="n">uccsd_t</span> <span class="o">=</span> <span class="n">ccsd_t</span>
 
-<div class="viewcode-block" id="UCCSD.make_rdm1"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.make_rdm1">[docs]</a>    <span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="UCCSD.make_rdm1">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.make_rdm1">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">with_frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_mf</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">'''Un-relaxed 1-particle density matrix in MO space</span>
+<span class="w">        </span><span class="sd">'''Un-relaxed 1-particle density matrix in MO space</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            dm1a, dm1b</span>
@@ -947,9 +998,12 @@
         <span class="k">return</span> <span class="n">uccsd_rdm</span><span class="o">.</span><span class="n">make_rdm1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="n">ao_repr</span><span class="p">,</span>
                                    <span class="n">with_frozen</span><span class="o">=</span><span class="n">with_frozen</span><span class="p">,</span> <span class="n">with_mf</span><span class="o">=</span><span class="n">with_mf</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.make_rdm2"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.make_rdm2">[docs]</a>    <span class="k">def</span> <span class="nf">make_rdm2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+
+<div class="viewcode-block" id="UCCSD.make_rdm2">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.make_rdm2">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_rdm2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">with_frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_dm1</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">'''2-particle density matrix in spin-orbital basis.</span>
+<span class="w">        </span><span class="sd">'''2-particle density matrix in spin-orbital basis.</span>
 <span class="sd">        '''</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">uccsd_rdm</span>
         <span class="k">if</span> <span class="n">t1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span>
@@ -960,7 +1014,10 @@
         <span class="k">return</span> <span class="n">uccsd_rdm</span><span class="o">.</span><span class="n">make_rdm2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">ao_repr</span><span class="o">=</span><span class="n">ao_repr</span><span class="p">,</span>
                                    <span class="n">with_frozen</span><span class="o">=</span><span class="n">with_frozen</span><span class="p">,</span> <span class="n">with_dm1</span><span class="o">=</span><span class="n">with_dm1</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.spin_square"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.spin_square">[docs]</a>    <span class="k">def</span> <span class="nf">spin_square</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.spin_square">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.spin_square">[docs]</a>
+    <span class="k">def</span> <span class="nf">spin_square</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.fci.spin_op</span> <span class="kn">import</span> <span class="n">spin_square_general</span>
         <span class="k">if</span> <span class="n">mo_coeff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mo_coeff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span>
@@ -972,7 +1029,10 @@
 
         <span class="k">return</span> <span class="n">spin_square_general</span><span class="p">(</span><span class="n">dma</span><span class="p">,</span><span class="n">dmb</span><span class="p">,</span><span class="n">dmaa</span><span class="p">,</span><span class="n">dmab</span><span class="p">,</span><span class="n">dmbb</span><span class="p">,</span><span class="n">mo_coeff</span><span class="p">,</span><span class="n">s</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.ao2mo"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ao2mo">[docs]</a>    <span class="k">def</span> <span class="nf">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.ao2mo">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ao2mo">[docs]</a>
+    <span class="k">def</span> <span class="nf">ao2mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">nmoa</span><span class="p">,</span> <span class="n">nmob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nmo</span><span class="p">()</span>
         <span class="n">nao</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">nmo_pair</span> <span class="o">=</span> <span class="n">nmoa</span> <span class="o">*</span> <span class="p">(</span><span class="n">nmoa</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
@@ -993,58 +1053,91 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">_make_eris_outcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mo_coeff</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.ipccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ipccsd">[docs]</a>    <span class="k">def</span> <span class="nf">ipccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+
+<div class="viewcode-block" id="UCCSD.ipccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.ipccsd">[docs]</a>
+    <span class="k">def</span> <span class="nf">ipccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">partition</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMIP</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">nroots</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">koopmans</span><span class="p">,</span> <span class="n">guess</span><span class="p">,</span>
                                             <span class="n">partition</span><span class="p">,</span> <span class="n">eris</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.eaccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eaccsd">[docs]</a>    <span class="k">def</span> <span class="nf">eaccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+
+<div class="viewcode-block" id="UCCSD.eaccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eaccsd">[docs]</a>
+    <span class="k">def</span> <span class="nf">eaccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">partition</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMEA</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">nroots</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">koopmans</span><span class="p">,</span> <span class="n">guess</span><span class="p">,</span>
                                             <span class="n">partition</span><span class="p">,</span> <span class="n">eris</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.eeccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eeccsd">[docs]</a>    <span class="k">def</span> <span class="nf">eeccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.eeccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eeccsd">[docs]</a>
+    <span class="k">def</span> <span class="nf">eeccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMEE</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">nroots</span><span class="p">,</span> <span class="n">koopmans</span><span class="p">,</span> <span class="n">guess</span><span class="p">,</span> <span class="n">eris</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.eomee_ccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomee_ccsd">[docs]</a>    <span class="k">def</span> <span class="nf">eomee_ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.eomee_ccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomee_ccsd">[docs]</a>
+    <span class="k">def</span> <span class="nf">eomee_ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMEESpinKeep</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">nroots</span><span class="p">,</span> <span class="n">koopmans</span><span class="p">,</span> <span class="n">guess</span><span class="p">,</span> <span class="n">eris</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.eomsf_ccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomsf_ccsd">[docs]</a>    <span class="k">def</span> <span class="nf">eomsf_ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.eomsf_ccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomsf_ccsd">[docs]</a>
+    <span class="k">def</span> <span class="nf">eomsf_ccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nroots</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">koopmans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eris</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMEESpinFlip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">nroots</span><span class="p">,</span> <span class="n">koopmans</span><span class="p">,</span> <span class="n">guess</span><span class="p">,</span> <span class="n">eris</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.eomip_method"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomip_method">[docs]</a>    <span class="k">def</span> <span class="nf">eomip_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.eomip_method">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomip_method">[docs]</a>
+    <span class="k">def</span> <span class="nf">eomip_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMIP</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.eomea_method"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomea_method">[docs]</a>    <span class="k">def</span> <span class="nf">eomea_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.eomea_method">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomea_method">[docs]</a>
+    <span class="k">def</span> <span class="nf">eomea_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMEA</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.eomee_method"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomee_method">[docs]</a>    <span class="k">def</span> <span class="nf">eomee_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.eomee_method">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.eomee_method">[docs]</a>
+    <span class="k">def</span> <span class="nf">eomee_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.cc</span> <span class="kn">import</span> <span class="n">eom_uccsd</span>
         <span class="k">return</span> <span class="n">eom_uccsd</span><span class="o">.</span><span class="n">EOMEE</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.density_fit"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.density_fit">[docs]</a>    <span class="k">def</span> <span class="nf">density_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="UCCSD.nuc_grad_method"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.nuc_grad_method">[docs]</a>    <span class="k">def</span> <span class="nf">nuc_grad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="UCCSD.nuc_grad_method">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.nuc_grad_method">[docs]</a>
+    <span class="k">def</span> <span class="nf">nuc_grad_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">pyscf.grad</span> <span class="kn">import</span> <span class="n">uccsd</span>
         <span class="k">return</span> <span class="n">uccsd</span><span class="o">.</span><span class="n">Gradients</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.amplitudes_to_vector"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.amplitudes_to_vector">[docs]</a>    <span class="k">def</span> <span class="nf">amplitudes_to_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.amplitudes_to_vector">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.amplitudes_to_vector">[docs]</a>
+    <span class="k">def</span> <span class="nf">amplitudes_to_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">amplitudes_to_vector</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.vector_to_amplitudes"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.vector_to_amplitudes">[docs]</a>    <span class="k">def</span> <span class="nf">vector_to_amplitudes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector</span><span class="p">,</span> <span class="n">nmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nocc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.vector_to_amplitudes">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.vector_to_amplitudes">[docs]</a>
+    <span class="k">def</span> <span class="nf">vector_to_amplitudes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector</span><span class="p">,</span> <span class="n">nmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nocc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">nocc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">nocc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nocc</span>
         <span class="k">if</span> <span class="n">nmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">nmo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nmo</span>
         <span class="k">return</span> <span class="n">vector_to_amplitudes</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">nmo</span><span class="p">,</span> <span class="n">nocc</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UCCSD.vector_size"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.vector_size">[docs]</a>    <span class="k">def</span> <span class="nf">vector_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nocc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.vector_size">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.vector_size">[docs]</a>
+    <span class="k">def</span> <span class="nf">vector_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nmo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nocc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">nocc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">nocc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nocc</span>
         <span class="k">if</span> <span class="n">nmo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">nmo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nmo</span>
         <span class="n">nocca</span><span class="p">,</span> <span class="n">noccb</span> <span class="o">=</span> <span class="n">nocc</span>
@@ -1055,23 +1148,13 @@
         <span class="n">sizeab</span> <span class="o">=</span> <span class="n">nocca</span> <span class="o">*</span> <span class="n">noccb</span> <span class="o">*</span> <span class="n">nvira</span> <span class="o">*</span> <span class="n">nvirb</span>
         <span class="k">return</span> <span class="n">sizea</span> <span class="o">+</span> <span class="n">sizeb</span> <span class="o">+</span> <span class="n">sizeab</span></div>
 
-<div class="viewcode-block" id="UCCSD.amplitudes_from_rccsd"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.amplitudes_from_rccsd">[docs]</a>    <span class="k">def</span> <span class="nf">amplitudes_from_rccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UCCSD.amplitudes_from_rccsd">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.amplitudes_from_rccsd">[docs]</a>
+    <span class="k">def</span> <span class="nf">amplitudes_from_rccsd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">amplitudes_from_rccsd</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span></div>
+</div>
 
-<div class="viewcode-block" id="UCCSD.get_t1_diagnostic"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.get_t1_diagnostic">[docs]</a>    <span class="k">def</span> <span class="nf">get_t1_diagnostic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">t1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
-        <span class="c1">#return get_t1_diagnostic(t1)</span>
-
-<div class="viewcode-block" id="UCCSD.get_d1_diagnostic"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.get_d1_diagnostic">[docs]</a>    <span class="k">def</span> <span class="nf">get_d1_diagnostic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">t1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
-        <span class="c1">#return get_d1_diagnostic(t1)</span>
-
-<div class="viewcode-block" id="UCCSD.get_d2_diagnostic"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.UCCSD.get_d2_diagnostic">[docs]</a>    <span class="k">def</span> <span class="nf">get_d2_diagnostic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">t2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">t2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t2</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
-        <span class="c1">#return get_d2_diagnostic(t2)</span>
 
 <span class="n">CCSD</span> <span class="o">=</span> <span class="n">UCCSD</span>
 
@@ -1189,7 +1272,7 @@
     <span class="n">nmoa</span> <span class="o">=</span> <span class="n">moa</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">nmob</span> <span class="o">=</span> <span class="n">mob</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">ao2mofn</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">ao2mofn</span><span class="p">):</span>
         <span class="n">eri_aa</span> <span class="o">=</span> <span class="n">ao2mofn</span><span class="p">(</span><span class="n">moa</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">nmoa</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">eri_bb</span> <span class="o">=</span> <span class="n">ao2mofn</span><span class="p">(</span><span class="n">mob</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">nmob</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">eri_ab</span> <span class="o">=</span> <span class="n">ao2mofn</span><span class="p">((</span><span class="n">moa</span><span class="p">,</span><span class="n">moa</span><span class="p">,</span><span class="n">mob</span><span class="p">,</span><span class="n">mob</span><span class="p">))</span>
@@ -1235,7 +1318,7 @@
     <span class="n">eris</span><span class="o">.</span><span class="n">OVvv</span> <span class="o">=</span> <span class="n">eri_ba</span><span class="p">[:</span><span class="n">noccb</span><span class="p">,</span><span class="n">noccb</span><span class="p">:,</span><span class="n">nocca</span><span class="p">:,</span><span class="n">nocca</span><span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="c1">#eris.VVvv = eri_ba[noccb:,noccb:,nocca:,nocca:].copy()</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">ao2mofn</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">ao2mofn</span><span class="p">):</span>
         <span class="n">ovvv</span> <span class="o">=</span> <span class="n">eris</span><span class="o">.</span><span class="n">ovvv</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nocca</span><span class="o">*</span><span class="n">nvira</span><span class="p">,</span><span class="n">nvira</span><span class="p">,</span><span class="n">nvira</span><span class="p">)</span>
         <span class="n">eris</span><span class="o">.</span><span class="n">ovvv</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">pack_tril</span><span class="p">(</span><span class="n">ovvv</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nocca</span><span class="p">,</span><span class="n">nvira</span><span class="p">,</span><span class="n">nvira</span><span class="o">*</span><span class="p">(</span><span class="n">nvira</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">eris</span><span class="o">.</span><span class="n">vvvv</span> <span class="o">=</span> <span class="n">ao2mo</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">eris</span><span class="o">.</span><span class="n">vvvv</span><span class="p">,</span> <span class="n">nvira</span><span class="p">)</span>
@@ -1484,7 +1567,9 @@
     <span class="k">return</span> <span class="n">eris</span>
 
 
-<div class="viewcode-block" id="make_tau"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.make_tau">[docs]</a><span class="k">def</span> <span class="nf">make_tau</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="make_tau">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.make_tau">[docs]</a>
+<span class="k">def</span> <span class="nf">make_tau</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">t1a</span><span class="p">,</span> <span class="n">t1b</span> <span class="o">=</span> <span class="n">t1</span>
     <span class="n">r1a</span><span class="p">,</span> <span class="n">r1b</span> <span class="o">=</span> <span class="n">r1</span>
     <span class="n">tau1aa</span> <span class="o">=</span> <span class="n">make_tau_aa</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">r1a</span><span class="p">,</span> <span class="n">fac</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
@@ -1492,22 +1577,29 @@
     <span class="n">tau1ab</span> <span class="o">=</span> <span class="n">make_tau_ab</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">fac</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">tau1aa</span><span class="p">,</span> <span class="n">tau1ab</span><span class="p">,</span> <span class="n">tau1bb</span></div>
 
-<div class="viewcode-block" id="make_tau_aa"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.make_tau_aa">[docs]</a><span class="k">def</span> <span class="nf">make_tau_aa</span><span class="p">(</span><span class="n">t2aa</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">r1a</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="make_tau_aa">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.make_tau_aa">[docs]</a>
+<span class="k">def</span> <span class="nf">make_tau_aa</span><span class="p">(</span><span class="n">t2aa</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">r1a</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">tau1aa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ia,jb-&gt;ijab'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">r1a</span><span class="p">)</span>
     <span class="n">tau1aa</span><span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ia,jb-&gt;jiab'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">r1a</span><span class="p">)</span>
     <span class="n">tau1aa</span> <span class="o">=</span> <span class="n">tau1aa</span> <span class="o">-</span> <span class="n">tau1aa</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">tau1aa</span> <span class="o">*=</span> <span class="n">fac</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">tau1aa</span> <span class="o">*=</span> <span class="n">fac</span> <span class="o">*</span> <span class="mf">.5</span>
     <span class="n">tau1aa</span> <span class="o">+=</span> <span class="n">t2aa</span>
     <span class="k">return</span> <span class="n">tau1aa</span></div>
 
-<div class="viewcode-block" id="make_tau_ab"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.make_tau_ab">[docs]</a><span class="k">def</span> <span class="nf">make_tau_ab</span><span class="p">(</span><span class="n">t2ab</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="make_tau_ab">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.cc.html#pyscf.cc.eom_uccsd.make_tau_ab">[docs]</a>
+<span class="k">def</span> <span class="nf">make_tau_ab</span><span class="p">(</span><span class="n">t2ab</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">t1a</span><span class="p">,</span> <span class="n">t1b</span> <span class="o">=</span> <span class="n">t1</span>
     <span class="n">r1a</span><span class="p">,</span> <span class="n">r1b</span> <span class="o">=</span> <span class="n">r1</span>
     <span class="n">tau1ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ia,jb-&gt;ijab'</span><span class="p">,</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">r1b</span><span class="p">)</span>
     <span class="n">tau1ab</span><span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ia,jb-&gt;ijab'</span><span class="p">,</span> <span class="n">r1a</span><span class="p">,</span> <span class="n">t1b</span><span class="p">)</span>
-    <span class="n">tau1ab</span> <span class="o">*=</span> <span class="n">fac</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">tau1ab</span> <span class="o">*=</span> <span class="n">fac</span> <span class="o">*</span> <span class="mf">.5</span>
     <span class="n">tau1ab</span> <span class="o">+=</span> <span class="n">t2ab</span>
     <span class="k">return</span> <span class="n">tau1ab</span></div>
+
 
 <span class="k">def</span> <span class="nf">_flops</span><span class="p">(</span><span class="n">nocc</span><span class="p">,</span> <span class="n">nmo</span><span class="p">):</span>
     <span class="n">nocca</span><span class="p">,</span> <span class="n">noccb</span> <span class="o">=</span> <span class="n">nocc</span>
@@ -1718,7 +1810,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

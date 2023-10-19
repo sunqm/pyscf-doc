@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.fci.fci_slow &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.fci.fci_slow </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -317,7 +334,9 @@
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">ao2mo</span>
 <span class="kn">from</span> <span class="nn">pyscf.fci</span> <span class="kn">import</span> <span class="n">cistring</span>
 
-<div class="viewcode-block" id="contract_1e"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.contract_1e">[docs]</a><span class="k">def</span> <span class="nf">contract_1e</span><span class="p">(</span><span class="n">f1e</span><span class="p">,</span> <span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">):</span>
+<div class="viewcode-block" id="contract_1e">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.contract_1e">[docs]</a>
+<span class="k">def</span> <span class="nf">contract_1e</span><span class="p">(</span><span class="n">f1e</span><span class="p">,</span> <span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nelec</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
         <span class="n">nelecb</span> <span class="o">=</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span>
         <span class="n">neleca</span> <span class="o">=</span> <span class="n">nelec</span> <span class="o">-</span> <span class="n">nelecb</span>
@@ -339,15 +358,21 @@
     <span class="k">return</span> <span class="n">fcinew</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">fcivec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="contract_2e"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.contract_2e">[docs]</a><span class="k">def</span> <span class="nf">contract_2e</span><span class="p">(</span><span class="n">eri</span><span class="p">,</span> <span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">'''Compute E_{pq}E_{rs}|CI&gt;'''</span>
+
+<div class="viewcode-block" id="contract_2e">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.contract_2e">[docs]</a>
+<span class="k">def</span> <span class="nf">contract_2e</span><span class="p">(</span><span class="n">eri</span><span class="p">,</span> <span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">link_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Compute E_{pq}E_{rs}|CI&gt;'''</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nelec</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
         <span class="n">nelecb</span> <span class="o">=</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span>
         <span class="n">neleca</span> <span class="o">=</span> <span class="n">nelec</span> <span class="o">-</span> <span class="n">nelecb</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">neleca</span><span class="p">,</span> <span class="n">nelecb</span> <span class="o">=</span> <span class="n">nelec</span>
-    <span class="n">link_indexa</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_linkstr_index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">neleca</span><span class="p">)</span>
-    <span class="n">link_indexb</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_linkstr_index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">nelecb</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">link_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">link_indexa</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_linkstr_index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">neleca</span><span class="p">)</span>
+        <span class="n">link_indexb</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_linkstr_index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">nelecb</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">link_indexa</span><span class="p">,</span> <span class="n">link_indexb</span> <span class="o">=</span> <span class="n">link_index</span>
     <span class="n">na</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">num_strings</span><span class="p">(</span><span class="n">norb</span><span class="p">,</span> <span class="n">neleca</span><span class="p">)</span>
     <span class="n">nb</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">num_strings</span><span class="p">(</span><span class="n">norb</span><span class="p">,</span> <span class="n">nelecb</span><span class="p">)</span>
     <span class="n">ci0</span> <span class="o">=</span> <span class="n">fcivec</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">na</span><span class="p">,</span><span class="n">nb</span><span class="p">)</span>
@@ -370,7 +395,10 @@
             <span class="n">fcinew</span><span class="p">[:,</span><span class="n">str1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">t1</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">i</span><span class="p">,:,</span><span class="n">str0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">fcinew</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">fcivec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="contract_2e_hubbard"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.contract_2e_hubbard">[docs]</a><span class="k">def</span> <span class="nf">contract_2e_hubbard</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="contract_2e_hubbard">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.contract_2e_hubbard">[docs]</a>
+<span class="k">def</span> <span class="nf">contract_2e_hubbard</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nelec</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">number</span><span class="p">)):</span>
         <span class="n">nelecb</span> <span class="o">=</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span>
         <span class="n">neleca</span> <span class="o">=</span> <span class="n">nelec</span> <span class="o">-</span> <span class="n">nelecb</span>
@@ -422,13 +450,16 @@
     <span class="k">return</span> <span class="n">fcinew</span></div>
 
 
-<div class="viewcode-block" id="absorb_h1e"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.absorb_h1e">[docs]</a><span class="k">def</span> <span class="nf">absorb_h1e</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">'''Modify 2e Hamiltonian to include 1e Hamiltonian contribution.</span>
+
+<div class="viewcode-block" id="absorb_h1e">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.absorb_h1e">[docs]</a>
+<span class="k">def</span> <span class="nf">absorb_h1e</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">fac</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''Modify 2e Hamiltonian to include 1e Hamiltonian contribution.</span>
 <span class="sd">    '''</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nelec</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
         <span class="n">nelec</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nelec</span><span class="p">)</span>
-    <span class="n">h2e</span> <span class="o">=</span> <span class="n">ao2mo</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">eri</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">norb</span><span class="p">)</span>
-    <span class="n">f1e</span> <span class="o">=</span> <span class="n">h1e</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'jiik-&gt;jk'</span><span class="p">,</span> <span class="n">h2e</span><span class="p">)</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">h2e</span> <span class="o">=</span> <span class="n">ao2mo</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">eri</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">norb</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">h1e</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">f1e</span> <span class="o">=</span> <span class="n">h1e</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'jiik-&gt;jk'</span><span class="p">,</span> <span class="n">h2e</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span>
     <span class="n">f1e</span> <span class="o">=</span> <span class="n">f1e</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">nelec</span><span class="o">+</span><span class="mf">1e-100</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">):</span>
         <span class="n">h2e</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">,:,:]</span> <span class="o">+=</span> <span class="n">f1e</span>
@@ -436,15 +467,18 @@
     <span class="k">return</span> <span class="n">h2e</span> <span class="o">*</span> <span class="n">fac</span></div>
 
 
-<div class="viewcode-block" id="make_hdiag"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.make_hdiag">[docs]</a><span class="k">def</span> <span class="nf">make_hdiag</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="make_hdiag">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.make_hdiag">[docs]</a>
+<span class="k">def</span> <span class="nf">make_hdiag</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nelec</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
         <span class="n">nelecb</span> <span class="o">=</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span>
         <span class="n">neleca</span> <span class="o">=</span> <span class="n">nelec</span> <span class="o">-</span> <span class="n">nelecb</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">neleca</span><span class="p">,</span> <span class="n">nelecb</span> <span class="o">=</span> <span class="n">nelec</span>
 
-    <span class="n">occslista</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">_gen_occslst</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">neleca</span><span class="p">)</span>
-    <span class="n">occslistb</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">_gen_occslst</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">nelecb</span><span class="p">)</span>
+    <span class="n">occslista</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_occslst</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">neleca</span><span class="p">)</span>
+    <span class="n">occslistb</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_occslst</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">nelecb</span><span class="p">)</span>
     <span class="n">eri</span> <span class="o">=</span> <span class="n">ao2mo</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">)</span>
     <span class="n">diagj</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'iijj-&gt;ij'</span><span class="p">,</span> <span class="n">eri</span><span class="p">)</span>
     <span class="n">diagk</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'ijji-&gt;ij'</span><span class="p">,</span> <span class="n">eri</span><span class="p">)</span>
@@ -455,11 +489,14 @@
             <span class="n">e2</span> <span class="o">=</span> <span class="n">diagj</span><span class="p">[</span><span class="n">aocc</span><span class="p">][:,</span><span class="n">aocc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">diagj</span><span class="p">[</span><span class="n">aocc</span><span class="p">][:,</span><span class="n">bocc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> \
                <span class="o">+</span> <span class="n">diagj</span><span class="p">[</span><span class="n">bocc</span><span class="p">][:,</span><span class="n">aocc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">diagj</span><span class="p">[</span><span class="n">bocc</span><span class="p">][:,</span><span class="n">bocc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> \
                <span class="o">-</span> <span class="n">diagk</span><span class="p">[</span><span class="n">aocc</span><span class="p">][:,</span><span class="n">aocc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">diagk</span><span class="p">[</span><span class="n">bocc</span><span class="p">][:,</span><span class="n">bocc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-            <span class="n">hdiag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e1</span> <span class="o">+</span> <span class="n">e2</span><span class="o">*.</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">hdiag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e1</span> <span class="o">+</span> <span class="n">e2</span><span class="o">*</span><span class="mf">.5</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hdiag</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="kernel"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.kernel">[docs]</a><span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">ecore</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">h2e</span> <span class="o">=</span> <span class="n">absorb_h1e</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+
+<div class="viewcode-block" id="kernel">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.kernel">[docs]</a>
+<span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">ecore</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">h2e</span> <span class="o">=</span> <span class="n">absorb_h1e</span><span class="p">(</span><span class="n">h1e</span><span class="p">,</span> <span class="n">eri</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="mf">.5</span><span class="p">)</span>
 
     <span class="n">na</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">num_strings</span><span class="p">(</span><span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">ci0</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">na</span><span class="p">,</span><span class="n">na</span><span class="p">))</span>
@@ -474,8 +511,11 @@
     <span class="k">return</span> <span class="n">e</span><span class="o">+</span><span class="n">ecore</span></div>
 
 
+
 <span class="c1"># dm_pq = &lt;|p^+ q|&gt;</span>
-<div class="viewcode-block" id="make_rdm1"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.make_rdm1">[docs]</a><span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="make_rdm1">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.make_rdm1">[docs]</a>
+<span class="k">def</span> <span class="nf">make_rdm1</span><span class="p">(</span><span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">link_index</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_linkstr_index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">na</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">num_strings</span><span class="p">(</span><span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">fcivec</span> <span class="o">=</span> <span class="n">fcivec</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">na</span><span class="p">,</span><span class="n">na</span><span class="p">)</span>
@@ -488,8 +528,11 @@
             <span class="n">rdm1</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fcivec</span><span class="p">[:,</span><span class="n">str1</span><span class="p">],</span><span class="n">fcivec</span><span class="p">[:,</span><span class="n">str0</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">rdm1</span></div>
 
+
 <span class="c1"># dm_pq,rs = &lt;|p^+ q r^+ s|&gt;</span>
-<div class="viewcode-block" id="make_rdm12"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.make_rdm12">[docs]</a><span class="k">def</span> <span class="nf">make_rdm12</span><span class="p">(</span><span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="make_rdm12">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.make_rdm12">[docs]</a>
+<span class="k">def</span> <span class="nf">make_rdm12</span><span class="p">(</span><span class="n">fcivec</span><span class="p">,</span> <span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">link_index</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">gen_linkstr_index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">norb</span><span class="p">),</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">na</span> <span class="o">=</span> <span class="n">cistring</span><span class="o">.</span><span class="n">num_strings</span><span class="p">(</span><span class="n">norb</span><span class="p">,</span> <span class="n">nelec</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">fcivec</span> <span class="o">=</span> <span class="n">fcivec</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">na</span><span class="p">,</span><span class="n">na</span><span class="p">)</span>
@@ -511,8 +554,11 @@
     <span class="k">return</span> <span class="n">reorder_rdm</span><span class="p">(</span><span class="n">rdm1</span><span class="p">,</span> <span class="n">rdm2</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="reorder_rdm"><a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.reorder_rdm">[docs]</a><span class="k">def</span> <span class="nf">reorder_rdm</span><span class="p">(</span><span class="n">rdm1</span><span class="p">,</span> <span class="n">rdm2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">'''reorder from rdm2(pq,rs) = &lt;E^p_q E^r_s&gt; to rdm2(pq,rs) = &lt;e^{pr}_{qs}&gt;.</span>
+
+<div class="viewcode-block" id="reorder_rdm">
+<a class="viewcode-back" href="../../../pyscf_api_docs/pyscf.fci.html#pyscf.fci.fci_slow.reorder_rdm">[docs]</a>
+<span class="k">def</span> <span class="nf">reorder_rdm</span><span class="p">(</span><span class="n">rdm1</span><span class="p">,</span> <span class="n">rdm2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''reorder from rdm2(pq,rs) = &lt;E^p_q E^r_s&gt; to rdm2(pq,rs) = &lt;e^{pr}_{qs}&gt;.</span>
 <span class="sd">    Although the "reoredered rdm2" is still in Mulliken order (rdm2[e1,e1,e2,e2]),</span>
 <span class="sd">    it is the true 2e DM (dotting it with int2e gives the energy of 2e parts)</span>
 <span class="sd">    '''</span>
@@ -524,6 +570,7 @@
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmo</span><span class="p">):</span>
         <span class="n">rdm2</span><span class="p">[:,</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">,:]</span> <span class="o">-=</span> <span class="n">rdm1</span>
     <span class="k">return</span> <span class="n">rdm1</span><span class="p">,</span> <span class="n">rdm2</span></div>
+
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
@@ -579,7 +626,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

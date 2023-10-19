@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -48,18 +47,16 @@
   
   
     <title>Auxiliary second-order Green’s function perturbation theory (AGF2) &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -89,8 +86,7 @@
         <a href="../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -99,7 +95,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> Auxiliary second-order Green’s function perturbation theory (AGF2) </span>
         </div>
       </div>
@@ -110,7 +106,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -200,11 +196,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -228,7 +224,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -279,7 +296,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#develop-agf2-developer--page-root" class="md-nav__link">Auxiliary second-order Green’s function perturbation theory (AGF2)</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -292,8 +309,6 @@
         <li class="md-nav__item"><a href="#memory-requirements" class="md-nav__link">Memory requirements</a>
         </li>
         <li class="md-nav__item"><a href="#arbitrary-order-moment-calculations" class="md-nav__link">Arbitrary order moment calculations</a>
-        </li>
-        <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
         </li></ul>
             </nav>
         </li>
@@ -312,10 +327,10 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="auxiliary-second-order-green-s-function-perturbation-theory-agf2">
-<span id="developer-agf2"></span><h1 id="develop-agf2-developer--page-root">Auxiliary second-order Green’s function perturbation theory (AGF2)<a class="headerlink" href="#develop-agf2-developer--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="developer-agf2"></span><h1 id="develop-agf2-developer--page-root">Auxiliary second-order Green’s function perturbation theory (AGF2)<a class="headerlink" href="#develop-agf2-developer--page-root" title="Link to this heading">¶</a></h1>
 <p><em>Modules</em>: <code class="xref py py-mod docutils literal notranslate"><span class="pre">agf2</span></code></p>
 <section id="overview">
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>The function <a class="reference internal" href="../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.AGF2" title="pyscf.agf2.AGF2"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyscf.agf2.AGF2()</span></code></a> will direct the method to one of the
 following classes, depending on the nature of the Hartree–Fock object passed as
 an argument</p>
@@ -379,7 +394,7 @@ carries out the following steps:</p>
 </div></blockquote>
 </section>
 <section id="auxiliary-space-objects">
-<h2 id="auxiliary-space-objects">Auxiliary space objects<a class="headerlink" href="#auxiliary-space-objects" title="Permalink to this heading">¶</a></h2>
+<h2 id="auxiliary-space-objects">Auxiliary space objects<a class="headerlink" href="#auxiliary-space-objects" title="Link to this heading">¶</a></h2>
 <p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">se</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">gf</span></code> attributes are both derived from the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">pyscf.agf2.aux.AuxiliarySpace</span></code> object, and are used as
 containers for the poles and residues of the self-energy and Green’s function.
@@ -457,7 +472,7 @@ attributes are</p>
 </table>
 </section>
 <section id="fock-loop">
-<h2 id="fock-loop">Fock loop<a class="headerlink" href="#fock-loop" title="Permalink to this heading">¶</a></h2>
+<h2 id="fock-loop">Fock loop<a class="headerlink" href="#fock-loop" title="Link to this heading">¶</a></h2>
 <p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">fock_loop()</span></code> function is used to solve the self-consistent
 Hartree–Fock-like iterations on the correlated density matrix.
 This step also simultaneously ensures that there is a correct number of electrons in the
@@ -481,7 +496,7 @@ The functions required to handle this step are contained in
 <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/pyscf/agf2/chempot.py">pyscf/agf2/chempot.py</a>.</p>
 </section>
 <section id="memory-requirements">
-<h2 id="memory-requirements">Memory requirements<a class="headerlink" href="#memory-requirements" title="Permalink to this heading">¶</a></h2>
+<h2 id="memory-requirements">Memory requirements<a class="headerlink" href="#memory-requirements" title="Link to this heading">¶</a></h2>
 <p>Due to the renormalisation of the second-order diagrams, the MO basis integrals
 must be transformed into the QMO basis at subsequent iterations.
 This requires the combinations <span class="math notranslate nohighlight">\((xo|ov)\)</span> and <span class="math notranslate nohighlight">\((xv|vo)\)</span>, where
@@ -497,21 +512,18 @@ be built in order to compute the moments of the self-energy, but they may be
 computed block-wise in order that the memory overhead remains low.</p>
 </section>
 <section id="arbitrary-order-moment-calculations">
-<h2 id="arbitrary-order-moment-calculations">Arbitrary order moment calculations<a class="headerlink" href="#arbitrary-order-moment-calculations" title="Permalink to this heading">¶</a></h2>
+<h2 id="arbitrary-order-moment-calculations">Arbitrary order moment calculations<a class="headerlink" href="#arbitrary-order-moment-calculations" title="Link to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.ragf2_slow.RAGF2" title="pyscf.agf2.ragf2_slow.RAGF2"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyscf.agf2.ragf2_slow.RAGF2</span></code></a> and
 <a class="reference internal" href="../pyscf_api_docs/pyscf.agf2.html#pyscf.agf2.uagf2_slow.UAGF2" title="pyscf.agf2.uagf2_slow.UAGF2"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyscf.agf2.uagf2_slow.UAGF2</span></code></a> classes support AGF2 calculations beyond
 the standard efficient AGF2(1,0) implementation.
 These classes are largely unoptimised and do not support density fitting, and
 are intended for developmental use only.
 For a discussion of the order of the moments required as parameters to these
-methods, please refer to our paper <span id="id1">[]</span>.
+methods, please refer to our paper <span id="id1">[<a class="reference internal" href="../user/reference.html#id8" title="Oliver J. Backhouse, Max Nusspickel, and George H. Booth. Wave function perspective and efficient truncation of renormalized second-order perturbation theory. J. Chem. Theory Comput., 16(2):1090-1104, 2020. doi:10.1021/acs.jctc.9b01182.">40</a>]</span>.
 An example of higher-order AGF2 calculations can be found in
 <a class="reference external" href="https://github.com/pyscf/pyscf/tree/master/pyscf/examples/agf2/05-agf2_moments.py">pyscf/examples/agf2/05-agf2_moments.py</a>, with a connection to the
 algebraic diagrammatic construction method.</p>
 </section>
-<section id="references">
-<h2 id="references">References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
-<span class="target" id="id2"></span></section>
 </section>
 
 
@@ -537,7 +549,7 @@ algebraic diagrammatic construction method.</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

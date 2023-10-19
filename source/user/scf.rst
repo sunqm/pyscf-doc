@@ -4,7 +4,7 @@
 Self-consistent field (SCF) methods
 ***********************************
 
-*Modules*: :mod:`scf`, :mod:`pbc.scf`, :mod:`soscf`
+*Modules*: :py:mod:`pyscf.scf`, :py:mod:`pyscf.pbc.scf`, :py:mod:`pyscf.soscf`
 
 Introduction
 ============
@@ -307,6 +307,7 @@ functions, for example,
 Also several response properties are available in PySCF, see the
 examples in :source:`examples/prop/17-stability.py`.
     
+.. _user_scf_restrict:
 
 Spin-restricted, spin-unrestricted, restricted open-shell, and generalized calculations
 =======================================================================================
@@ -452,10 +453,3 @@ To turn it off explicitly, one can do::
 
 More examples can be found in 
 :source:`examples/scf/21-x2c.py`.
-
-
-References
-==========
-
-.. bibliography:: ref_scf.bib
-   :style: unsrt

@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,16 +46,14 @@
   
   
     <title>pyscf.pbc.x2c.x2c1e &#8212; PySCF</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf.css" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=92fd9be5" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/pyscf.css?v=9b431c29" />
+    <script src="../../../../_static/documentation_options.js?v=4d935f96"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../../_static/favicon-32x32.png"/>
+    <link rel="icon" href="../../../../_static/favicon-32x32.png"/>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -86,8 +83,7 @@
         <a href="../../../../index.html" title="PySCF"
            class="md-header-nav__button md-logo">
           
-              <img src="../../../../_static/pyscf-logo-white.svg" height="26"
-                   alt="PySCF logo">
+            &nbsp;
           
         </a>
       </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">PySCF 2.2</span>
+          <span class="md-header-nav__topic">PySCF 2.4</span>
           <span class="md-header-nav__topic"> pyscf.pbc.x2c.x2c1e </span>
         </div>
       </div>
@@ -107,7 +103,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -199,11 +195,11 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="../../../../index.html" title="PySCF" class="md-nav__button md-logo">
       
-        <img src="../../../../_static/pyscf-logo-white.svg" alt=" logo" width="48" height="48">
+        <img src="../../../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../../index.html"
-       title="PySCF">PySCF 2.2</a>
+       title="PySCF">PySCF 2.4</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/pyscf/pyscf/" title="Go to repository" class="md-source" data-md-source="github">
@@ -227,7 +223,28 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../../install.html" class="md-nav__link">Install PySCF</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#advanced-build-options" class="md-nav__link">Advanced build options</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#install-pyscf-extensions" class="md-nav__link">Install PySCF extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../install.html#troubleshooting" class="md-nav__link">Troubleshooting</a>
       
     
     </li>
@@ -321,7 +338,6 @@
 
 
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy.linalg</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">lib</span>
@@ -333,14 +349,16 @@
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">aft</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">aft_jk</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">ft_ao</span>
-<span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">incore</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.df</span> <span class="kn">import</span> <span class="n">gdf_builder</span>
-<span class="kn">from</span> <span class="nn">pyscf.pbc.scf</span> <span class="kn">import</span> <span class="n">ghf</span>
+<span class="kn">from</span> <span class="nn">pyscf.pbc.scf</span> <span class="kn">import</span> <span class="n">ghf</span><span class="p">,</span> <span class="n">khf</span><span class="p">,</span> <span class="n">kghf</span>
 <span class="kn">from</span> <span class="nn">pyscf.pbc.x2c</span> <span class="kn">import</span> <span class="n">sfx2c1e</span>
+<span class="kn">from</span> <span class="nn">pyscf.pbc.lib.kpts_helper</span> <span class="kn">import</span> <span class="n">is_zero</span>
 <span class="kn">from</span> <span class="nn">pyscf</span> <span class="kn">import</span> <span class="n">__config__</span>
 
-<div class="viewcode-block" id="x2c1e_gscf"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.x2c1e_gscf">[docs]</a><span class="k">def</span> <span class="nf">x2c1e_gscf</span><span class="p">(</span><span class="n">mf</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<div class="viewcode-block" id="x2c1e_gscf">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.x2c1e_gscf">[docs]</a>
+<span class="k">def</span> <span class="nf">x2c1e_gscf</span><span class="p">(</span><span class="n">mf</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    For the given *GHF* object, it generates X2C1E-GSCF object in spin-orbital basis</span>
 <span class="sd">    and updates the hcore constructor.</span>
 
@@ -358,7 +376,7 @@
 <span class="sd">    '''</span>
 
     <span class="c1"># Check if mf is a generalized SCF object</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">ghf</span><span class="o">.</span><span class="n">GHF</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="p">(</span><span class="n">ghf</span><span class="o">.</span><span class="n">GHF</span><span class="p">,</span> <span class="n">kghf</span><span class="o">.</span><span class="n">KGHF</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">x2c</span><span class="o">.</span><span class="n">_X2C_SCF</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">mf</span><span class="o">.</span><span class="n">with_x2c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -370,45 +388,52 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">mf</span>
 
-    <span class="n">mf_class</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="vm">__class__</span>
-    <span class="k">if</span> <span class="n">mf_class</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">doc</span> <span class="o">=</span> <span class="s1">''</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">doc</span> <span class="o">=</span> <span class="n">mf_class</span><span class="o">.</span><span class="vm">__doc__</span>
+    <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">set_class</span><span class="p">(</span><span class="n">X2C1E_GSCF</span><span class="p">(</span><span class="n">mf</span><span class="p">),</span> <span class="p">(</span><span class="n">X2C1E_GSCF</span><span class="p">,</span> <span class="n">mf</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span></div>
 
-    <span class="k">class</span> <span class="nc">X2C1E_GSCF</span><span class="p">(</span><span class="n">mf_class</span><span class="p">,</span> <span class="n">x2c</span><span class="o">.</span><span class="n">_X2C_SCF</span><span class="p">):</span>
-        <span class="vm">__doc__</span> <span class="o">=</span> <span class="n">doc</span> <span class="o">+</span> <span class="s1">'''</span>
-<span class="s1">        Attributes for spin-orbital X2C1E for PBC.</span>
-<span class="s1">            with_x2c : X2C object</span>
-<span class="s1">        '''</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="o">=</span> <span class="n">SpinOrbitalX2C1EHelper</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">cell</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="s1">'with_x2c'</span><span class="p">])</span>
 
-        <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">cell</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
-            <span class="k">if</span> <span class="n">kpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="X2C1E_GSCF">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.X2C1E_GSCF">[docs]</a>
+<span class="k">class</span> <span class="nc">X2C1E_GSCF</span><span class="p">(</span><span class="n">x2c</span><span class="o">.</span><span class="n">_X2C_SCF</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Attributes for spin-orbital X2C1E for PBC.</span>
+<span class="sd">        with_x2c : X2C object</span>
+<span class="sd">    '''</span>
+
+    <span class="n">__name_mixin__</span> <span class="o">=</span> <span class="s1">'X2C1e'</span>
+
+    <span class="n">_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">'with_x2c'</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mf</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="o">=</span> <span class="n">SpinOrbitalX2C1EHelper</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">cell</span><span class="p">)</span>
+
+<div class="viewcode-block" id="X2C1E_GSCF.get_hcore">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.X2C1E_GSCF.get_hcore">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cell</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
+        <span class="k">if</span> <span class="n">kpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">khf</span><span class="o">.</span><span class="n">KSCF</span><span class="p">):</span>
                 <span class="n">kpts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpts</span>
-
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">hcore</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">hcore</span>
+            <span class="k">elif</span> <span class="n">kpt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">kpts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpt</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">mf_class</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="p">)</span>
+                <span class="n">kpts</span> <span class="o">=</span> <span class="n">kpt</span>
 
-        <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-            <span class="n">mf_class</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">dump_flags</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">hcore</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_x2c</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">hcore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">x2c</span><span class="o">.</span><span class="n">_X2C_SCF</span><span class="p">)</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="p">)</span></div>
+</div>
 
-    <span class="n">with_x2c</span> <span class="o">=</span> <span class="n">SpinOrbitalX2C1EHelper</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">mol</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">mf</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">X2C1E_GSCF</span><span class="p">)</span><span class="o">.</span><span class="n">add_keys</span><span class="p">(</span><span class="n">with_x2c</span><span class="o">=</span><span class="n">with_x2c</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SpinOrbitalX2C1EHelper"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.SpinOrbitalX2C1EHelper">[docs]</a><span class="k">class</span> <span class="nc">SpinOrbitalX2C1EHelper</span><span class="p">(</span><span class="n">sfx2c1e</span><span class="o">.</span><span class="n">PBCX2CHelper</span><span class="p">):</span>
-<div class="viewcode-block" id="SpinOrbitalX2C1EHelper.get_hcore"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.SpinOrbitalX2C1EHelper.get_hcore">[docs]</a>    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SpinOrbitalX2C1EHelper">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.SpinOrbitalX2C1EHelper">[docs]</a>
+<span class="k">class</span> <span class="nc">SpinOrbitalX2C1EHelper</span><span class="p">(</span><span class="n">sfx2c1e</span><span class="o">.</span><span class="n">PBCX2CHelper</span><span class="p">):</span>
+<div class="viewcode-block" id="SpinOrbitalX2C1EHelper.get_hcore">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.SpinOrbitalX2C1EHelper.get_hcore">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hcore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">cell</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell</span>
         <span class="k">if</span> <span class="n">kpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -470,7 +495,10 @@
             <span class="n">h1_kpts</span> <span class="o">=</span> <span class="n">h1_kpts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h1_kpts</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SpinOrbitalX2C1EHelper.dump_flags"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.SpinOrbitalX2C1EHelper.dump_flags">[docs]</a>    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SpinOrbitalX2C1EHelper.dump_flags">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.SpinOrbitalX2C1EHelper.dump_flags">[docs]</a>
+    <span class="k">def</span> <span class="nf">dump_flags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'******** </span><span class="si">%s</span><span class="s1"> ********'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
@@ -478,11 +506,15 @@
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'xuncontract = </span><span class="si">%d</span><span class="s1">'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xuncontract</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'basis for X matrix = </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span></div>
+</div>
+
 <span class="c1">#</span>
 <span class="c1"># SOC with 1-center approximation</span>
 <span class="c1">#</span>
-<div class="viewcode-block" id="get_1c_pvxp"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.get_1c_pvxp">[docs]</a><span class="k">def</span> <span class="nf">get_1c_pvxp</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_1c_pvxp">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.get_1c_pvxp">[docs]</a>
+<span class="k">def</span> <span class="nf">get_1c_pvxp</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">atom_slices</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">offset_nr_by_atom</span><span class="p">()</span>
     <span class="n">nao</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">()</span>
     <span class="n">mat_soc</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">))</span>
@@ -496,8 +528,11 @@
         <span class="n">mat_soc</span><span class="p">[:,</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">,</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
     <span class="k">return</span> <span class="n">mat_soc</span></div>
 
+
 <span class="c1"># W_SOC with lattice summation (G != 0)</span>
-<div class="viewcode-block" id="get_pbc_pvxp"><a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.get_pbc_pvxp">[docs]</a><span class="k">def</span> <span class="nf">get_pbc_pvxp</span><span class="p">(</span><span class="n">mydf</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_pbc_pvxp">
+<a class="viewcode-back" href="../../../../pyscf_api_docs/pyscf.pbc.x2c.html#pyscf.pbc.x2c.x2c1e.get_pbc_pvxp">[docs]</a>
+<span class="k">def</span> <span class="nf">get_pbc_pvxp</span><span class="p">(</span><span class="n">mydf</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">cell</span> <span class="o">=</span> <span class="n">mydf</span><span class="o">.</span><span class="n">cell</span>
     <span class="k">if</span> <span class="n">kpts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">kpts_lst</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -510,28 +545,21 @@
     <span class="n">nkpts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">kpts_lst</span><span class="p">)</span>
     <span class="n">nao</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">()</span>
 
+    <span class="n">dfbuilder</span> <span class="o">=</span> <span class="n">gdf_builder</span><span class="o">.</span><span class="n">_CCNucBuilder</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts_lst</span><span class="p">)</span>
+    <span class="n">dfbuilder</span><span class="o">.</span><span class="n">exclude_dd_block</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">dfbuilder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
     <span class="n">eta</span><span class="p">,</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">ke_cutoff</span> <span class="o">=</span> <span class="n">gdf_builder</span><span class="o">.</span><span class="n">_guess_eta</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts_lst</span><span class="p">)</span>
     <span class="n">log</span><span class="o">.</span><span class="n">debug1</span><span class="p">(</span><span class="s1">'get_pnucp eta = </span><span class="si">%s</span><span class="s1"> mesh = </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">mesh</span><span class="p">)</span>
-    <span class="n">nuccell</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
-    <span class="n">half_sph_norm</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-    <span class="n">norm</span> <span class="o">=</span> <span class="n">half_sph_norm</span><span class="o">/</span><span class="n">mole</span><span class="o">.</span><span class="n">gaussian_int</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
-    <span class="n">chg_env</span> <span class="o">=</span> <span class="p">[</span><span class="n">eta</span><span class="p">,</span> <span class="n">norm</span><span class="p">]</span>
-    <span class="n">ptr_eta</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">size</span>
-    <span class="n">ptr_norm</span> <span class="o">=</span> <span class="n">ptr_eta</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">chg_bas</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ia</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ptr_eta</span><span class="p">,</span> <span class="n">ptr_norm</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">ia</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">natm</span><span class="p">)]</span>
-    <span class="n">nuccell</span><span class="o">.</span><span class="n">_atm</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">_atm</span>
-    <span class="n">nuccell</span><span class="o">.</span><span class="n">_bas</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">chg_bas</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-    <span class="n">nuccell</span><span class="o">.</span><span class="n">_env</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">cell</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span> <span class="n">chg_env</span><span class="p">))</span>
 
-    <span class="n">soc_mat</span> <span class="o">=</span> <span class="n">mydf</span><span class="o">.</span><span class="n">_int_nuc_vloc</span><span class="p">(</span><span class="n">nuccell</span><span class="p">,</span> <span class="n">kpts_lst</span><span class="p">,</span> <span class="s1">'int3c2e_pvxp1_sph'</span><span class="p">,</span>
-                                 <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">fakenuc</span> <span class="o">=</span> <span class="n">aft</span><span class="o">.</span><span class="n">_fake_nuc</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">with_pseudo</span><span class="o">=</span><span class="n">cell</span><span class="o">.</span><span class="n">_pseudo</span><span class="p">)</span>
+    <span class="n">soc_mat</span> <span class="o">=</span> <span class="n">dfbuilder</span><span class="o">.</span><span class="n">_int_nuc_vloc</span><span class="p">(</span><span class="n">fakenuc</span><span class="p">,</span> <span class="s1">'int3c2e_pvxp1_sph'</span><span class="p">,</span>
+                                      <span class="n">aosym</span><span class="o">=</span><span class="s1">'s1'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">soc_mat</span> <span class="o">=</span> <span class="n">soc_mat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nkpts</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">timer_debug1</span><span class="p">(</span><span class="s1">'pnucp pass1: analytic int'</span><span class="p">,</span> <span class="o">*</span><span class="n">t1</span><span class="p">)</span>
 
-    <span class="n">dfbuilder</span> <span class="o">=</span> <span class="n">incore</span><span class="o">.</span><span class="n">_IntNucBuilder</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpts_lst</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
-    <span class="n">supmol_ft</span> <span class="o">=</span> <span class="n">dfbuilder</span><span class="o">.</span><span class="n">supmol</span><span class="o">.</span><span class="n">strip_basis</span><span class="p">()</span>
-    <span class="n">ft_kern</span> <span class="o">=</span> <span class="n">supmol_ft</span><span class="o">.</span><span class="n">gen_ft_kernel</span><span class="p">(</span><span class="s1">'s1'</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_pxp_sph'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                                      <span class="n">return_complex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
+    <span class="n">ft_kern</span> <span class="o">=</span> <span class="n">dfbuilder</span><span class="o">.</span><span class="n">supmol_ft</span><span class="o">.</span><span class="n">gen_ft_kernel</span><span class="p">(</span>
+        <span class="s1">'s1'</span><span class="p">,</span> <span class="n">intor</span><span class="o">=</span><span class="s1">'GTO_ft_pxp_sph'</span><span class="p">,</span> <span class="n">comp</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">return_complex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">kpts</span><span class="o">=</span><span class="n">kpts_lst</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
 
     <span class="n">Gv</span><span class="p">,</span> <span class="n">Gvbase</span><span class="p">,</span> <span class="n">kws</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">get_Gv_weights</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
     <span class="n">gxyz</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">cartesian_prod</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Gvbase</span><span class="p">])</span>
@@ -539,7 +567,7 @@
     <span class="n">kpt_allow</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">coulG</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">get_coulG</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">kpt_allow</span><span class="p">,</span> <span class="n">mesh</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">Gv</span><span class="o">=</span><span class="n">Gv</span><span class="p">)</span>
     <span class="n">coulG</span> <span class="o">*=</span> <span class="n">kws</span>
-    <span class="n">aoaux</span> <span class="o">=</span> <span class="n">ft_ao</span><span class="o">.</span><span class="n">ft_ao</span><span class="p">(</span><span class="n">nuccell</span><span class="p">,</span> <span class="n">Gv</span><span class="p">)</span>
+    <span class="n">aoaux</span> <span class="o">=</span> <span class="n">ft_ao</span><span class="o">.</span><span class="n">ft_ao</span><span class="p">(</span><span class="n">dfbuilder</span><span class="o">.</span><span class="n">modchg_cell</span><span class="p">,</span> <span class="n">Gv</span><span class="p">)</span>
     <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="n">cell</span><span class="o">.</span><span class="n">atom_charges</span><span class="p">()</span> <span class="c1"># Apply Koseki effective charge?</span>
     <span class="n">vG</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'i,xi-&gt;x'</span><span class="p">,</span> <span class="n">charge</span><span class="p">,</span> <span class="n">aoaux</span><span class="p">)</span> <span class="o">*</span> <span class="n">coulG</span>
     <span class="n">vGR</span> <span class="o">=</span> <span class="n">vG</span><span class="o">.</span><span class="n">real</span>
@@ -553,12 +581,12 @@
 
     <span class="k">for</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="ow">in</span> <span class="n">lib</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ngrids</span><span class="p">,</span> <span class="n">Gblksize</span><span class="p">):</span>
         <span class="c1"># shape of Gpq (nkpts, nGv, nao_pair)</span>
-        <span class="n">Gpq</span> <span class="o">=</span> <span class="n">ft_kern</span><span class="p">(</span><span class="n">Gv</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">gxyz</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">Gvbase</span><span class="p">,</span> <span class="n">kpt_allow</span><span class="p">,</span> <span class="n">kpts_lst</span><span class="p">)</span>
+        <span class="n">Gpq</span> <span class="o">=</span> <span class="n">ft_kern</span><span class="p">(</span><span class="n">Gv</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">gxyz</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">Gvbase</span><span class="p">,</span> <span class="n">kpt_allow</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">GpqR</span><span class="p">,</span> <span class="n">GpqI</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">Gpq</span><span class="p">)):</span>
             <span class="n">vR</span>  <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'k,ckpq-&gt;cpq'</span><span class="p">,</span> <span class="n">vGR</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">GpqR</span><span class="p">)</span>
             <span class="n">vR</span> <span class="o">+=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'k,ckpq-&gt;cpq'</span><span class="p">,</span> <span class="n">vGI</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">GpqI</span><span class="p">)</span>
             <span class="n">soc_mat</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">vR</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">aft_jk</span><span class="o">.</span><span class="n">gamma_point</span><span class="p">(</span><span class="n">kpts_lst</span><span class="p">[</span><span class="n">k</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">is_zero</span><span class="p">(</span><span class="n">kpts_lst</span><span class="p">[</span><span class="n">k</span><span class="p">]):</span>
                 <span class="n">vI</span>  <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'k,ckpq-&gt;cpq'</span><span class="p">,</span> <span class="n">vGR</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">GpqI</span><span class="p">)</span>
                 <span class="n">vI</span> <span class="o">-=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">'k,ckpq-&gt;cpq'</span><span class="p">,</span> <span class="n">vGI</span><span class="p">[</span><span class="n">p0</span><span class="p">:</span><span class="n">p1</span><span class="p">],</span> <span class="n">GpqR</span><span class="p">)</span>
                 <span class="n">soc_mat</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">vI</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span>
@@ -566,7 +594,7 @@
 
     <span class="n">soc_mat_kpts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">kpt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kpts_lst</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">aft_jk</span><span class="o">.</span><span class="n">gamma_point</span><span class="p">(</span><span class="n">kpt</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_zero</span><span class="p">(</span><span class="n">kpt</span><span class="p">):</span>
             <span class="n">soc_mat_kpts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">soc_mat</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">soc_mat_kpts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">soc_mat</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nao</span><span class="p">,</span><span class="n">nao</span><span class="p">))</span>
@@ -575,8 +603,9 @@
         <span class="n">soc_mat_kpts</span> <span class="o">=</span> <span class="n">soc_mat_kpts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">soc_mat_kpts</span><span class="p">)</span></div>
 
+
 <span class="k">def</span> <span class="nf">_block_diag</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-    <span class="sd">'''</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    [A 0]</span>
 <span class="sd">    [0 A]</span>
 <span class="sd">    '''</span>
@@ -584,7 +613,7 @@
 
 
 <span class="k">def</span> <span class="nf">_sigma_dot</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-    <span class="sd">'''sigma dot mat'''</span>
+<span class="w">    </span><span class="sd">'''sigma dot mat'''</span>
     <span class="c1">#pauli = 1j * lib.PauliMatrices</span>
     <span class="c1">#nao = mat.shape[-1] * 2</span>
     <span class="c1">#return lib.einsum('sxy,spq-&gt;xpyq', pauli, mat).reshape(nao, nao)</span>
@@ -615,7 +644,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
