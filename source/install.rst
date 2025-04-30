@@ -359,6 +359,9 @@ You can also hardcode the libraries you want to use in
   It can be solved by preloading MKL core library with:
   ``export LD_PRELOAD=$MKLROOT/lib/intel64/libmkl_avx.so:$MKLROOT/lib/intel64/libmkl_core.so``
 
+.. note::
+  MKL 2023.1 may contain bugs that could lead to incorrect results in PySCF.
+  This version of MKL should be avoided when compiling from source code.
 
 .. _installing_qcint:
 
